@@ -9,17 +9,35 @@
     <body>
         <div id="container">
             <div id="todo">
-                <h1>To Do + <input type="text"><input type="submit" value="add"></h1>
+                <h1>To Do 
+                    <span class="add" onclick="$('#todo .insert').toggle()">+</span>
+                    <span class="insert">
+                        <input type="text">
+                        <input type="submit" value="add" onclick="addData('todo')">
+                    </span>
+                </h1>
                 <div class="list">
                 </div>
             </div>
             <div id="development">
-                <h1>Development + <input type="text"><input type="submit" value="add"></h1>
+                <h1>Development 
+                    <span class="add" onclick="$('#development .insert').toggle()">+</span>
+                    <span class="insert">
+                        <input type="text">
+                        <input type="submit" value="add" onclick="addData('development')">
+                    </span>
+                </h1>
                 <div class="list">
                 </div>
             </div>
             <div id="completed">
-                <h1>Completed + <input type="text"><input type="submit" value="add"></h1>
+                <h1>Completed 
+                    <span class="add" onclick="$('#completed .insert').toggle()">+</span>
+                    <span class="insert">
+                        <input type="text">
+                        <input type="submit" value="add" onclick="addData('completed')" >
+                    </span>
+                </h1>
                 <div class="list">
                 </div>
             </div>

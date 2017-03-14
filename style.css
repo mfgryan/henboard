@@ -31,7 +31,13 @@
     margin: 0 auto;
     text-align: center; 
 }
+.add{
+    margin-right: 5px;
+    cursor: pointer;
+}
+.insert{
+    display: none;
+}
 h1 {
     display: block;
 }
-
