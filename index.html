@@ -4,44 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Scrum Board</title>
-        <style type="text/css">
-            #container {
-                width: 85%;
-                margin: 0 auto;
-            }
-            #todo {
-                width: 32%;
-                padding: 5px;
-                margin: 2px;
-                min-height: 400px;
-                border: 2px solid gray;
-                display: inline-block;
-            }
-            #development {
-                width: 32%;
-                padding: 5px;
-                margin: 2px;
-                min-height: 400px;
-                border: 2px solid gray;
-                display: inline-block;
-            }
-            #completed {
-                width: 32%;
-                padding: 5px;
-                margin: 2px;
-                min-height: 400px;
-                border: 2px solid green;
-                display: inline-block;
-            }
-            #footer{
-                width: 85%;
-                margin: 0 auto;
-                text-align: center; 
-            }
-            h1 {
-                display: block;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <div id="container">
@@ -75,51 +38,6 @@
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            var data = [];
-
-            function autorun(){
-                // ajax api request to the json data
-                // hard coded for now
-                data = [
-                {
-                    week: "03/11/17", 
-                    todo: ["<p>blah blah blah - </p>", "<p>blah blah blah2 - </p>"], 
-                    development: ["<p>yo mama - </p>","<p>yo mama 2 - </p>"],
-                    completed: []
-                },
-                {
-                    week: "03/17/17",
-                    todo: [], 
-                    development: [],
-                    completed: []
-                },
-                {
-                    week: "03/11/24",
-                    todo: [], 
-                    development: [],
-                    completed: []
-                }];
-                
-                function populateBoard(data){
-                    var sprint = data[data.length-1]; 
-
-                    $('#todo .list').empty().append(sprint.todo);
-                    $('#development .list').empty().append(sprint.development);
-                    $('#completed .list').empty().append(sprint.completed); 
-                }
-
-                function addData(){
-                }
-
-                // function that updates the data and then calls populateBoard again
-                // four functions to update data. drag and drop, delete -, add +, change selected week
-                // new sprint weeks should auto generate
-                // function that sends new data as a post request to write it to the api file
-            }
-            if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
-            else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
-            else window.onload = autorun;
-        </script>
+        <script src="main.js" type="text/javascript"></script>
     </body>
 </html>
