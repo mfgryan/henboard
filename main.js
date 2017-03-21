@@ -1,13 +1,11 @@
-var data = [];
-
-function main(){
+var main = function (){
     // ajax api request to the json data
     // hard coded for now
-    data = [
+    var data = [
     {
         week: "03/11/17", 
-            todo: ["<p>blah blah blah <span class='remove'>-</span></p>", "<p>blah blah blah2 <span class='remove'>-</span></p>"], 
-            development: ["<p>yo mama <span class='remove'>-</span></p>","<p>yo mama 2 <span class='remove'>-</span></p>"],
+            todo: [], 
+            development: [],
             completed: []
     },
     {
@@ -17,31 +15,61 @@ function main(){
         completed: []
     },
     {
-        week: "03/11/24",
+        week: "03/25/17",
         todo: [], 
         development: [],
         completed: []
     }];
 
-    
-    // four functions to update data. drag and drop, delete -, add +, change selected week
-    // new sprint weeks should auto generate
-    // function that sends new data as a post request to write it to the api file
-}
-
-function populateBoard(data){
     var sprint = data[data.length-1]; 
 
-    $('#todo .list').empty().append(sprint.todo);
-    $('#development .list').empty().append(sprint.development);
-    $('#completed .list').empty().append(sprint.completed); 
-}
+    var populateBoard = function(){
+        $('#todo .list').empty().append(sprint.todo.join(''));
+        $('#development .list').empty().append(sprint.development.join(''));
+        $('#completed .list').empty().append(sprint.completed.join('')); 
+    };
+    
+    var addData = function(column){
+        var record = $("#" + column + " .insert input[type=text]").val();    
+        sprint[column].push("<p>"+record+
+                "<span class=\"remove\" onclick=\"main.removeData($(this).parent(),$(this).parents().eq(2).attr('id'))\"> &nbsp; x </span></p>");
+        populateBoard();
+    };
 
-function addData(column){
-    var record = $("#" + column + " .insert input[type=text]").val();    
-    data[0][column].push("<p>"+record+"</p>"+"<span class='remove'>-</span>");
-}
+    var removeData = function(node, column){ 
+        sprint[column].splice($(node).index(), 1);
+        populateBoard();
+    };
 
-if (document.addEventListener) document.addEventListener("DOMContentLoaded", main, false);
-else if (document.attachEvent) document.attachEvent("onreadystatechange", main);
-else window.onload = main;
+    var setSprint = function(node){
+        sprint = data[data.length-1 - $('#weeks').prop('selectedIndex')];
+        populateBoard();
+    };
+
+    var populateOptions = function (){
+        var weeks = $('#weeks');    
+        for(var i = data.length-1; i >= 0; i--){
+            weeks.append("<option value=\""+ data[i].week +"\">week "+ data[i].week +"</option>");
+        }
+        $('#weeks option').eq(0).prop('selected', true);
+    };
+
+    populateOptions();
+
+    //generate week function
+    //see if >= 14 days from most recent week
+    //if true data.push new week object
+
+    //drag and drop function
+    //save data to json on changes
+
+    return {
+        data: data,
+        sprint: sprint,
+        populateBoard: populateBoard,
+        addData: addData,
+        removeData: removeData,
+        setSprint, setSprint
+    }
+}();
+main.populateBoard();

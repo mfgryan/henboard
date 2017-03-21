@@ -8,7 +8,7 @@
     margin: 2px;
     min-height: 400px;
     border: 2px solid gray;
-    display: inline-block;
+    float: left;
 }
 #development {
     width: 32%;
@@ -16,7 +16,7 @@
     margin: 2px;
     min-height: 400px;
     border: 2px solid gray;
-    display: inline-block;
+    float: left;
 }
 #completed {
     width: 32%;
@@ -24,7 +24,7 @@
     margin: 2px;
     min-height: 400px;
     border: 2px solid green;
-    display: inline-block;
+    float: left;
 }
 #footer{
     width: 85%;
@@ -35,9 +35,22 @@
     margin-right: 5px;
     cursor: pointer;
 }
+.remove{
+    margin-right: 5px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
 .insert{
     display: none;
 }
 h1 {
     display: block;
+}
+p {
+    border: 2px solid #AAA;
+    font-size: 1.3em;
+    padding: 10px;
+    margin: 8px;
+    display: table;
 }
