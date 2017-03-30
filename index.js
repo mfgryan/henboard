@@ -1,7 +1,7 @@
 const http = require('http'), fs = require('fs'), qs = require('querystring');
 
-var hostname = "localhost";
-var port = 8000;
+var hostname = process.argv.length > 2 ? process.argv[2] : "localhost";
+var port = process.argv.length > 3 ? process.argv[3] : "8000";
 
 var routes = {
         "/api": {

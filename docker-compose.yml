@@ -1,7 +1,10 @@
-version '2'
+version: '3'
 services:
     scrum:
         build: .
+        image: henboard:latest
+        container_name: henboard
+        entrypoint: node index.js 0.0.0.0 
         ports:
             - 8000:8000
         volumes:
