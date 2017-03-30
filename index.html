@@ -8,34 +8,34 @@
     </head>
     <body>
         <div id="container">
-            <div id="todo">
+            <div id="todo" ondrop="board.dropTask(event, 'todo')" ondragover="board.allowDrop(event)">
                 <h1>To Do 
                     <span class="add" onclick="$('#todo .insert').toggle()">+</span>
                     <span class="insert">
                         <input type="text">
-                        <input type="submit" value="add" onclick="main.addData('todo')">
+                        <input type="submit" value="add" onclick="board.addTask('todo', $('#todo .insert input[type=text]').val())">
                     </span>
                 </h1>
                 <div class="list">
                 </div>
             </div>
-            <div id="development">
+            <div id="development" ondrop="board.dropTask(event, 'development')" ondragover="board.allowDrop(event)">
                 <h1>Development 
                     <span class="add" onclick="$('#development .insert').toggle()">+</span>
                     <span class="insert">
                         <input type="text">
-                        <input type="submit" value="add" onclick="main.addData('development')">
+                        <input type="submit" value="add" onclick="board.addTask('development', $('#development .insert input[type=text]').val())">
                     </span>
                 </h1>
                 <div class="list">
                 </div>
             </div>
-            <div id="completed">
+            <div id="completed" ondrop="board.dropTask(event, 'completed')" ondragover="board.allowDrop(event)">
                 <h1>Completed 
                     <span class="add" onclick="$('#completed .insert').toggle()">+</span>
                     <span class="insert">
                         <input type="text">
-                        <input type="submit" value="add" onclick="main.addData('completed')" >
+                        <input type="submit" value="add" onclick="board.addTask('completed', $('#completed .insert input[type=text]').val())" >
                     </span>
                 </h1>
                 <div class="list">
@@ -49,7 +49,7 @@
                 <span id="sprintWeekEnd"></span> 
             </h2>
             <h3>Choose a week</h3>
-            <select id="weeks" onchange="main.setSprint()">
+            <select id="weeks" onchange="board.setSprint($(this).prop('selectedIndex'))">
             </select>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>

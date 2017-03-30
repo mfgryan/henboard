@@ -53,4 +53,5 @@ p {
     padding: 10px;
     margin: 8px;
     display: table;
+    cursor: pointer;
 }
