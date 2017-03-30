@@ -1,0 +1,10 @@
+version '2'
+services:
+    scrum:
+        build: .
+        ports:
+            - 8000:8000
+        volumes:
+            - code:/home/app
+volumes:
+    code:
