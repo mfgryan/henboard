@@ -14,6 +14,7 @@ Clone the repo and run **docker-compose up --build -d**
 
 # Requirements
 node.js
+
 Docker (optional)
 
 ## Author
