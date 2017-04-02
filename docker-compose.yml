@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
     scrum:
         build: .
@@ -8,6 +8,6 @@ services:
         ports:
             - 8000:8000
         volumes:
-            - code:/home/app
+            - data:/home/app/data
 volumes:
-    code:
+    data:

@@ -1,0 +1,1 @@
+[{"week":"03/27/17","todo":["<p draggable=\"true\" ondragstart=\"board.dragTask(event,$(this).index(), $(this).parents().eq(1).attr('id'))\"><span class=\"task\">asdf</span><span class=\"remove\" onclick=\"board.removeTask($(this).parents().eq(2).attr('id'),$(this).parent().index())\"> &nbsp; x </span></p>"],"development":[],"completed":[]}]
