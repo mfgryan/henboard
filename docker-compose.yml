@@ -4,10 +4,12 @@ services:
         build: .
         image: henboard:latest
         container_name: henboard
-        entrypoint: node index.js 0.0.0.0 
+        entrypoint: /bin/bash
+        command: -c "cd src && node index.js 0.0.0.0"
         ports:
             - 8000:8000
         volumes:
             - data:/home/app/data
+            - ./src:/home/app/src
 volumes:
     data:

@@ -1,7 +1,5 @@
 var date = (function(){
-        
     var _MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
-    
     return {
         getMonday: function (d){
             d = new Date(d);
@@ -54,6 +52,7 @@ var io = (function (){
                     error: function(){
                         console.log("write error!");
                         _writeQueue.shift();
+                        if(_writeQueue.length > 0 ) _writeQueue[0]();
                     }
                 });
             })
@@ -62,11 +61,55 @@ var io = (function (){
     };
 }());
 
+var info = (function (){
+    
+    var _initDialog = function(selector){
+        $(selector).dialog({
+            draggable: false,
+            closeText: "X",
+            modal: true,
+            position: {my: "center", at: "center", of: $("#container")},
+            autoOpen: false
+        });     
+    };
+    _initDialog("#infoBox");
+    
+    return {
+        openDialog: function(){
+            $("#infoBox").dialog("open");
+        } 
+        //show info modal given info associated with a record
+        //have option to add / remove lines of info
+        //open / close the modal dialog
+    };
+}());
+
 var board = (function (){
     
     var _data = [];
     
     var _sprint = {};
+
+    var _pOpen = "<p draggable=\"true\" ondragstart=\"board.dragTask(event,$(this).index(), $(this).parents().eq(1).attr('id'))\">";
+
+    var _pClose = "</p>";
+
+    var _spanOpen = "<span class=\"task\">";
+
+    var _spanClose = "</span>";
+
+    var _spanInfo = "<span class=\"info\" onclick=\"info.openDialog()\"> i </span>";
+
+    var _spanRemove = "<span class=\"remove\" onclick=\"board.removeTask($(this).parents().eq(2).attr('id'),$(this).parent().index())\">x</span>"
+
+    var _formatColVals = function(col){
+        var formattedOutput = "";
+        for(var i = 0; i < _sprint[col].length; i++){
+            var val = _sprint[col][i];
+            formattedOutput = formattedOutput + _pOpen + _spanOpen + val + _spanClose + _spanInfo +  _spanRemove + _pClose;
+        }  
+        return formattedOutput;
+    };
 
     return {
         setData: function(data){
@@ -84,16 +127,13 @@ var board = (function (){
         },
         // populates the board with data from the current sprint 
         populateBoard: function(){
-            $('#todo .list').empty().append(_sprint.todo.join(''));
-            $('#development .list').empty().append(_sprint.development.join(''));
-            $('#completed .list').empty().append(_sprint.completed.join('')); 
+            $('#todo .list').empty().append(_formatColVals("todo"));
+            $('#development .list').empty().append(_formatColVals("development"));
+            $('#completed .list').empty().append(_formatColVals("completed")); 
         },
         // add a new task to the given column and current sprint
         addTask: function(column, val){
-            debugger;
-            _sprint[column].push("<p draggable=\"true\" ondragstart=\"board.dragTask(event,$(this).index(), $(this).parents().eq(1).attr('id'))\">"+
-                    "<span class=\"task\">"+val+"</span>"+
-                    "<span class=\"remove\" onclick=\"board.removeTask($(this).parents().eq(2).attr('id'),$(this).parent().index())\"> &nbsp; x </span></p>");
+            _sprint[column].push(val);
             this.populateBoard();
             io.writeData();
         },

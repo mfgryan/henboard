@@ -5,7 +5,7 @@ var port = process.argv.length > 3 ? process.argv[3] : "8000";
 
 var routes = {
         "/api": {
-            fileName: "./data/api.json",
+            fileName: "../data/api.json",
             contentType: "application/json"
         },
         "/main.js": {

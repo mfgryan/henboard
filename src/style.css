@@ -1,6 +1,7 @@
 #container {
     width: 85%;
     margin: 0 auto;
+    overflow: hidden;
 }
 #todo {
     width: 32%;
@@ -40,6 +41,8 @@
     cursor: pointer;
     color: red;
     font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
 }
 .insert{
     display: none;
@@ -53,5 +56,27 @@ p {
     padding: 10px;
     margin: 8px;
     display: table;
+    cursor: crosshair;
+}
+.info {
+    font-style: italic;
+    color: #0000EE;
+    font-weight: bold;
     cursor: pointer;
+}
+.dialog{
+    display: none;
+}
+.ui-dialog-titlebar{
+    background-color: #CCC;
+    margin: 4px;
+    padding: 5px;
+    text-align: right;
+}
+.ui-dialog-title{
+    margin-right: 30%;
+}
+.ui-dialog{
+    border: 2px solid black;    
+    background-color: white;
 }
