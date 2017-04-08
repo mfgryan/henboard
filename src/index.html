@@ -13,7 +13,8 @@
                     <span class="add" onclick="$('#todo .insert').toggle()">+</span>
                     <span class="insert">
                         <input type="text">
-                        <input type="submit" value="add" onclick="board.addTask('todo', $('#todo .insert input[type=text]').val())">
+                        <input type="submit" value="add" 
+                        onclick="board.addTask('todo', $('#todo .insert input[type=text]').val(), []);$('#todo .insert input[type=text]').val('')">
                     </span>
                 </h1>
                 <div class="list">
@@ -24,7 +25,8 @@
                     <span class="add" onclick="$('#development .insert').toggle()">+</span>
                     <span class="insert">
                         <input type="text">
-                        <input type="submit" value="add" onclick="board.addTask('development', $('#development .insert input[type=text]').val())">
+                        <input type="submit" value="add" 
+                        onclick="board.addTask('development', $('#development .insert input[type=text]').val(), []);$('#development .insert input[type=text]').val('')">
                     </span>
                 </h1>
                 <div class="list">
@@ -35,7 +37,8 @@
                     <span class="add" onclick="$('#completed .insert').toggle()">+</span>
                     <span class="insert">
                         <input type="text">
-                        <input type="submit" value="add" onclick="board.addTask('completed', $('#completed .insert input[type=text]').val())" >
+                        <input type="submit" value="add" 
+                        onclick="board.addTask('completed', $('#completed .insert input[type=text]').val(), []);$('#completed .insert input[type=text]').val('')" >
                     </span>
                 </h1>
                 <div class="list">
@@ -53,7 +56,16 @@
             </select>
         </div> 
         <div id="infoBox" class="dialog" title="Basic dialog">
-            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+            <h2>Add Info
+                <span class="add" onclick="$('#infoBox .insert').toggle()">+</span>
+                <span class="insert">
+                    <input type="text">
+                    <input type="submit" value="add" 
+                        onclick="info.addInfo($('#infoBox .insert input[type=text]').val());$('#infoBox .insert input[type=text]').val('')">
+                </span>
+            </h2>
+            <div class="list">
+            </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" 
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   

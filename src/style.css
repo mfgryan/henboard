@@ -58,6 +58,12 @@ p {
     display: table;
     cursor: crosshair;
 }
+#completed p {
+    border: 2px solid green;
+}
+#infoBox{
+    padding: 5px;
+}
 .info {
     font-style: italic;
     color: #0000EE;
@@ -74,9 +80,17 @@ p {
     text-align: right;
 }
 .ui-dialog-title{
-    margin-right: 30%;
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 .ui-dialog{
     border: 2px solid black;    
     background-color: white;
+}
+li{
+    font-size: 1.3em;
 }

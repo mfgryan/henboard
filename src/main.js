@@ -62,26 +62,97 @@ var io = (function (){
 }());
 
 var info = (function (){
-    
+
+    var _data = [];
+
     var _initDialog = function(selector){
         $(selector).dialog({
             draggable: false,
             closeText: "X",
             modal: true,
             position: {my: "center", at: "center", of: $("#container")},
+            width: 600,
             autoOpen: false
         });     
     };
+
     _initDialog("#infoBox");
+
+    var _liOpen = "<li>";
     
-    return {
-        openDialog: function(){
-            $("#infoBox").dialog("open");
-        } 
-        //show info modal given info associated with a record
-        //have option to add / remove lines of info
-        //open / close the modal dialog
+    var _liClose = "</li>";
+
+    var _spanRemove = "<span class=\"remove\" onclick=\"info.removeInfo($(this).parent().index())\">x</span>";
+    
+    var _containsLink = function(input){
+        var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+        var regex = new RegExp(expression);
+        return input.match(regex);
     };
+
+    var _formatInfoVals = function(data){
+        var formattedOutput = "<ul>";
+        for(var i = 0; i < data.length; i++){
+            var val = data[i];
+            if(_containsLink(val)){
+                formattedOutput+= _liOpen + "<a href=\"" + val + "\">" + val + "</a>" + _spanRemove + _liClose;
+            }else{
+                formattedOutput+= _liOpen + val + _spanRemove + _liClose;
+            }
+        }    
+        return formattedOutput + "</ul>";
+    };
+
+    var _updateInfoBox = function(data){
+        _data = data;
+        io.writeData();
+        $("#infoBox .list").empty().append(_formatInfoVals(_data));
+    };
+
+    return {
+        openDialog: function(title,data){
+            _updateInfoBox(data);
+            $("#infoBox").dialog({"title": title});
+            $("#infoBox").dialog("open");
+        },
+        getInfo: function(col,index){
+            return _data;
+        }, 
+        addInfo: function(val){
+            if(val == "")return;
+            _data.push(val);
+            _updateInfoBox(this.getInfo());
+        },
+        removeInfo: function(index){
+            _data.splice(index,1);
+            _updateInfoBox(this.getInfo());
+        }
+    };
+}());
+
+var options = (function(){
+    
+    var _data = [];
+
+    var _populateOptions = function (){
+        var weeks = $('#weeks');    
+        for(var i = _data.length-1; i >= 0; i--){
+            weeks.append("<option value=\""+ _data[i] +"\">week "+ _data[i] +"</option>");
+        }
+        $('#weeks option').eq(0).prop('selected', true);
+    };
+
+    return {
+        // populate the options tag with a list of sprint weeks
+        setData: function(data){
+            var weekArray = []
+            for(var i = 0; i < data.length; i++){
+                weekArray.push(data[i].week); 
+            }   
+            _data = weekArray;
+            _populateOptions();
+        }
+    }
 }());
 
 var board = (function (){
@@ -94,79 +165,75 @@ var board = (function (){
 
     var _pClose = "</p>";
 
-    var _spanOpen = "<span class=\"task\">";
-
-    var _spanClose = "</span>";
-
-    var _spanInfo = "<span class=\"info\" onclick=\"info.openDialog()\"> i </span>";
+    var _spanInfo = "<span class=\"info\""+ 
+        "onclick=\"info.openDialog(board.getSprint()[$(this).parents().eq(2).attr('id')][$(this).parent().index()].val,"+
+            "board.getSprint()[$(this).parents().eq(2).attr('id')][$(this).parent().index()].info)\"> i </span>";
 
     var _spanRemove = "<span class=\"remove\" onclick=\"board.removeTask($(this).parents().eq(2).attr('id'),$(this).parent().index())\">x</span>"
 
     var _formatColVals = function(col){
         var formattedOutput = "";
         for(var i = 0; i < _sprint[col].length; i++){
-            var val = _sprint[col][i];
-            formattedOutput = formattedOutput + _pOpen + _spanOpen + val + _spanClose + _spanInfo +  _spanRemove + _pClose;
+            var val = _sprint[col][i].val;
+            formattedOutput = formattedOutput + _pOpen + val +  _spanInfo +  _spanRemove + _pClose;
         }  
         return formattedOutput;
+    };
+    
+    // if data is empty or it's been more than 14 days, push a new sprint object
+    var _checkWeek = function(){
+        var curDate = new Date(); 
+        var latestDate = _data.length > 0 ? new Date(_data[_data.length-1].week) : curDate;
+        
+        if(_data.length <= 0 || date.dayDiff(latestDate, curDate) >= 14){
+            _data.push({
+                week: date.getDateFormat(date.getMonday(curDate)),
+                todo: [],
+                development: [],
+                completed: []
+            });
+            board.setSprint(0);
+            _updateBoard();
+            io.writeData();
+        }
+    };
+
+    // populates the board with data from the current sprint 
+    var _updateBoard = function(){
+        $('#todo .list').empty().append(_formatColVals("todo"));
+        $('#development .list').empty().append(_formatColVals("development"));
+        $('#completed .list').empty().append(_formatColVals("completed")); 
     };
 
     return {
         setData: function(data){
             _data = !data ? [] : data; 
-            this.checkWeek();
+            _checkWeek();
             this.setSprint(0);
         },
         // set which sprint is currently displayed on the board
         setSprint: function(index){
             _sprint = _data.length > 0 ? _data[_data.length-1 - index] : {};
-            this.populateBoard();
+            _updateBoard();
         },
         getData: function(){
             return _data; 
         },
-        // populates the board with data from the current sprint 
-        populateBoard: function(){
-            $('#todo .list').empty().append(_formatColVals("todo"));
-            $('#development .list').empty().append(_formatColVals("development"));
-            $('#completed .list').empty().append(_formatColVals("completed")); 
+        getSprint: function(){
+            return _sprint; 
         },
         // add a new task to the given column and current sprint
-        addTask: function(column, val){
-            _sprint[column].push(val);
-            this.populateBoard();
+        addTask: function(column, val, info){
+            if(val == "") return;
+            _sprint[column].push({"val": val, "info": info});
+            _updateBoard();
             io.writeData();
         },
         // remove a task selected by index, column, and current sprint
         removeTask: function(column, index){ 
             _sprint[column].splice(index, 1);
-            this.populateBoard();
+            _updateBoard();
             io.writeData();
-        },
-        // if data is empty or it's been more than 14 days, push a new sprint object
-        checkWeek: function(){
-            var curDate = new Date(); 
-            var latestDate = _data.length > 0 ? new Date(_data[_data.length-1].week) : curDate;
-            
-            if(_data.length <= 0 || date.dayDiff(latestDate, curDate) >= 14){
-                _data.push({
-                    week: date.getDateFormat(date.getMonday(curDate)),
-                    todo: [],
-                    development: [],
-                    completed: []
-                });
-                this.setSprint(0);
-                this.populateBoard();
-                io.writeData();
-            }
-        },
-        // populate the options tag with a list of sprint weeks
-        populateOptions: function (){
-            var weeks = $('#weeks');    
-            for(var i = _data.length-1; i >= 0; i--){
-                weeks.append("<option value=\""+ _data[i].week +"\">week "+ _data[i].week +"</option>");
-            }
-            $('#weeks option').eq(0).prop('selected', true);
         },
         // when a task is dragged save it's column and index
         dragTask: function(e, index, column){
@@ -178,9 +245,8 @@ var board = (function (){
             e.preventDefault(); 
             var columnFrom = e.dataTransfer.getData("columnFrom");
             var index = e.dataTransfer.getData("index"); 
-            var val = $('#'+columnFrom+' .list p').eq(index).children('.task').html();
+            this.addTask(columnTo, _sprint[columnFrom][index].val, _sprint[columnFrom][index].info);
             this.removeTask(columnFrom, index);    
-            this.addTask(columnTo, val);
         },
         allowDrop: function(e){
             e.preventDefault();    
@@ -190,6 +256,5 @@ var board = (function (){
 
 io.readData(function(data){
     board.setData(data); 
-    board.populateOptions();
-    board.populateBoard();
+    options.setData(data);
 });
