@@ -3,6 +3,48 @@
     margin: 0 auto;
     overflow: hidden;
 }
+#menuBar{
+    font-size: 2.5em;
+    font-weight: bold;
+    border: 1px solid #AAA;
+    padding: 0px 10px;
+    margin: 2px;
+    cursor: pointer;
+}
+#menuOptions{
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #AAA;
+    list-style-type: none;
+    padding: 10px;
+    margin: 2px;
+    background-color: white;
+    display: none;
+}
+#menuOptions li{
+    cursor: pointer;
+}
+#backlog{
+    display: none;
+}
+#board{
+}
+#backlogItems{
+    width: 32%;
+    padding: 5px;
+    margin: 2px;
+    min-height: 400px;
+    border: 2px solid gray;
+    float: left;
+}
+#issues{
+    width: 32%;
+    padding: 5px;
+    margin: 2px;
+    min-height: 400px;
+    border: 2px solid gray;
+    float: left;
+}
 #todo {
     width: 32%;
     padding: 5px;
