@@ -8,6 +8,10 @@ var routes = {
             fileName: "../data/api.json",
             contentType: "application/json"
         },
+        "/modules":{
+            fileName: "/",
+            contentType: "text/javascript"
+        },
         "/main.js": {
             fileName: "./main.js",
             contentType: "text/javascript"
@@ -26,6 +30,7 @@ console.log("server running on http://"+ hostname + ":" + port);
 
 http.createServer(function(request, response) {  
     var route = request.url in routes ? routes[request.url] : routes["/"];
+    //add line to parse modules direcotry file and edit route var accordingly
     
     var body = '';
     request.on('data', function (data) {
