@@ -32,4 +32,3 @@ var menu = (function (){
     }
 }());
 menu.setData(["board","backlog"]);
-

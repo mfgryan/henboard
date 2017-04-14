@@ -12,6 +12,10 @@ var routes = {
             fileName: "/",
             contentType: "text/javascript"
         },
+        "/loader.js"{
+            fileName: "./loader.js",
+            contentType: "text/javascript"
+        },
         "/main.js": {
             fileName: "./main.js",
             contentType: "text/javascript"
