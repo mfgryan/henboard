@@ -1,0 +1,11 @@
+.addItem {
+}
+.addItem .toggleAdd{
+    font-size: 2em;
+    color: #888; 
+    font-weight: bold;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.addItem .toggleAdd .add{
+}

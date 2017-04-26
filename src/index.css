@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+h1{
+    margin: 5px;
+}
+p {
+    border: 2px solid #BBB;
+    padding: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+ul {
+    border: 1px solid #BBB;
+    display: inline-block;
+    padding: 0;
+    font-weight: bold;
+    background-color: #FFF;
+}
+li{
+    list-style: none;
+    background-color: #FFF;
+    z-index: 1;
+    cursor: pointer;
+    display: block;
+    padding: 10px 15px;
+}
+li:hover{
+    background-color: #EEE;
+}
+.block {
+    display: block;
+} 
+.inline {
+    display: inline;
+}
+.alignleft{
+    float: left;
+    width: 33.33333%;
+    text-align: left;
+}
+.aligncenter{
+    float: left;
+    width: 33.33333%;
+    text-align: center;
+}
+.alignright{
+    float: left;
+    width: 33.33333%;
+    text-align: right; 
+}
+.black {
+    color: black;
+    font-weight: bold;
+}
+.red {
+    color: red;
+    font-weight: bold;
+}
+.blue {
+    color: blue;
+    font-weight: bold;
+}
