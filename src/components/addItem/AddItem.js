@@ -5,22 +5,25 @@ class AddItem extends React.Component {
     constructor(props){
         super(props); 
         this.state = {
-            showAdd: false 
+            showAdd: false
         }
-        this.toggleAdd = this.toggleAdd.bind(this);
+        this.toggleAddItem = this.toggleAddItem.bind(this);
     }
-    toggleAdd(){
-        this.setState((prevState, props) => ({ 
-            showAdd: !prevState.showAdd
-        }));
+    toggleAddItem(){
+        this.setState((prevState, props) => {
+            return {showAdd: !prevState.showAdd};
+        });
     }
     render(){
-        const add = <div><input /><button className="add" onClick={this.toggleAdd}>add</button></div>
+        const add = <div>
+                        <input type="text" value={this.props.value} onChange={this.props.onValueChange} />
+                        <button className="add" onClick={this.props.addItem}>add</button>
+                    </div>
         return (
             <div className="addItem inline">
                 <div className="laneheader">
                     <h2 className="inline">{this.props.name}</h2>
-                    <span className="toggleAdd" onClick={this.toggleAdd}>+</span>
+                    <span className="toggleAdd" onClick={this.toggleAddItem}>+</span>
                     { this.state.showAdd ? add : null}
                 </div>
             </div>

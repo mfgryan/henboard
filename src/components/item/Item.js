@@ -13,34 +13,21 @@ class Item extends React.Component {
             isOpen: false 
         }
     }
-    getInfo(){
-        return this.props.info ? <span className="alignleft blue info" onClick={this.openInfo}> i </span> : null;
-    }
-    getRemove(){
-        return this.props.hideRemove ? null : <span className="alignright red">X</span>;
-    }
     openInfo(){
         this.setState({isOpen: true}); 
     }
     closeInfo(){
         this.setState({isOpen: false}); 
     }
-    getDialogComponent(){
-        if(this.props.info){
-            const body = <InfoList name={this.props.val} items={this.props.info}/>;
-            const footer = <Button onClick={this.closeInfo}>Close</Button>;
-            return  <Dialog body={body} footer={footer} isOpen={this.state.isOpen}/>
-        }else{
-            return null; 
-        }
-    }
     render(){
+        const body = <InfoList name={this.props.val} items={this.props.info}/>;
+        const footer = <Button onClick={this.closeInfo}>Close</Button>;
         return (
             <p>
-                {this.getInfo()}
+                {this.props.info &&  <span className="alignleft blue info" onClick={this.openInfo}> i </span>}
                 <span className="aligncenter itemval">{this.props.val}</span>
-                {this.getRemove()}
-                {this.getDialogComponent()}
+                {!this.props.hideRemove &&  <span className="alignright red" id={this.props.val} onClick={() => this.props.removeItem(this.props.val)}>X</span>}
+                {this.props.info && <Dialog body={body} footer={footer} isOpen={this.state.isOpen}/>}
             </p> 
         ); 
     }

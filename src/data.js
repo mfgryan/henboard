@@ -13,11 +13,11 @@ var data = [
                             info: ["info1","info2"]
                         },
                         {
-                            val: "val",
+                            val: "blah",
                             info: ["blah","blah"]
                         },
                         {
-                            val: "val",
+                            val: "yo",
                             info: ["info1","info2"]
                         },
                         {
@@ -30,7 +30,7 @@ var data = [
                     name: "Dev", 
                     items: [
                         {
-                            val: "val",
+                            val: "hey",
                             info: ["info1","info2"]
                         }   
                     ]
@@ -39,7 +39,7 @@ var data = [
                     name: "Done", 
                     items: [
                         {
-                            val: "val",
+                            val: "abc",
                             info: ["info1","info2"]
                         }
                     ]
