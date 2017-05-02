@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+.addItemTitle, .addItemInput {
+    min-height: 40px;
+}
+.addItemInput{
+    margin: 0 0 5px 10px;
+    display: inline;
+}

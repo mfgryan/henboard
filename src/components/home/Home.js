@@ -3,10 +3,16 @@ import { Grid, Row, Col } from "react-bootstrap";
 import App from "../App";
 import Board from "../board/Board";
 import Selector from "../selector/Selector";
-import data from "../../data.js";
 import "./Home.css";
+import data from "../../data.js";
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+    }
+    loadData(){
+         
+    }
     render() {
         return (
             <App data={data} >
