@@ -1,7 +1,7 @@
 //redux schema
 //PK [project]
 const projects = [
-    { project: "henboard" }
+    { project: "henboard" },
     { project: "x" }
 ];
 
@@ -12,19 +12,19 @@ const sprints = [
 ];
 
 //PK [fk projects.project,column]
-const lanes: [
+const lanes = [
     { project: "henboard", column: "Todo" },
     { project: "henboard", column: "Dev" }, 
     { project: "henboard", column: "Done" } 
 ];
 //PK [fk projects.project,name]
-const items [
+const items = [
     { project: "henboard", week: "4/22/17", column: "Dev", name: "save state" },
     { project: "henboard", week: "4/22/17", column: "Done", name: "Drag and Drop" }
 ];
 //PK [fk projects.project,items.name,val]
-const info [
-    { project: "henboard", week: "4/22/17", name: "save state", val: "will save to local storage for now" },
-    { project: "henboard", week: "4/22/17", name: "save state", val: "working to normalize data and push into redux" },
-    { project: "henboard", week: "4/22/17", name: "Drag and Drop", val: "will save to local storage for now" }
+const info = [
+    { project: "henboard", name: "save state", val: "will save to local storage for now" },
+    { project: "henboard", name: "save state", val: "working to normalize data and push into redux" },
+    { project: "henboard", name: "Drag and Drop", val: "will save to local storage for now" }
 ];

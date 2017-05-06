@@ -4,7 +4,6 @@ import App from "../App";
 import Board from "../board/Board";
 import Selector from "../selector/Selector";
 import "./Home.css";
-import data from "../../data.js";
 
 class Home extends Component {
     constructor(props){
@@ -15,9 +14,9 @@ class Home extends Component {
     }
     render() {
         return (
-            <App data={data} >
-                <Board lanes={data[0].sprint[0].lanes} />
-                <Selector sprint={data[0].sprint} />
+            <App>
+                {/*<Board lanes={data[0].sprint[0].lanes} />*/}
+                {/*<Selector sprint={data[0].sprint} />*/}
             </App>
         );
     }
