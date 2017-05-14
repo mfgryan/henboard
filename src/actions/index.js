@@ -1,3 +1,27 @@
+const ADD_SPRINT = "ADD_SPRINT";
+function addSprint(sprint){
+    return {   
+        type: ADD_SPRINT,
+        project: sprint.project,
+        week: sprint.week
+    }
+}
+const SET_CURRENT_SPRINT = "SET_CURRENT_SPRINT";
+function setCurrentSprint(sprint){
+    return{
+        type: SET_CURRENT_SPRINT,
+        project: sprint.project,        
+        week: sprint.week
+    }
+}
+const ADD_LANE = "ADD_LANE";
+function addLane(lane){
+    return {
+        type: ADD_LANE,
+        project: lane.project,
+        column: lane.column
+    }
+}
 const ADD_ITEM = "ADD_ITEM";
 function addItem(item){
     return {
@@ -46,21 +70,14 @@ function removeInfo(info){
         val: info.val          
     }    
 }
-const ADD_SPRINT = "ADD_SPRINT";
-function addSprint(sprint){
-    return {   
-        type: ADD_SPRINT,
-        project: sprint.project,
-        week: sprint.week
-    }
-}
-const SET_CURRENT_SPRINT = "SET_CURRENT_SPRINT";
-function setCurrentSprint(sprint){
-    return{
-        type: SET_CURRENT_SPRINT,
-        project: sprint.project,        
-        week: sprint.week
+
+const TOGGLE_ADD_ITEM = "TOGGLE_ADD_ITEM";
+function toggleAddItem(col){
+    return {
+        type: TOGGLE_ADD_ITEM,
+        project: col.project,
+        column: col.column
     }
 }
 
-export {addItem, removeItem, moveItem, addInfo, removeInfo, addSprint, setCurrentSprint, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, ADD_INFO, REMOVE_INFO, ADD_SPRINT, SET_CURRENT_SPRINT}
+export {addLane, addItem, removeItem, moveItem, addInfo, removeInfo, addSprint, setCurrentSprint, toggleAddItem, ADD_LANE, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, ADD_INFO, REMOVE_INFO, ADD_SPRINT, SET_CURRENT_SPRINT, TOGGLE_ADD_ITEM}

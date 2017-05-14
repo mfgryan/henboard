@@ -31,7 +31,7 @@ class Item extends React.Component {
         return (
             <p draggable="true" onDragStart={this.drag} >
                 {this.props.info &&  <span className="alignleft blue info" onClick={this.openInfo}> i </span>}
-                <span className="aligncenter itemval">{this.props.val}</span>
+                {this.props.val && <span className="aligncenter itemval">{this.props.val}</span>}
                 {!this.props.hideRemove &&  <span className="alignright red" id={this.props.val} onClick={() => this.props.removeItem(this.props.val)}>X</span>}
                 {this.props.info && <Dialog body={body} footer={footer} isOpen={this.state.isOpen}/>}
             </p> 

@@ -1,5 +1,23 @@
 import { combineReducers } from "redux"
-import {ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, ADD_INFO, REMOVE_INFO, ADD_SPRINT, SET_CURRENT_SPRINT} from "../actions/index";
+import {TOGGLE_ADD_ITEM,ADD_LANE, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, ADD_INFO, REMOVE_INFO, ADD_SPRINT, SET_CURRENT_SPRINT} from "../actions/index";
+
+function lanes(state = [], action){
+    switch (action.type){
+        case ADD_LANE:
+            return [...state,
+                {
+                    project: action.project,
+                    column: action.column 
+                }
+            ]
+        case TOGGLE_ADD_ITEM:
+            return state.map((lane) =>{
+                return (lane.project === action.project && lane.column === action.column) ? Object.assign({},lane,{addItem: !lane.addItem}) : lane
+            })
+        default:
+            return state
+    }
+}
 
 function items(state = [], action){
     switch (action.type){
@@ -64,9 +82,10 @@ function sprints(state = [], action){
 }
 
 const henboardApp = combineReducers({
+    lanes,
+    sprints,
     items,
-    info,
-    sprints 
+    info
 })
 
 export default henboardApp
