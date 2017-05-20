@@ -1,15 +1,25 @@
+//react dep
 import React from "react";
+
+//redux dep
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { Grid } from "react-bootstrap";
-//import Header from "./header/Header";
+
+//bootstrap dep
+import { Grid, Row } from "react-bootstrap";
+
+//component dep
+import GetHeader from "./components/header/GetHeader";
+import Footer from "./components/footer/Footer";
+
+//style dep
 import "./App.css";
 
 const App = (props) => (
     <Grid>
-        <div>header</div>
+        <GetHeader />
             {props.children}
-        <div>footer</div>
+        <Footer />
     </Grid>
 )
 

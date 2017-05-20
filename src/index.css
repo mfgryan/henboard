@@ -7,8 +7,10 @@ body {
 h1{
     margin: 5px;
 }
+h2{
+    cursor: pointer;  
+}
 p {
-    border: 2px solid #BBB;
     padding: 10px;
     overflow: hidden;
     cursor: pointer;

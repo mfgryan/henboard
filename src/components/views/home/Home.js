@@ -1,8 +1,14 @@
+// react dep
 import React, { Component } from "react";
+
+// bootstrap dep
 import { Grid, Row, Col } from "react-bootstrap";
+
+// component dep
 import App from "../../App";
-import GetBoard from "../../containers/getBoard/GetBoard";
-//import Selector from "../../presenters/selector/Selector";
+import GetBoard from "../../components/board/GetBoard";
+
+//style dep
 import "./Home.css";
 
 class Home extends Component {
@@ -10,7 +16,6 @@ class Home extends Component {
         return (
             <App>
                 <GetBoard project="henboard" />
-                {/*<Selector/>*/}
             </App>
         );
     }

@@ -1,26 +1,27 @@
-//redux schema
+//redux schema:
 
 //PK [project]
 const projects = [
-    { project: "henboard" },
-    { project: "x" }
+    { project: "henboard", current: true },
+    { project: "x", current: false }
 ];
 
 //PK [fk projects.project,week]
 const sprints = [
-    { project: "henboard", week: "5/8/17" },
+    { project: "henboard", week: "5/8/17", current: false },
+    { project: "henboard", week: "5/15/17", current: true },
 ];
 
 //PK [fk projects.project,column]
 const lanes = [
-    { project: "henboard", column: "Todo", addItem: false },
-    { project: "henboard", column: "Dev", addItem: false }, 
-    { project: "henboard", column: "Done", addItem: false } 
+    { project: "henboard", column: "Todo", addItem: false, value: "" },
+    { project: "henboard", column: "Dev", addItem: false, value: "" }, 
+    { project: "henboard", column: "Done", addItem: false, value: "" } 
 ];
 
 //PK [fk projects.project,name]
 const items = [
-    //{ project: "henboard", week: "5/8/17", column: "Dev", name: "save state" },
+    { project: "henboard", week: "5/8/17", column: "Dev", name: "save state" }
 ];
 
 //PK [fk projects.project,items.name,val]
@@ -30,10 +31,11 @@ const info = [
 ];
 
 const initialState = {
-   info: info, 
-   items: items,
-   lanes: lanes,
-   sprints: sprints
+    info: info, 
+    items: items,
+    lanes: lanes,
+    sprints: sprints,
+    projects: projects
 }
 
 export default initialState;

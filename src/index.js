@@ -28,7 +28,7 @@ ReactDOM.render(
             <Provider store={store}>
                 <div>
                     <Route exact path="/" component={Home} />
-                    <Route path="/home" component={Home} />
+                    <Route path="/home" component={Home} store={store} />
                     <Route path="/backlog" component={Backlog} />
                 </div>
             </Provider>
