@@ -1,4 +1,4 @@
-let date = () => {
+let dateUtil = () => {
     const _MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
     return {
         // returns the most recent monday
@@ -7,6 +7,15 @@ let date = () => {
             var day = d.getDay(),
             diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
             return new Date(d.setDate(diff)); 
+        },
+        // return the next monday date given a monday date
+        getNextMonday: function (d){
+            return d.setDate(d.getDate() + 7 ) 
+        },
+        // return date object given a mm / dd / yy string
+        getDate: function (dateString){
+            let dates = dateString.split("/"); 
+            return new Date(parseInt(dates[2]),parseInt(dates[0]),parseInt(dates[1]));
         },
         // returns date formatted mm/dd/yy
         getDateFormat: function(date){
@@ -25,5 +34,4 @@ let date = () => {
         } 
     }
 }
-
-export {date}
+export { dateUtil }

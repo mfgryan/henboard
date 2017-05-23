@@ -6,12 +6,12 @@ import { Col, Row } from "react-bootstrap";
 
 //component dep
 import GetSwimlane from "../swimlane/GetSwimlane";
-import Selector from "../selector/Selector";
+import GetSelector from "../selector/GetSelector";
 
 //style dep
 import "./Board.css";
 
-const Board = ( { lanes, sprints, setSprint } ) => {
+const Board = ( { lanes } ) => {
     const getColWidth = (laneCount, index) => (
         (12 / laneCount) + (index < (12 % laneCount) ? 1 : 0 )
     );
@@ -26,7 +26,7 @@ const Board = ( { lanes, sprints, setSprint } ) => {
             </Row>
             <Row>
                 <Col md={12}>
-                    <Selector sprints={sprints} setSprint={setSprint} />
+                    <GetSelector />
                 </Col>
             </Row>
         </div>

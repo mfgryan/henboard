@@ -2,14 +2,12 @@
 
 //PK [project]
 const projects = [
-    { project: "henboard", current: true },
-    { project: "x", current: false }
+    { project: "henboard", current: true }
 ];
 
 //PK [fk projects.project,week]
 const sprints = [
-    { project: "henboard", week: "5/8/17", current: false },
-    { project: "henboard", week: "5/15/17", current: true },
+    { project: "henboard", week: "05/15/17", current: true }
 ];
 
 //PK [fk projects.project,column]
@@ -21,7 +19,7 @@ const lanes = [
 
 //PK [fk projects.project,name]
 const items = [
-    { project: "henboard", week: "5/8/17", column: "Dev", name: "save state" }
+    //{ project: "henboard", week: "5/8/17", column: "Dev", name: "save state" }
 ];
 
 //PK [fk projects.project,items.name,val]

@@ -10,7 +10,9 @@ function sprints(state = [], action){
                     week: action.week,
                     current: false
                 }
-            ]
+            ].map((sprint) =>
+                !(sprint.project === action.project && sprint.week === action.week) ? Object.assign({},sprint,{current:false}) : Object.assign({},sprint,{current: true}) 
+            );
         case SET_CURRENT_SPRINT:
             return state.map((sprint) =>
                 !(sprint.project === action.project && sprint.week === action.week) ? Object.assign({},sprint,{current:false}) : Object.assign({},sprint,{current: true}) 

@@ -6,21 +6,27 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import henboardApp from "./reducers/index";
-import initialState from "./data.js";
+import initialState from "./util/data";
 
 //react router dep
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom"
-import Home from "./components/views/home/Home";
-import Backlog from "./components/views/backlog/Backlog";
+import Home from "./views/home/Home";
+import Backlog from "./views/backlog/Backlog";
 
 //css dep
 import "./index.css";
-
-const store = createStore(henboardApp, initialState);
+let store = {};
+if(!localStorage.getItem("store")){
+    store = createStore(henboardApp, initialState);
+}else{
+    store = createStore(henboardApp, JSON.parse(localStorage.getItem("store")));
+}
 
 //log all store updates
-let unsubscribe = store.subscribe(() =>
-    console.log(store.getState())
+let unsubscribe = store.subscribe(() =>{
+        //console.log(store.getState())
+        localStorage.setItem( "store", JSON.stringify(store.getState()) )
+    }
 )
 
 ReactDOM.render(

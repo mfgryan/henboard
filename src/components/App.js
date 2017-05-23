@@ -9,8 +9,8 @@ import { Provider } from "react-redux";
 import { Grid, Row } from "react-bootstrap";
 
 //component dep
-import GetHeader from "./components/header/GetHeader";
-import Footer from "./components/footer/Footer";
+import GetHeader from "./header/GetHeader";
+import Footer from "./footer/Footer";
 
 //style dep
 import "./App.css";

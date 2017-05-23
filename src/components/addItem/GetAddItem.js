@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import AddItem from "./AddItem";
 
 // action dep
-import { addItem } from "../../../actions/items";
-import { toggleAddItem, changeValue } from "../../../actions/lanes";
+import { addItem } from "../../actions/items";
+import { toggleAddItem, changeValue } from "../../actions/lanes";
 
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find( project => project.current === true );
