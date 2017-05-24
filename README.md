@@ -11,8 +11,8 @@ Then run **`npm install`**, and **`npm start`**
 ### Questions?
 
 #### Contact
-- email [henao@henserver.com](henao@henserver.com)
-- linkedin [www.linkedin.com/in/ryan-henao-4173917b](www.linkedin.com/in/ryan-henao-4173917b)
+- email [henao@henserver.com](https://www.henserver.com)
+- linkedin [linkedin.com/in/ryan-henao-4173917b](https://www.linkedin.com/in/ryan-henao-4173917b/)
 
 #### Author
 Ryan Henao
