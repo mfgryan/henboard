@@ -1,3 +1,18 @@
+## Henboard
+
+A minimalistic todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
+
+### Development
+
+To run this app, `git clone [https://github.com/mfgryan/henboard.git](https://github.com/mfgryan/henboard.git)`.
+Then`npm install`, and `npm start` 
+
+### Questions?
+
+[email](henao@henserver.com)
+[linkedin](www.linkedin.com/in/ryan-henao-4173917b)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
