@@ -34,4 +34,21 @@ let dateUtil = () => {
         } 
     }
 }
-export { dateUtil }
+
+let urlUtil = () => {
+    let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    let regex = new RegExp(expression);
+    return {
+        isUrl: function(test){
+            return test.match(regex)
+        },
+        checkProtocol: function(url){
+            if(!url.includes("http")){
+                return "//"+url;
+            }else{
+                return url;
+            }
+        }
+    };
+};
+export { dateUtil, urlUtil }

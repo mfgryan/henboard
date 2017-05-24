@@ -4,6 +4,9 @@ import React from "react";
 // bootstrap dep
 import { Modal, Col, Row, Button } from "react-bootstrap";
 
+// url dep
+import { urlUtil } from "../../util/Util";
+
 const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } ) => {
     return (
         <Modal.Dialog draggable="false">
@@ -15,7 +18,11 @@ const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } )
             {info.length > 0 && <Modal.Body>
                 {info.map((info,index) =>
                 <Row key={index} >
-                    <Col md={10}>{info.value}</Col>
+                    <Col md={10}>
+                        {!urlUtil().isUrl(info.value) ? info.value :
+                        <a href={urlUtil().checkProtocol(info.value)}>{info.value}</a>
+                        }
+                    </Col>
                     <Col md={2}>
                         <p onClick={() => removeInfo(info)}>X</p>
                     </Col>
