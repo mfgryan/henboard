@@ -19,8 +19,8 @@ const mapStateToProps = (state, ownProps) => {
             item.week === currentSprint.week &&
             item.column === ownProps.column
         )
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -33,11 +33,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(moveItem({project: project, name: name, week: week, column: column}))
         } 
     }
-}
+};
 
 const GetSwimlane = connect(  
     mapStateToProps,
     mapDispatchToProps
-)(Swimlane)
+)(Swimlane);
 
 export default GetSwimlane;

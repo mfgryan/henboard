@@ -1,10 +1,10 @@
-//redux dep
+// redux dep
 import { connect } from "react-redux";
 
-//component dep
+// component dep
 import Item from "./Item";
 
-//action dep
+// action dep
 import { openInfo, closeInfo, removeItem } from "../../actions/items";
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
             value: ownProps.value
         }
     }
-}
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -36,12 +36,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         removeItem: (item) => {
             dispatch(removeItem(item))
         },
-    }
-}
+    };
+};
 
 const GetItem = connect(  
     mapStateToProps,
     mapDispatchToProps
-)(Item)
+)(Item);
 
 export default GetItem;

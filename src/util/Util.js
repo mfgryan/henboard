@@ -5,7 +5,7 @@ let dateUtil = () => {
         getNearestMonday: function (d){
             d = new Date(d);
             var day = d.getDay(),
-            diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+            diff = d.getDate() - day + (day === 0 ? -6:1); // adjust when day is sunday
             return new Date(d.setDate(diff)); 
         },
         // return the next monday date given a monday date
@@ -15,7 +15,7 @@ let dateUtil = () => {
         // return date object given a mm / dd / yy string
         getDate: function (dateString){
             let dates = dateString.split("/"); 
-            return new Date(parseInt(dates[2]),parseInt(dates[0]),parseInt(dates[1]));
+            return new Date(parseInt(dates[2], 10),parseInt(dates[0], 10),parseInt(dates[1], 10));
         },
         // returns date formatted mm/dd/yy
         getDateFormat: function(date){

@@ -1,10 +1,18 @@
+// react dep
 import React from "react";
-import { Col } from "react-bootstrap";
+
+// bootstrap dep
+import { Col, Row } from "react-bootstrap";
+
+// style dep
+import "./Footer.css";
 
 const Footer = () => (
-    <Col md={12}>
-        <i>Henboard 2017</i>
-    </Col>
-)
+    <Row>
+        <Col md={12} id="footer">
+            <i>Henboard 2017</i>
+        </Col>
+    </Row>
+);
 
 export default Footer;

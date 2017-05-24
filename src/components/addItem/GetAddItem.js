@@ -31,8 +31,8 @@ const mapStateToProps = (state, ownProps) => {
             ).addItem,
             value: currentValue
         }
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -50,19 +50,28 @@ const mapDispatchToProps = (dispatch) => {
             }));
         },
         addItem: (item) => {
-            dispatch(addItem({
-                project: item.project, 
-                week: item.week, 
-                column: item.column, 
-                name: item.name
-            }))
+            //basic validation. will move to validation middleware
+            if(item.name !== ""){
+                dispatch(addItem({
+                    project: item.project, 
+                    week: item.week, 
+                    column: item.column, 
+                    name: item.name
+                }));
+                //after adding an item clear the input field
+                dispatch(changeValue({
+                    project: item.project, 
+                    column: item.column,
+                    value: ""
+                }))
+            }
         }
-    }
-}
+    };
+};
 
 const GetAddItem = connect(  
     mapStateToProps,
     mapDispatchToProps
-)(AddItem)
+)(AddItem);
 
 export default GetAddItem;

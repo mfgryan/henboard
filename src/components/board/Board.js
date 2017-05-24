@@ -1,14 +1,14 @@
-//react dep
+// react dep
 import React from "react";
 
-//bootstrap dep
+// bootstrap dep
 import { Col, Row } from "react-bootstrap";
 
-//component dep
+// component dep
 import GetSwimlane from "../swimlane/GetSwimlane";
 import GetSelector from "../selector/GetSelector";
 
-//style dep
+// style dep
 import "./Board.css";
 
 const Board = ( { lanes } ) => {
@@ -31,6 +31,6 @@ const Board = ( { lanes } ) => {
             </Row>
         </div>
     )
-}
+};
 
 export default Board; 

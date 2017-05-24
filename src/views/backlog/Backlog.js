@@ -1,5 +1,7 @@
+// react dep
 import React, { Component } from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+
+// style dep
 import "./Backlog.css";
 
 class Backlog extends Component {
@@ -8,6 +10,7 @@ class Backlog extends Component {
             <div className='Backlog'>
             </div>
         );
-    }
-}
+    };
+};
+
 export default Backlog;

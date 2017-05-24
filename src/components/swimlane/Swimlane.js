@@ -18,7 +18,7 @@ const Swimlane = ( { project, column, week, items, allowDrop, dropItem } ) => {
                 )}
             </div>
         </div>
-    )
+    );
 };
 
 export default Swimlane; 

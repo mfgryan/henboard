@@ -1,7 +1,7 @@
-//redux dep
+// redux dep
 import { connect } from "react-redux";
 
-//component dep
+// component dep
 import Board from "./Board";
 
 const mapStateToProps = (state) => {
@@ -10,16 +10,16 @@ const mapStateToProps = (state) => {
         lanes: state.lanes.filter((lane) =>
             lane.project === currentProject.project
         )
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {}
-}
+    return {};
+};
 
 const GetBoard = connect(  
     mapStateToProps,
     mapDispatchToProps
-)(Board)
+)(Board);
 
 export default GetBoard;

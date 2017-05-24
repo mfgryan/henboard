@@ -13,6 +13,6 @@ const Header = ( { project } ) => (
             <h1>{ project }</h1>
         </Col>
     </Row>
-)
+);
 
 export default Header;

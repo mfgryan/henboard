@@ -1,18 +1,14 @@
-//react dep
+// react dep
 import React from "react";
 
-//redux dep
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-
-//bootstrap dep
+// bootstrap dep
 import { Grid, Row } from "react-bootstrap";
 
-//component dep
+// component dep
 import GetHeader from "./header/GetHeader";
 import Footer from "./footer/Footer";
 
-//style dep
+// style dep
 import "./App.css";
 
 const App = (props) => (
@@ -21,6 +17,6 @@ const App = (props) => (
             {props.children}
         <Footer />
     </Grid>
-)
+);
 
 export default App;

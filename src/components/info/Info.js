@@ -26,7 +26,7 @@ const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } )
                 <Button onClick={(event) => closeInfo(event,item)}>Close</Button>
             </Modal.Footer>
         </Modal.Dialog>
-    )
-}
+    );
+};
 
 export default Info; 

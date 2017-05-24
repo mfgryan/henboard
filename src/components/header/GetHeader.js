@@ -10,15 +10,15 @@ const mapStateToProps = (state, ownProps) => {
            project.current === true
         ).project
     }
-}
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {}
-}
+    return {};
+};
 
 const GetHeader = connect(  
     mapStateToProps,
     mapDispatchToProps
-)(Header)
+)(Header);
 
 export default GetHeader;

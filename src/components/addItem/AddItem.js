@@ -14,7 +14,7 @@ const AddItem = ( { item, lane, toggleAddItem, changeValue, addItem } ) => {
                 <button onClick={() => addItem(item)}>Add</button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default AddItem; 

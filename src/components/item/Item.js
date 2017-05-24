@@ -18,7 +18,7 @@ const Item = ( {item, dragItem, openInfo, removeItem } ) => {
             </Col>
             {item.openInfo && <GetInfo name={item.name} value={item.value} />}
         </Row>
-    )
-}
+    );
+};
 
 export default Item; 
