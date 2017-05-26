@@ -14,7 +14,7 @@ const Item = ( {item, dragItem, openInfo, removeItem } ) => {
                 <p onClick={(event) => openInfo(event,item)}>{item.name}</p>
             </Col>
             <Col md={2}>
-                <p onClick={() => removeItem(item)}>X</p>
+                <p onClick={() => removeItem(item)}>{item.column === "Done" ? "✔": "X"}</p>
             </Col>
             {item.openInfo && <GetInfo name={item.name} value={item.value} />}
         </Row>
