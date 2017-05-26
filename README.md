@@ -6,13 +6,12 @@
 ## Development
 
 To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`**
-and develop with node.js / npm or docker
 
-  #### Node.js / npm
+  #### Node.js / npm development
 
   run **`npm install`**, and then **`npm start`**
 
-  #### Docker
+  #### Docker development
 
   docker [repository](https://hub.docker.com/r/mfgryan/henboard/)
   
