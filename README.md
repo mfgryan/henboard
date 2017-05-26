@@ -1,8 +1,9 @@
-## Henboard
+# Henboard
 
   A minimalistic todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
 
-### Development
+
+## Development
 
 To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`**
 
@@ -15,7 +16,8 @@ To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`*
   To deploy with docker visit the [registry](https://hub.docker.com/r/mfgryan/henboard/)
   **`docker pull mfgryan/henboard`** and **`docker-compose up`**
 
-### Questions?
+
+## Questions?
 
   #### Contact
   - email [henao@henserver.com](http://www.henserver.com)
