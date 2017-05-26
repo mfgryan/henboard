@@ -17,7 +17,7 @@ You can then use npm or Docker to run the app.
 
   docker [repository](https://hub.docker.com/r/mfgryan/henboard/)
   
-  run **`docker pull mfgryan/henboard`** and **`docker-compose up`**
+  run **`docker pull mfgryan/henboard`** and then **`docker-compose up`**
 
 
 ## Questions?
