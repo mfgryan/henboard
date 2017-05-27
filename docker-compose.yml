@@ -1,15 +1,15 @@
 version: '2'
 services:
-    scrum:
+    gui:
         build: .
-        image: henboard:latest
+        image: mfgryan/henboard:latest
         container_name: henboard
         entrypoint: /bin/bash
-        command: -c "cd src && node index.js 0.0.0.0"
+        command: -c "npm install; npm start"
         ports:
-            - 8000:8000
+            - 3000:3000
         volumes:
-            - data:/home/app/data
             - ./src:/home/app/src
+            - node_modules:/home/app/node_modules
 volumes:
-    data:
+    node_modules:

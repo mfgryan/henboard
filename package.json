@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "mongodb": "^2.2.27",
     "react": "^15.5.4",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.4",
