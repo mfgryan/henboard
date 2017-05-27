@@ -1,18 +1,30 @@
-## Henboard
+# Henboard
 
-A minimalistic todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
+  A minimalistic todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
 
-### Development
 
-To start this app, **`git clone https://github.com/mfgryan/henboard.git`**
+## Development
 
-Then run **`npm install`**, and **`npm start`**
+To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`**
 
-### Questions?
+You can then use npm or Docker to run the app.
 
-#### Contact
-- email [henao@henserver.com](http://www.henserver.com)
-- linkedin [linkedin.com/in/ryan-henao-4173917b](https://www.linkedin.com/in/ryan-henao-4173917b/)
+  #### Node.js / npm 
 
-#### Author
-Ryan Henao
+  run **`npm install`**, and then **`npm start`**
+
+  #### Docker
+
+  docker [repository](https://hub.docker.com/r/mfgryan/henboard/)
+  
+  run **`docker pull mfgryan/henboard`** and then **`docker-compose up`**
+
+
+## Questions?
+
+  #### Contact
+  - email [henao@henserver.com](http://www.henserver.com)
+  - linkedin [linkedin.com/in/ryan-henao-4173917b](https://www.linkedin.com/in/ryan-henao-4173917b/)
+
+  #### Author
+  Ryan Henao
