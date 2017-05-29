@@ -1,2 +1,9 @@
-data/*
+# ignore npm dependencies
 node_modules
+
+# ignore vim temporary files
+*~
+
+# ignore vim swap files
+*.swp
+*.swo
