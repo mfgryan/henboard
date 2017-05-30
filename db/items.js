@@ -8,11 +8,24 @@ var assert = require('assert');
 var items = {
     init: function(err, db) {
         return new Promise(function(resolve, reject){
-            db.createCollection("items", function(err, collection){
+            db.collections(function(err, collections){
                 assert.equal(null, err); 
 
-                console.log("created collection: "+collection.collectionName );
-                resolve();
+                var name = collections.find(function(collection){
+                    return collection.collectionName === "items"; 
+                });
+
+                if(typeof name !== "undefined"){
+                    console.log("collection items exists"); 
+                    resolve();
+                }else{
+                    db.createCollection("items", function(err, collection){
+                        assert.equal(null, err); 
+
+                        console.log("created collection: "+collection.collectionName );
+                        resolve();
+                    });
+                }
             });
         });
     }

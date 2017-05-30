@@ -11,11 +11,24 @@ const initialDocument = [
 var info = {
     init: function(err, db) {
         return new Promise(function(resolve, reject){
-            db.createCollection("info", function(err, collection){
+            db.collections(function(err, collections){
                 assert.equal(null, err); 
 
-                console.log("created collection: "+collection.collectionName );
-                resolve();
+                var name = collections.find(function(collection){
+                    return collection.collectionName === "info"; 
+                });
+
+                if(typeof name !== "undefined"){
+                    console.log("collection info exists"); 
+                    resolve();
+                }else{
+                    db.createCollection("info", function(err, collection){
+                        assert.equal(null, err); 
+
+                        console.log("created collection: "+collection.collectionName );
+                        resolve();
+                    });
+                }
             });
         });
     }
