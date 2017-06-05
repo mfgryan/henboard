@@ -1,6 +1,6 @@
 version: '2'
 services:
-    gui:
+    client:
         build: .
         image: mfgryan/henboard:latest
         container_name: henboard
@@ -11,5 +11,10 @@ services:
         volumes:
             - ./src:/home/app/src
             - node_modules:/home/app/node_modules
+    mongo:
+        image: mongo:latest
+        container_name: mongo
+        ports:
+            - 27017:27017
 volumes:
     node_modules:
