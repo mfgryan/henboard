@@ -1,7 +1,6 @@
 version: '2'
 services:
     client:
-        build: .
         image: mfgryan/henboard:latest
         container_name: henboard
         entrypoint: /bin/bash
