@@ -1,5 +1,12 @@
 version: '2'
 services:
+    api:
+        image: mfgryan/henboard:latest
+        container_name: henapi
+        entrypoint: /bin/bash
+        command: -c "sleep infinity"
+        ports:
+            - 8000:8000
     client:
         image: mfgryan/henboard:latest
         container_name: henboard
@@ -10,7 +17,7 @@ services:
         volumes:
             - ./src:/home/app/src
             - node_modules:/home/app/node_modules
-    mongo:
+    db:
         image: mongo:latest
         container_name: mongo
         ports:
