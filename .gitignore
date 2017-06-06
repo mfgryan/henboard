@@ -7,3 +7,6 @@ node_modules
 # ignore vim swap files
 *.swp
 *.swo
+
+# production build directory
+build

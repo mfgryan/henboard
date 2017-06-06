@@ -1,14 +1,14 @@
 version: '2'
 services:
     api:
-        image: mfgryan/henboard:latest
+        image: mfgryan/henboard-api:latest
         container_name: henapi
         entrypoint: /bin/bash
         command: -c "sleep infinity"
         ports:
             - 8000:8000
     client:
-        image: mfgryan/henboard:latest
+        image: mfgryan/henboard-client:latest
         container_name: henboard
         entrypoint: /bin/bash
         command: -c "npm install; npm start"

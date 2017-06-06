@@ -1,0 +1,15 @@
+version: '2'
+services:
+    henboard:
+        build: .
+        image: mfgryan/henboard:latest
+        container_name: henboard
+        entrypoint: /bin/bash
+        command: -c "npm install; npm start"
+        ports:
+            - 3000:3000
+        volumes:
+            - ./src:/home/app/src
+            - node_modules:/home/app/node_modules
+volumes:
+    node_modules:
