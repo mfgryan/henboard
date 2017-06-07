@@ -1,6 +1,7 @@
 # Henboard
 
   A minimalistic todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
+  
 
 
 ## Development
@@ -25,6 +26,7 @@ You can then use npm or Docker to run the app.
   dev server **`localhost:3000`** (npm start)
   
   prod **`localhost:8000`** (docker-compose up)
+  
 
 ## Questions?
 
