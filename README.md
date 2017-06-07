@@ -20,11 +20,11 @@ You can then use npm or Docker to run the app.
   
   run **`docker-compose up`**
 
-  #### Ports
+  #### Hosts / Ports
   
-  dev server **`3000`** (npm start)
+  dev server **`localhost:3000`** (npm start)
   
-  prod **`8000`** (docker-compose up)
+  prod **`localhost:8000`** (docker-compose up)
 
 ## Questions?
 
