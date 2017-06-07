@@ -1,13 +1,12 @@
-version: '2'
+version: '3'
 services:
-    henboard:
+    client:
         build: .
-        image: mfgryan/henboard:latest
-        container_name: henboard
+        image: mfgryan/henclient:latest
         entrypoint: /bin/bash
         command: -c "npm install; npm start"
         ports:
-            - 3000:3000
+            - "${CLIENT_PORT:-3000}:3000"
         volumes:
             - ./src:/home/app/src
             - node_modules:/home/app/node_modules

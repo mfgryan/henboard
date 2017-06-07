@@ -13,12 +13,17 @@ You can then use npm or Docker to run the app.
 
   run **`npm install`**, and then **`npm start`**
 
+
   #### Docker
 
   docker [repository](https://hub.docker.com/r/mfgryan/henboard/)
   
-  run **`docker pull mfgryan/henboard`** and then **`docker-compose up`**
+  run **`docker-compose up`**
 
+  #### Ports
+  
+  dev server **`3000`** (npm start)
+  prod **`8000`** (docker-compose up)
 
 ## Questions?
 

@@ -1,25 +1,27 @@
-version: '2'
+version: '3'
 services:
     api:
-        image: mfgryan/henboard-api:latest
-        container_name: henapi
+        build:
+            context: ./henapi
+        image: mfgryan/henapi:latest
         entrypoint: /bin/bash
         command: -c "sleep infinity"
         ports:
-            - 8000:8000
-    client:
-        image: mfgryan/henboard-client:latest
-        container_name: henboard
-        entrypoint: /bin/bash
-        command: -c "npm install; npm start"
-        ports:
-            - 3000:3000
+            - "${API_PORT:-8080}:8080"
         volumes:
-            - ./src:/home/app/src
-            - node_modules:/home/app/node_modules
+            - node_modules:/home/express/node_modules
+    client:
+        build:
+            context: ./henclient
+        image: mfgryan/henclient:latest
+        entrypoint: /bin/bash
+        command: -c "npm install; npm run build; nginx -g \"daemon off;\""
+        ports:
+            - "${CLIENT_PORT:-8000}:8000"
+        volumes:
+            - node_modules:/home/nginx/node_modules
     db:
         image: mongo:latest
-        container_name: mongo
         ports:
             - 27017:27017
 volumes:
