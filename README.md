@@ -23,6 +23,7 @@ You can then use npm or Docker to run the app.
   #### Ports
   
   dev server **`3000`** (npm start)
+  
   prod **`8000`** (docker-compose up)
 
 ## Questions?
