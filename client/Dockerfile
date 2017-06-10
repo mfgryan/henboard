@@ -1,6 +1,6 @@
 FROM node:latest 
 
-RUN apt-get update; apt-get -y install nginx
+RUN apt-get update && apt-get install -y nginx
 
 RUN useradd -ms /bin/bash nginx
 
@@ -15,3 +15,5 @@ COPY . ./
 USER root
 
 EXPOSE 3000 8000
+
+CMD ["node"]

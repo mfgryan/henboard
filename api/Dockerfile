@@ -8,8 +8,13 @@ USER express
 
 WORKDIR /home/express
 
+COPY package.json .
+RUN npm install
+
 COPY . ./
 
 USER root
 
 EXPOSE 8080
+
+CMD ["node"]

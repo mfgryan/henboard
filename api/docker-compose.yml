@@ -8,6 +8,6 @@ services:
         ports:
             - "${CLIENT_PORT:-8080}:8080"
         volumes:
-            - node_modules:/home/api/node_modules
+            - node_modules:/home/express/node_modules
 volumes:
     node_modules:
