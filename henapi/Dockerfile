@@ -1,4 +1,4 @@
-FROM mfgryan/henboard
+FROM node:latest
 
 RUN apt-get update
 

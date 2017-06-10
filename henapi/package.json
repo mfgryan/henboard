@@ -1,0 +1,27 @@
+{
+  "name": "henapi",
+  "version": "1.0.0",
+  "description": "A simple todo list api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mfgryan/henboard.git"
+  },
+  "keywords": [
+    "todo",
+    "api",
+    "scrum"
+  ],
+  "author": "Ryan Henao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfgryan/henboard/issues"
+  },
+  "homepage": "https://github.com/mfgryan/henboard#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
