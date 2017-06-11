@@ -1,6 +1,6 @@
 # Henboard
 
-  A minimalistic todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
+  A minimalist todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
   
 
 
