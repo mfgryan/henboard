@@ -1,6 +1,9 @@
 # ignore npm dependencies
 node_modules
 
+# npm debug log
+npm-debug.log
+
 # ignore vim temporary files
 *~
 
