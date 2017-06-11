@@ -8,12 +8,15 @@ USER nginx
 
 WORKDIR /home/nginx
 
+COPY package.json .
+RUN npm install --loglevel warn
+
 COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY . ./
 
 USER root
 
-EXPOSE 3000 8000
+EXPOSE 3000 
 
 CMD ["node"]

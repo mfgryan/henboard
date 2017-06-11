@@ -1,0 +1,12 @@
+version: '2'
+services:
+    db:
+        build: .
+        image: mfgryan/hendb:latest
+        command: "mongod"
+        ports:
+            - 27017:27017
+        volumes:
+            - node_modules:/home/mongo/node_modules
+volumes:
+    node_modules:

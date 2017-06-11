@@ -1,21 +1,20 @@
 {
-  "name": "henapi",
+  "name": "db",
   "version": "1.0.0",
-  "description": "A simple todo list api",
+  "description": "mongodb with node",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "dev": "nodemon ./src/index.js",
-    "prod": "node ./src/index.js"
+    "start": "mongod",
+    "update": "docker exec db_db_1 /home/mongo/src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/mfgryan/henboard.git"
   },
   "keywords": [
-    "todo",
-    "api",
-    "scrum"
+    "database",
+    "mongo",
+    "node"
   ],
   "author": "Ryan Henao",
   "license": "ISC",
@@ -24,9 +23,6 @@
   },
   "homepage": "https://github.com/mfgryan/henboard#readme",
   "dependencies": {
-    "express": "^4.15.3"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
+    "mongodb": "^2.2.28"
   }
 }
