@@ -1,9 +1,12 @@
-var express = require('express')
-var app = express();
+const express = require('express'), projects = require('../models/projects')
+const app = express();
 
-/* GET projects route */
-app.get('/projects', function(req, res){
-    res.json({"projects": "projects!"});
+/* GET index route */
+app.get('/', function(req, res){
+    projects.read(function(docs){
+        res.json(docs);
+    });
 });
+
 
 module.exports = app;

@@ -1,9 +1,11 @@
-var express = require('express')
-var app = express();
+const express = require('express'), items = require('../models/items');
+const app = express();
 
 /* GET items route */
-app.get('/items', function(req, res){
-    res.json({"items": "items!"});
+app.get('/', function(req, res){
+    items.read(function(docs){
+        res.json(docs);
+    });
 });
 
 module.exports = app;

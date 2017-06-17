@@ -13,7 +13,6 @@ var port = '27017';
 var db = 'henboard';
 var url = 'mongodb://'+host+':'+port+'/'+db;
 
-
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
@@ -30,5 +29,4 @@ MongoClient.connect(url, function(err, db) {
         console.log("done");
         db.close(); 
     });
-
 });

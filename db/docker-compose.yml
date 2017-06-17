@@ -6,7 +6,12 @@ services:
         command: "mongod"
         ports:
             - 27017:27017
+        networks:
+            - henboard
         volumes:
             - node_modules:/home/mongo/node_modules
+networks:
+    henborad:
+        external: true
 volumes:
     node_modules:

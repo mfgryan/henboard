@@ -1,9 +1,11 @@
-var express = require('express')
+var express = require('express'), lanes = require('../models/lanes');
 var app = express();
 
 /* GET lanes route */
-app.get('/lanes', function(req, res){
-    res.json({"lanes": "lanes!"});
+app.get('/', function(req, res){
+    lanes.read(function(docs){
+        res.json(docs);
+    });
 });
 
 module.exports = app;

@@ -1,9 +1,11 @@
-var express = require('express')
-var app = express();
+const express = require('express'), info = require('../models/info');
+const app = express();
 
 /* GET info route */
-app.get('/info', function(req, res){
-    res.json({"info": "info!"});
+app.get('/', function(req, res){
+    info.read(function(docs){
+        res.json(docs);
+    });
 });
 
 module.exports = app;
