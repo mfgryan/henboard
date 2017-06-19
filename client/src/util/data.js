@@ -1,39 +1,52 @@
-//redux schema:
+import axios from "axios";
+// mongo schema examples included in each get method
 
-//PK [project]
-const projects = [
-    { project: "henboard", current: true }
-];
+//PK [projects]
+const getProjects = function(){
+    //{ project: "henboard", current: true }
+    return axios.get("/api/projects"); 
+};
 
-//PK [fk projects.project,week]
-const sprints = [
-    { project: "henboard", week: "05/15/17", current: true }
-];
+//PK [fk projects.project, week]
+const getSprints = function(){
+    //{ project: "henboard", week: "05/15/17", current: true }
+    return axios.get("/api/sprints"); 
+};
 
 //PK [fk projects.project,column]
-const lanes = [
-    { project: "henboard", column: "Todo", addItem: false, value: "" },
-    { project: "henboard", column: "Dev", addItem: false, value: "" }, 
-    { project: "henboard", column: "Done", addItem: false, value: "" } 
-];
+const getLanes = function(){
+    //{ project: "henboard", column: "Todo", addItem: false, value: "" },
+    //{ project: "henboard", column: "Dev", addItem: false, value: "" }, 
+    //{ project: "henboard", column: "Done", addItem: false, value: "" } 
+    return axios.get("/api/lanes"); 
+};
 
 //PK [fk projects.project,name]
-const items = [
+const getItems = function(){
     //{ project: "henboard", week: "5/8/17", column: "Dev", name: "save state" }
-];
+    return axios.get("/api/items"); 
+};
 
 //PK [fk projects.project,items.name,val]
-const info = [
+const getInfo = function(){
     //{ project: "henboard", name: "save state", val: "will save to local storage for now" },
     //{ project: "henboard", name: "save state", val: "working to normalize data and push into redux" }
-];
+    return axios.get("/api/info"); 
+};
 
-const initialState = {
-    info: info, 
-    items: items,
-    lanes: lanes,
-    sprints: sprints,
-    projects: projects
-}
+const getInitialState = function(callback){
+    axios.all([getProjects(), getSprints(), getLanes(), getItems(), getInfo()])
+        .then(axios.spread(function(projects, sprints, lanes, items, info){
+            callback({
+                projects: projects.data, 
+                sprints: sprints.data, 
+                lanes: lanes.data, 
+                items: items.data, 
+                info: info.data
+            });
+        .catch(function(err){
+            console.log(err);
+        });
+};
 
-export default initialState;
+export default getInitialState;
