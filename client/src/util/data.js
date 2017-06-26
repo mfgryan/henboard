@@ -37,13 +37,15 @@ const getInfo = function(){
 const getInitialState = function(callback){
     axios.all([getProjects(), getSprints(), getLanes(), getItems(), getInfo()])
         .then(axios.spread(function(projects, sprints, lanes, items, info){
-            callback({
-                projects: projects.data, 
-                sprints: sprints.data, 
-                lanes: lanes.data, 
-                items: items.data, 
-                info: info.data
-            });
+                callback({
+                    projects: projects.data, 
+                    sprints: sprints.data, 
+                    lanes: lanes.data, 
+                    items: items.data, 
+                    info: info.data
+                })
+            }
+        ))
         .catch(function(err){
             console.log(err);
         });

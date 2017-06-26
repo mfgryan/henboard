@@ -8,9 +8,9 @@ data.getInitialState(function(initialState){
     store = createStore(henboardApp, initialState);
     store.writeAll = (debug) => {
         return store.subscribe(() => {
-            // if debug 
-            // write to mongodb
-        };
+            debug && console.log(store.getState());
+            // write all to DB 
+        });
     };
 });
 

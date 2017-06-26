@@ -4,7 +4,7 @@ services:
         build: .
         image: mfgryan/henclient:latest
         entrypoint: /bin/bash
-        command: -c "npm run build; nginx -g \"daemon off;\""
+        command: -c "npm run prod-watch" 
         ports:
             - "${CLIENT_PORT:-3000}:3000"
         networks:
