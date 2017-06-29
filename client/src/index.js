@@ -3,8 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // redux dep
+import { createStore } from "redux";
 import { Provider } from "react-redux";
 import config from "./util/store.js";
+import henboardApp from "./reducers/index.js";
 
 // react router dep
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom"
@@ -14,9 +16,11 @@ import Backlog from "./views/backlog/Backlog.js";
 // css dep
 import "./index.css";
 
-// write all updates to local storage
-let store = config.getStore(true);
-config.writeAllLocal(store,true);
+// create initial store 
+let store = createStore(henboardApp, config.getState());
+config.writeAll(store,true,true);
+
+// note add spinning icon while state update action pending
 
 ReactDOM.render(
         <Router>

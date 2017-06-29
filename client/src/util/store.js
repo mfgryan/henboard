@@ -3,43 +3,27 @@ import henboardApp from "../reducers/index.js";
 import data from "./data.js";
 
 let config = {};
-let store = {};
-
-//data.getInitialState(function(initialState){
-//    store = createStore(henboardApp, initialState);
-//    store.writeAll = (debug) => {
-//        return store.subscribe(() => {
-//            debug && console.log(store.getState());
-//            // write all to DB 
-//        });
-//    };
-//});
+let state = {};
 
 // write all to local storage
-config.writeAllLocal = (store, debug) => {
+config.writeAll = (store, local, debug) => {
     return store.subscribe(() =>{
         debug && console.log(store.getState());
+        // if not local write to mongo else use localStorage
         localStorage.setItem( "store", JSON.stringify(store.getState()) );
     });
 };
 
-// return the redux store 
-config.getStore = (local) => {
-    // if already exists return it
-    if(!(Object.keys(store).length === 0 && store.constructor === Object)){
-        return store;
-    }
-    // otherwise create and return it 
-    let state;
-    if(local){
+// return the redux state 
+config.getState = (callback) => {
+    if(typeof callback !== "function"){
         state = localStorage.getItem("store") ? JSON.parse(localStorage.getItem("store")) : data.getInitialState(null, true);
-        store = createStore(henboardApp, state);
-        return store; 
+        return state;
     }else{
         data.getInitialState(function(state){
-            store = createStore(henboardApp, state); 
-            return store; 
-        })
+            callback(state);
+        });
+        return {};
     }
 };
 
