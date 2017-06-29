@@ -17,13 +17,14 @@
     "nodemon": "^1.11.0",
     "react-scripts": "0.9.5"
   },
+  "proxy": "0.0.0.0:8080",
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "npm install; npm start", 
+    "prod": "npm install; npm run build; npm run serve", 
+    "serve": "nginx -g \"daemon off;\"",
     "build": "react-scripts build",
-    "build-watch": "node_modules/nodemon/bin/nodemon.js --watch src --exec \"npm run build\" ",
-    "prod": "npm install; npm run build; nginx -g \"daemon off;\" ",
-    "prod-watch": "node_modules/nodemon/bin/nodemon.js --watch src --exec \"npm run prod\" ",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   }
 }

@@ -4,18 +4,20 @@ import ReactDOM from "react-dom";
 
 // redux dep
 import { Provider } from "react-redux";
-import store from "./util/store";
+import config from "./util/store.js";
 
 // react router dep
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom"
-import Home from "./views/home/Home";
-import Backlog from "./views/backlog/Backlog";
+import Home from "./views/home/Home.js";
+import Backlog from "./views/backlog/Backlog.js";
 
 // css dep
 import "./index.css";
 
-// log all updates to local storage
-let unsubscribe = store.logAll();
+// write all updates to local storage
+let store = config.getStore(true);
+config.writeAllLocal(store,true);
+
 ReactDOM.render(
         <Router>
             <Provider store={store}>
