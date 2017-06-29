@@ -1,3 +1,10 @@
+const INIT_ITEMS = "INIT_ITEMS";
+function initItems(items){
+    return {
+        type: INIT_ITEMS, 
+        items: items  
+    }
+}
 const OPEN_INFO = "OPEN_INFO";
 function openInfo(item){
     return {
@@ -56,4 +63,4 @@ function changeItemValue(item){
 }
 
 
-export { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE, openInfo, closeInfo, addItem, removeItem, moveItem, changeItemValue }
+export { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE, INIT_ITEMS, initItems, openInfo, closeInfo, addItem, removeItem, moveItem, changeItemValue }

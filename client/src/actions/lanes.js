@@ -1,3 +1,10 @@
+const INIT_LANES = "INIT_LANES";
+function initLanes(lanes){
+    return {
+        type: INIT_LANES, 
+        lanes: lanes  
+    }
+}
 const TOGGLE_ADD_ITEM = "TOGGLE_ADD_ITEM";
 function toggleAddItem(col){
     return {
@@ -25,5 +32,5 @@ function changeValue(lane){
     }
 }
 
-export { TOGGLE_ADD_ITEM, ADD_LANE, CHANGE_VALUE, toggleAddItem, addLane, changeValue }
+export { TOGGLE_ADD_ITEM, ADD_LANE, CHANGE_VALUE, INIT_LANES, initLanes, toggleAddItem, addLane, changeValue }
 

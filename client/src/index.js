@@ -18,9 +18,8 @@ import "./index.css";
 
 // create initial store 
 let store = createStore(henboardApp, config.getState());
-config.writeAll(store,true,true);
-
-// note add spinning icon while state update action pending
+config.writeAll(store,true);
+config.updateInitialState(store);
 
 ReactDOM.render(
         <Router>

@@ -1,3 +1,10 @@
+const INIT_SPRINTS = "INIT_SPRINTS";
+function initSprints(sprints){
+    return {
+        type: INIT_SPRINTS, 
+        sprints: sprints  
+    }
+}
 const ADD_SPRINT = "ADD_SPRINT";
 function addSprint(sprint){
     return {   
@@ -15,4 +22,4 @@ function setCurrentSprint(sprint){
     }
 }
 
-export { ADD_SPRINT, SET_CURRENT_SPRINT, addSprint, setCurrentSprint }
+export { ADD_SPRINT, SET_CURRENT_SPRINT, INIT_SPRINTS, initSprints, addSprint, setCurrentSprint }

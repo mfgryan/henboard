@@ -42,8 +42,8 @@ data.getInfo = function(local){
     return local ? [] : axios.get("/api/info"); 
 };
 
-data.getInitialState = function(callback,local){
-    if(local){
+data.getInitialState = function(callback){
+    if(typeof callback !== "function"){
        return { 
             projects: data.projects(true), 
             sprints: data.sprints(true), 

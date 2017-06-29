@@ -1,8 +1,10 @@
 // action types
-import { ADD_SPRINT, SET_CURRENT_SPRINT } from "../actions/sprints";
+import { ADD_SPRINT, SET_CURRENT_SPRINT, INIT_SPRINTS } from "../actions/sprints";
 
 function sprints(state = [], action){
     switch (action.type){
+        case INIT_SPRINTS:
+            return action.sprints
         case ADD_SPRINT:  
             return [...state,
                 {

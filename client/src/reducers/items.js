@@ -1,8 +1,10 @@
 //action types
-import { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE } from "../actions/items";
+import { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE, INIT_ITEMS } from "../actions/items";
 
 function items(state = [], action){
     switch (action.type){
+        case INIT_ITEMS:
+            return action.items
         case OPEN_INFO:
             return state.map((item) => {
                 return (item.project === action.project && item.name === action.name) ? Object.assign({},item,{openInfo:true}) : item;

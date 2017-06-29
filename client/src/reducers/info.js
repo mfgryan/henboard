@@ -1,8 +1,10 @@
 //action types
-import { ADD_INFO, REMOVE_INFO, REMOVE_ITEM } from "../actions/info";
+import { ADD_INFO, REMOVE_INFO, REMOVE_ITEM, INIT_INFO } from "../actions/info";
 
 function info(state = [], action){
     switch (action.type){
+        case INIT_INFO:
+            return action.info
         case ADD_INFO:
             return [...state,
                 { 
