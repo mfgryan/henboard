@@ -9,3 +9,12 @@ module.exports.read = function(callback){
         });
     });
 };
+
+module.exports.write = function(callback){
+    Mongodb.getDb(function(db){
+        db.collection('projects').find().toArray(function(err, docs){
+            assert.equal(null, err);
+            callback(docs);
+        });
+    });
+};
