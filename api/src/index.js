@@ -1,12 +1,12 @@
-const express = require('express');
-const app = express();
+const express = require('express'); 
+const app = express();  
 
-var index = require('./routes/index');
-var projects = require('./routes/projects');
-var sprints = require('./routes/sprints');
-var info = require('./routes/info');
-var items = require('./routes/items');
-var lanes = require('./routes/lanes');
+const index = require('./routes/index');
+const projects = require('./routes/projects');
+const sprints = require('./routes/sprints');
+const info = require('./routes/info');
+const items = require('./routes/items');
+const lanes = require('./routes/lanes');
 
 app.use('/', index);
 app.use('/api/projects', projects);

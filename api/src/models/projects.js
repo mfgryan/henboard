@@ -10,11 +10,11 @@ module.exports.read = function(callback){
     });
 };
 
-module.exports.write = function(callback){
+module.exports.write = function(doc,callback){
     Mongodb.getDb(function(db){
-        db.collection('projects').find().toArray(function(err, docs){
+        db.collection('projects').insertOne(doc,function(err, r){
             assert.equal(null, err);
-            callback(docs);
+            callback(r);
         });
     });
 };
