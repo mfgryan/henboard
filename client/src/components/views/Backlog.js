@@ -2,10 +2,10 @@
 import React, { Component } from "react";
 
 // component dep
-import App from "../../components/App";
+import App from "../App";
 
 // style dep
-import "./Backlog.css";
+import "../../css/Backlog.css";
 
 class Backlog extends Component {
     render() {

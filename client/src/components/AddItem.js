@@ -2,7 +2,7 @@
 import React from "react";
 
 // style dep
-import "./AddItem.css";
+import "../css/AddItem.css";
 
 const AddItem = ( { item, lane, toggleAddItem, changeValue, addItem } ) => {
     const style = { visibility: lane.addItem ? "visible" : "hidden" }

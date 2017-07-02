@@ -5,7 +5,7 @@ import React from "react";
 import { Modal, Col, Row, Button } from "react-bootstrap";
 
 // url dep
-import { urlUtil } from "../../util/Util";
+import { urlUtil } from "../util/Util";
 
 const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } ) => {
     return (

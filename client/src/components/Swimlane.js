@@ -2,11 +2,11 @@
 import React from "react";
 
 // component dep
-import GetAddItem from "../addItem/GetAddItem";
-import GetItem from "../item/GetItem";
+import GetAddItem from "../containers/GetAddItem";
+import GetItem from "../containers/GetItem";
 
 // style dep
-import "./Swimlane.css";
+import "../css/Swimlane.css";
 
 const Swimlane = ( { project, column, week, items, allowDrop, dropItem } ) => {
     return (

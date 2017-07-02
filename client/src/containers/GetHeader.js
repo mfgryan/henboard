@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 // component dep
-import Header from "./Header";
+import Header from "../components/Header";
 
 const mapStateToProps = (state, ownProps) => {
     return {

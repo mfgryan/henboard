@@ -2,10 +2,10 @@
 import { connect } from "react-redux";
 
 // component dep
-import Item from "./Item";
+import Item from "../components/Item";
 
 // action dep
-import { openInfo, closeInfo, removeItem } from "../../actions/items";
+import { openInfo, closeInfo, removeItem } from "../actions/items";
 
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find(project => project.current === true);

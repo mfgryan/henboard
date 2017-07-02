@@ -5,11 +5,11 @@ import React from "react";
 import { Grid, Row } from "react-bootstrap";
 
 // component dep
-import GetHeader from "./header/GetHeader";
-import Footer from "./footer/Footer";
+import GetHeader from "../containers/GetHeader.js";
+import Footer from "./Footer.js";
 
 // style dep
-import "./App.css";
+import "../css/App.css";
 
 const App = (props) => (
     <Grid>

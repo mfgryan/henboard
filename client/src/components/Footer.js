@@ -5,7 +5,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 // style dep
-import "./Footer.css";
+import "../css/Footer.css";
 
 const Footer = () => (
     <Row>

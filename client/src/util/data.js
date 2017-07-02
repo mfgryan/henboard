@@ -11,6 +11,11 @@ data.getProjects = function(local){
     return local ? localData : axios.get("/api/projects"); 
 };
 
+// Add project document to 
+data.writeProjects = function(local){
+    //axios.post(
+};
+
 //PK [fk projects.project, week]
 data.getSprints = function(local){
     var localData = [

@@ -5,11 +5,11 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 // component dep
-import GetSwimlane from "../swimlane/GetSwimlane";
-import GetSelector from "../selector/GetSelector";
+import GetSwimlane from "../containers/GetSwimlane";
+import GetSelector from "../containers/GetSelector";
 
 // style dep
-import "./Board.css";
+import "../css/Board.css";
 
 const Board = ( { lanes } ) => {
     const getColWidth = (laneCount, index) => (

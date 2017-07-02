@@ -10,11 +10,11 @@ import henboardApp from "./reducers/index.js";
 
 // react router dep
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom"
-import Home from "./views/home/Home.js";
-import Backlog from "./views/backlog/Backlog.js";
+import Home from "./components/views/Home.js";
+import Backlog from "./components/views/Backlog.js";
 
 // css dep
-import "./index.css";
+import "./css/index.css";
 
 // create initial store 
 let store = createStore(henboardApp, config.getState());
