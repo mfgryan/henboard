@@ -2,18 +2,20 @@
 import { combineReducers } from "redux"
 
 // reducer dep
-import projects from "./projects";
-import lanes from "./lanes";
-import sprints from "./sprints";
-import items from "./items";
-import info from "./info";
+import projects from "./projects.js";
+import lanes from "./lanes.js";
+import sprints from "./sprints.js";
+import items from "./items.js";
+import info from "./info.js";
+import messages from "./messages.js";
 
 const henboardApp = combineReducers({
     projects,
     lanes,
     sprints,
     items,
-    info
+    info,
+    messages
 })
 
 export default henboardApp

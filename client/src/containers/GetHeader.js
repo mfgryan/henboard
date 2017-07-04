@@ -4,16 +4,24 @@ import { connect } from "react-redux";
 // component dep
 import Header from "../components/Header";
 
+// action dep
+import { removeMessages } from "../actions/messages.js";
+
 const mapStateToProps = (state, ownProps) => {
     return {
         project: state.projects.find((project) =>
            project.current === true
-        ).project
+        ).project,
+        messages: state.messages
     }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {};
+    return {
+        removeMessages: () => {
+            dispatch(removeMessages()); 
+        } 
+    };
 };
 
 const GetHeader = connect(  

@@ -3,9 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // redux dep
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import config from "./util/store.js";
+import { logger, validate } from "./util/middleware.js";
+import data from "./util/data.js";
 import henboardApp from "./reducers/index.js";
 
 // react router dep
@@ -17,9 +18,8 @@ import Backlog from "./components/views/Backlog.js";
 import "./css/index.css";
 
 // create initial store 
-let store = createStore(henboardApp, config.getState());
-config.writeAll(store,true);
-config.updateInitialState(store);
+let store = createStore(henboardApp, data.getLocalState(), applyMiddleware(logger,validate));
+data.updateInitialState(store);
 
 ReactDOM.render(
         <Router>

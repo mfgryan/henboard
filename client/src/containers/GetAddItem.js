@@ -50,21 +50,19 @@ const mapDispatchToProps = (dispatch) => {
             }));
         },
         addItem: (item) => {
-            //basic validation. will move to validation middleware
-            if(item.name !== ""){
-                dispatch(addItem({
-                    project: item.project, 
-                    week: item.week, 
-                    column: item.column, 
-                    name: item.name
-                }));
-                //after adding an item clear the input field
-                dispatch(changeValue({
-                    project: item.project, 
-                    column: item.column,
-                    value: ""
-                }))
-            }
+            dispatch(addItem({
+                project: item.project, 
+                week: item.week, 
+                column: item.column, 
+                name: item.name
+            }));
+            
+            //after adding an item clear the input field
+            dispatch(changeValue({
+                project: item.project, 
+                column: item.column,
+                value: ""
+            }))
         }
     };
 };

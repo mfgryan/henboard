@@ -28,7 +28,17 @@ function addItem(item){
         project: item.project,
         week: item.week, 
         column: item.column || "",
-        name: item.name
+        name: item.name,
+        validation: [
+            {
+                field: "name",
+                rules: [
+                    {key: "unique", value: true},
+                    {key: "empty", value: false},
+                    {key: "maxLength", value: 30}
+                ]
+            }
+        ]
     }
 }
 const REMOVE_ITEM = "REMOVE_ITEM";
