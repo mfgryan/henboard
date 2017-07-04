@@ -6,7 +6,7 @@ import Item from './Item.js';
 import { store } from '../util/store.js';
 import { Provider } from "react-redux";
 
-it('renders without crashing', () => {
+test('renders without crashing', () => {
     const div = document.createElement('div');
     const item = Item({
         item: {

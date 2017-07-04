@@ -6,7 +6,7 @@ import Swimlane from './Swimlane';
 import { store } from '../util/store.js';
 import { Provider } from "react-redux";
 
-it('renders without crashing', () => {
+test('renders without crashing', () => {
     const div = document.createElement('div');
     const swimlane = Swimlane({
         project: "henboard",

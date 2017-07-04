@@ -6,7 +6,7 @@ import App from './App';
 import { store } from '../util/store.js';
 import { Provider } from "react-redux";
 
-it('renders without crashing', () => {
+test('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Provider store={store}><App /></Provider>, div);
 });
