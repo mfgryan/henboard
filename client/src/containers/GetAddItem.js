@@ -11,10 +11,12 @@ import { toggleAddItem, changeValue } from "../actions/lanes";
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find( project => project.current === true );
     const currentSprint = state.sprints.find( sprint => sprint.current === true );
-    const currentValue = state.lanes.find((lane) =>
+    const currentLane = state.lanes.find((lane) =>
             lane.project === currentProject.project && 
             lane.column === ownProps.column
-    ).value
+    );
+    const currentValue = currentLane && currentLane.value; // only grab value if not undefined
+    const addItem = currentLane && currentLane.addItem;
     return {
         item: {
             project: currentProject.project,
@@ -25,10 +27,7 @@ const mapStateToProps = (state, ownProps) => {
         lane: {
             project: currentProject.project,        
             column: ownProps.column,
-            addItem: state.lanes.find((lane) =>
-                lane.project === currentProject.project && 
-                lane.column === ownProps.column
-            ).addItem,
+            addItem: addItem,
             value: currentValue
         }
     };
