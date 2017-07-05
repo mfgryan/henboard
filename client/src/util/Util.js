@@ -8,14 +8,10 @@ let dateUtil = () => {
             diff = d.getDate() - day + (day === 0 ? -6:1); // adjust when day is sunday
             return new Date(d.setDate(diff)); 
         },
-        // return the next monday date given a monday date
-        getNextMonday: function (d){
-            return d.setDate(d.getDate() + 7 ) 
-        },
         // return date object given a mm / dd / yy string
         getDate: function (dateString){
             let dates = dateString.split("/"); 
-            return new Date(parseInt(dates[2], 10),parseInt(dates[0], 10),parseInt(dates[1], 10));
+            return new Date(parseInt(dates[2], 10),parseInt(dates[0], 10)-1,parseInt(dates[1], 10));
         },
         // returns date formatted mm/dd/yy
         getDateFormat: function(date){
