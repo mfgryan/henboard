@@ -1,5 +1,9 @@
+.dropDownMenu {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 .errorMessage {
     margin-top: 20px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     position: absolute;
 }
