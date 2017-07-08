@@ -10,8 +10,8 @@ const Selector = ( { project, sprints, currentSprint, setSprint, addSprint } ) =
         <Row>
             <Col md={12}>
                 <DropdownButton noCaret onSelect={(event) => setSprint(event,project)} id={project} title={title}>
-                    {sprints.map((sprint) =>
-                        <MenuItem key={sprint.week} eventKey={sprint.week}>{sprint.week}</MenuItem>
+                    {sprints.map((sprint, index) =>
+                        <MenuItem key={sprint.week} eventKey={sprint.week}>{index+1}&nbsp;&nbsp;<small>{sprint.week}</small></MenuItem>
                     )}
                     <MenuItem divider />
                     <MenuItem eventKey={"add"}>New Sprint + </MenuItem>

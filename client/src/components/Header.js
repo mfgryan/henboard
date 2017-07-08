@@ -13,7 +13,7 @@ const Header = ( { project, messages, removeMessages } ) => {
         <Row>
             <Col md={2}>
                 { messages.length > 0 &&
-                <Alert className="errorMessage" bsStyle="danger">
+                <Alert className="HeaderErrorMessage" bsStyle="danger">
                     <strong>Error. </strong> { messages[0] }
                 </Alert>
                 }
@@ -21,8 +21,8 @@ const Header = ( { project, messages, removeMessages } ) => {
             <Col md={8}>
                 <h1>{ project }</h1>
             </Col>
-            <Col md={2}>
-                <DropdownButton className="dropDownMenu" noCaret title="≡" >
+            <Col md={2} className="HeaderDropdownCol">
+                <DropdownButton className="HeaderDropdownMenu" noCaret title="≡" id="HeaderMenu">
                     <MenuItem key="home" eventKey="home">home</MenuItem>
                     <MenuItem key="backlog" eventKey="backlog">backlog</MenuItem>
                     <MenuItem key="planning" eventKey="planning">planning</MenuItem>

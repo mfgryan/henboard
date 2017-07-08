@@ -2,6 +2,8 @@ import axios from "axios";
 
 const lanes = {};
 
+lanes.primaryKeys = ["project", "column"];
+
 lanes.initialState = [
     { project: "henboard", column: "Todo", addItem: false, value: "" },
     { project: "henboard", column: "Dev", addItem: false, value: "" }, 
@@ -13,8 +15,12 @@ lanes.get = function(){
     return axios.get("/api/lanes"); 
 };
 
-lanes.post = function(){
-    return axios.post("/api/lanes"); 
+lanes.post = function(data){
+    return axios.post("/api/lanes",data); 
+};
+
+lanes.remove = function(data){
+    return axios.post("/api/lanes/delete",data); 
 };
 
 export default lanes;

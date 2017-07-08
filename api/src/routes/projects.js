@@ -12,11 +12,25 @@ app.get('/', function(req, res){
     });
 });
 
-/* POST add a new document */
+/* POST upsert each document in array */
 app.post('/', function(req, res){
-    projects.write(req.body, function(r){
-        console.log(r);  
+    projects.write(req.body, function(){
+        console.log("success");  
         res.json({"success": "200"});
+    }, function(error){
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
+
+/* POST remove each document in array */
+app.post('/delete', function(req, res){
+    projects.remove(req.body, function(){
+        console.log("success");
+        res.json({"success": "200"});
+    }, function(error){
+        console.log(error);
+        res.status(500).send(error);
     });
 });
 

@@ -1,8 +1,11 @@
-.dropDownMenu {
+.HeaderDropdownCol {
+    text-align: right;
+}
+.HeaderDropdownMenu {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.errorMessage {
+.HeaderErrorMessage {
     margin-top: 20px;
     margin-bottom: 10px;
     position: absolute;

@@ -6,6 +6,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { store } from "./util/store.js";
 import data from "./util/data.js";
+import watch from "./util/watch.js";
 
 // react router dep
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom"
@@ -14,9 +15,12 @@ import Backlog from "./components/views/Backlog.js";
 
 // css dep
 import "./css/index.css";
+import info from "./api/info.js";
 
 // dispatch inital state actions
-data.updateInitialState(store);
+data.updateInitialState(store,() => {
+    watch(store, ["projects","sprints","lanes","items","info"],data.write);
+});
 
 ReactDOM.render(
         <Router>

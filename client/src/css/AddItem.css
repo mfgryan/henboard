@@ -1,1 +1,6 @@
-
+.AddItem {
+    text-align: left;
+}
+.AddItemInput {
+    width: 100%;    
+}
