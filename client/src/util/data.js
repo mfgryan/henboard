@@ -112,7 +112,7 @@ const checkCollectionChanges = function(primaryKeys,beforeCollection,afterCollec
     return {updates: updates, removals: removals, inserts: checkInserts(afterCollection)};
 };
 
-const checkChanges = function(keys,beforeArray,afterArray){ 
+data.checkChanges = function(keys,beforeArray,afterArray){ 
     let changes = {};
     for(let i = 0, keyLen = keys.length; i < keyLen; i++){
         let beforeCollection = beforeArray[i];
@@ -126,26 +126,21 @@ const checkChanges = function(keys,beforeArray,afterArray){
 };
 
 const writeUpdates = function(key, updates){
-    for(let i = 0; i < updates.length; i++){
-        data[key].post(updates[i]); 
-    }
-}
+    data[key].post(updates);
+};
 
 const writeRemovals = function(key, updates){
-    for(let i = 0; i < updates.length; i++){
-        data[key].remove(updates[i]); 
-    }
-}
+    data[key].remove(updates);
+};
 
 const writeInserts = writeUpdates;
 
-data.write = function(keys,beforeArray,afterArray){
-    let changes = checkChanges(keys,beforeArray,afterArray);
-    for(let i = 0, len = keys.length; i < len; i++){
-        if(changes[keys[i]] !== undefined){
-            writeUpdates(keys[i], changes[keys[i]].updates);
-            writeRemovals(keys[i], changes[keys[i]].removals);
-            writeInserts(keys[i], changes[keys[i]].inserts);
+data.write = function(changes){
+    for(let key in changes){
+        if(changes.hasOwnProperty(key)){
+            writeUpdates(key, changes[key].updates);
+            writeRemovals(key, changes[key].removals);
+            writeInserts(key, changes[key].inserts);
         }
     }
 };

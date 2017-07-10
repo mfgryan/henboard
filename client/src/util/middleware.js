@@ -1,6 +1,19 @@
 import { displayErrorMessages } from "../actions/messages.js"
 import { validations } from "./validations.js"
 
+import projects from "../api/projects.js";
+import sprints from "../api/sprints.js";
+import lanes from "../api/lanes.js";
+import items from "../api/items.js";
+import info  from "../api/info.js";
+
+const models = {};
+models.projects = projects;
+models.sprints = sprints;
+models.lanes = lanes;
+models.items = items;
+models.info = info;
+
 const logger = store => next => action => {
     console.group(action.type)
     console.info('dispatching', action)
@@ -10,17 +23,15 @@ const logger = store => next => action => {
     return result   
 };
 
-const validate = store => next => action => {
-    let errors = [];
-    if(action.validation){
-        for(let i =0; i < action.validation.length; i++){
-            let field = action.validation[i].field;
-            let rules = action.validation[i].rules;
-            for(let j = 0; j < rules.length; j++){
-                errors = validations[rules[j].key](action[field], rules[j].value, errors) 
-            }
-        }
+const checkErrors = function(store, action, validation){
+    for(let field in validation){
+            
     }
+};
+
+const validate = store => next => action => {
+    let validation = models[action.model].validation;
+    let errors = validation ? checkErrors(store, action, validation) : [];
     return errors.length !== 0  ? store.dispatch(displayErrorMessages(errors)) : next(action); 
 };
 

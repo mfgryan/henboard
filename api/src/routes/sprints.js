@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 
 /* GET sprints route */
 app.get('/', function(req, res){
+    console.log(req.method,req.hostname,req.baseUrl + req.path);
     sprints.read(function(docs){
         res.json(docs);
     });
@@ -14,6 +15,7 @@ app.get('/', function(req, res){
 
 /* POST insert each document in array */
 app.post('/', function(req, res){
+    console.log(req.method,req.hostname,req.baseUrl + req.path);
     sprints.write(req.body, function(){
         console.log("success");  
         res.json({"success": "200"});
@@ -25,6 +27,7 @@ app.post('/', function(req, res){
 
 /* POST remove each document in array */
 app.post('/delete', function(req, res){
+    console.log(req.method,req.hostname,req.baseUrl + req.path);
     sprints.remove(req.body, function(){
         console.log("success");
         res.json({"success": "200"});

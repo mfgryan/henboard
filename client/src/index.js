@@ -19,7 +19,10 @@ import info from "./api/info.js";
 
 // dispatch inital state actions
 data.updateInitialState(store,() => {
-    watch(store, ["projects","sprints","lanes","items","info"],data.write);
+    // watch store for changes and write to Database
+    watch(store, ["projects","sprints","lanes","items","info"],(keys, beforeArray, afterArray) => {
+        data.write(data.checkChanges(keys, beforeArray, afterArray));
+    });
 });
 
 ReactDOM.render(

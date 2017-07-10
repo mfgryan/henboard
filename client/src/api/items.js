@@ -4,6 +4,17 @@ const items = {};
 
 items.primaryKeys = ["project", "name"];
 
+items.validation = [
+    {
+        field: "name",
+        rules: [
+            {key: "unique", value: true},
+            {key: "empty", value: false},
+            {key: "maxLength", value: 30}
+        ]
+    }
+];
+
 items.initialState = [];
 
 //PK [items]
