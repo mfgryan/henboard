@@ -23,15 +23,31 @@ const logger = store => next => action => {
     return result   
 };
 
-const checkErrors = function(store, action, validation){
-    for(let field in validation){
-            
+const checkErrors = function(state, action, validation){
+    let errors = [];
+    if(action.skip){
+        return errors; 
     }
+    for(let field in validation){
+        if(validation.hasOwnProperty(field)){
+            let ruleSet = validation[field];
+            for(let rule in ruleSet){
+                if(ruleSet.hasOwnProperty(rule)){
+                    let input = action[field];
+                    errors = validations[rule](input, ruleSet[rule], errors);  
+                }
+            }             
+        }
+    }
+    if(action.insert){
+        errors = validations.primaryKey([action, state], models[action.model].primaryKeys, errors);
+    }
+    return errors;
 };
 
 const validate = store => next => action => {
-    let validation = models[action.model].validation;
-    let errors = validation ? checkErrors(store, action, validation) : [];
+    let validation = action.model && models[action.model].validation;
+    let errors = validation ? checkErrors(store.getState()[action.model], action, validation) : [];
     return errors.length !== 0  ? store.dispatch(displayErrorMessages(errors)) : next(action); 
 };
 

@@ -4,6 +4,7 @@ function initLanes(lanes){
     return {
         type: INIT_LANES, 
         model: model,
+        skip: true,
         lanes: lanes  
     }
 }

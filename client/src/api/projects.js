@@ -4,6 +4,13 @@ const projects = {};
 
 projects.primaryKeys = ["project"];
 
+projects.validation = {
+    project: {
+        empty: false,
+        maxLength: 30
+    }
+};
+
 projects.initialState = [
     { project: "henboard", current: true }
 ];

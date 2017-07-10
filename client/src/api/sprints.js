@@ -4,6 +4,12 @@ const sprints = {};
 
 sprints.primaryKeys = ["project", "week"];
 
+sprints.validation = {
+    week: {
+        empty: false
+    }
+};
+
 sprints.initialState = [
     { project: "henboard", week: "05/15/17", current: true }
 ];

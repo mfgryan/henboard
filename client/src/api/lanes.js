@@ -4,6 +4,13 @@ const lanes = {};
 
 lanes.primaryKeys = ["project", "column"];
 
+lanes.validation = {   
+    column: {
+        empty: false, 
+        maxLength: 15
+    } 
+};
+
 lanes.initialState = [
     { project: "henboard", column: "Todo", addItem: false, value: "" },
     { project: "henboard", column: "Dev", addItem: false, value: "" }, 

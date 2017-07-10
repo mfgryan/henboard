@@ -4,6 +4,13 @@ const info = {};
 
 info.primaryKeys = ["project", "name", "value"];
 
+info.validation = {
+    value: {
+        empty: false,
+        maxLength: 30
+    }
+}
+
 info.initialState = [];
 
 // PK [info.project, info.name, info.value]

@@ -4,6 +4,7 @@ function initSprints(sprints){
     return {
         type: INIT_SPRINTS, 
         model: model,
+        skip: true,
         sprints: sprints  
     }
 }
@@ -11,6 +12,7 @@ const ADD_SPRINT = "ADD_SPRINT";
 function addSprint(sprint){
     return {   
         type: ADD_SPRINT,
+        insert: true,
         model: model,
         project: sprint.project,
         week: sprint.week

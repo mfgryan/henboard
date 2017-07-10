@@ -4,6 +4,7 @@ function initItems(items){
     return {
         type: INIT_ITEMS, 
         model: model,
+        skip: true,
         items: items  
     }
 }
@@ -29,6 +30,7 @@ const ADD_ITEM = "ADD_ITEM";
 function addItem(item){
     return {
         type: ADD_ITEM,
+        insert: true,
         model: model,
         project: item.project,
         week: item.week, 

@@ -4,6 +4,7 @@ function initInfo(info){
     return {
         type: INIT_INFO, 
         model: model,
+        skip: true,
         info: info  
     }
 }
@@ -11,6 +12,7 @@ const ADD_INFO = "ADD_INFO";
 function addInfo(info){
     return {
         type: ADD_INFO, 
+        insert: true,
         model: model,
         project: info.project,
         name: info.name,
