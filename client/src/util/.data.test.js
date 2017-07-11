@@ -6,5 +6,4 @@ describe('getLocalState', () => {
     });
 });
 
-
-// no unit tests on network req due to external dep 
+// TODO test the api req with mock functions

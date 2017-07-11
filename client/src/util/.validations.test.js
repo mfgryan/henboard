@@ -34,6 +34,8 @@ describe('rules', () => {
         });
     });
 
+    //TODO primaryKey
+
     describe('maxLength', () => {
         test('should be empty when less than condition', () =>{
             let input = "yo";
@@ -47,4 +49,8 @@ describe('rules', () => {
         });
     });
 });
+
+//TODO checkErrors
+
+//TODO check primary keys same tests as the rules one
 
