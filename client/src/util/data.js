@@ -1,38 +1,31 @@
 import axios from "axios";
 
-import projects from "../api/projects.js";
-import sprints from "../api/sprints.js";
-import lanes from "../api/lanes.js";
-import items from "../api/items.js";
-import info  from "../api/info.js";
-
 import { initProjects } from "../actions/projects.js";
 import { initSprints } from "../actions/sprints.js";
 import { initLanes } from "../actions/lanes.js";
 import { initItems } from "../actions/items.js";
 import { initInfo } from "../actions/info.js";
 
-const data = {};
+import { tools } from "./util.js";
 
-data.projects = projects;
-data.sprints = sprints;
-data.lanes = lanes;
-data.items = items;
-data.info = info;
+import models from "../models/models.js";
+
+const data = {};
+const toolBox = tools();
 
 data.getLocalState = function(){   
     return { 
-        projects: projects.initialState,
-        sprints: sprints.initialState,
-        lanes: lanes.initialState,
-        items: items.initialState,
-        info: info.initialState,
+        projects: models.projects.initialState,
+        sprints: models.sprints.initialState,
+        lanes: models.lanes.initialState,
+        items: models.items.initialState,
+        info: models.info.initialState,
         messages: []
     };
 };
 
 data.getInitialState = function(callback){
-    axios.all([projects.get(), sprints.get(), lanes.get(), info.get(), items.get()])
+    axios.all([models.projects.get(), models.sprints.get(), models.lanes.get(), models.info.get(), models.items.get()])
         .then(axios.spread(function(projects, sprints, lanes, items, info){
             callback({
                 projects: projects.data, 
@@ -58,23 +51,6 @@ data.updateInitialState = (store,callback) => {
     });
 };
 
-const primaryKeysMatch = function(primaryKeys,beforeObject,afterObject){
-    for(let i = 0; i < primaryKeys.length; i++){
-        if(beforeObject[primaryKeys[i]] !== afterObject[primaryKeys[i]]){
-            return false;
-        }
-    }
-    return true;
-};
-
-const indexOfMatch = function(primaryKeys,beforeObject,afterCollection){
-    let i = 0, acLen = afterCollection.length;
-    while(i < acLen && (!afterCollection[i] || !primaryKeysMatch(primaryKeys,beforeObject,afterCollection[i]))){
-        i++;
-    }
-    return i === acLen ? -1 : i;
-};
-
 const checkInserts = function(collection){
     let inserts = [];
     for(let k = 0, len = collection.length; k < len; k++){
@@ -93,7 +69,7 @@ const checkCollectionChanges = function(primaryKeys,beforeCollection,afterCollec
     let removals = [];
     for(let j = 0, bcLen = beforeCollection.length; j < bcLen; j++){
         let beforeObject = beforeCollection[j];
-        let index = indexOfMatch(primaryKeys,beforeObject,afterCollection);
+        let index = toolBox.indexOfMatch(primaryKeys,beforeObject,afterCollection);
         if(index >= 0){
             if(JSON.stringify(beforeObject) !== JSON.stringify(afterCollection[index])){
                 // the object was updated

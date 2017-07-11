@@ -1,53 +1,67 @@
 import * as actions from './lanes.js';
 
-test('should create an action to init lanes', () => {
-    const input = []; 
-    const expectedAction = {
+const fieldTest = function(action, expectedFields){
+    for(let field in expectedFields){
+        if(expectedFields.hasOwnProperty(field)){
+            test('should contain correct '+field, () => {
+                expect(action[field]).toEqual(expectedFields[field]);
+            });
+        } 
+    }
+};
+
+describe('init lanes', () => {
+    let input = [];
+    let expectedFields = {
         type: actions.INIT_LANES,
         lanes: input
     }
-    expect(actions.initLanes(input)).toEqual(expectedAction)
+    let action = actions.initLanes(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to toggle add item', () => {
-    const input = {
+describe('toggle add item', () => {
+    let input = {
         project: "henboard", 
-        column: "todo"
+        column: "Todo"
     }
-    const expectedAction = {
+    let expectedFields = {
         type: actions.TOGGLE_ADD_ITEM,
-        project: input.project,    
+        project: input.project,
         column: input.column
     }
-    expect(actions.toggleAddItem(input)).toEqual(expectedAction)
+    let action = actions.toggleAddItem(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to add lane', () => {
-    const input = {
-        project: "henboard",
-        column: "columnx"
+describe('add lane', () => {
+    let input = {
+        project: "henboard", 
+        column: "Todo"
     }
-    const expectedAction = {
+    let expectedFields = {
         type: actions.ADD_LANE,
         project: input.project,
         column: input.column
     }
-    expect(actions.addLane(input)).toEqual(expectedAction)
+    let action = actions.addLane(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to change value', () => {
-    const input = {
-        project: "henboard",
-        column: "todo",
+describe('change value', () => {
+    let input = {
+        project: "henboard", 
+        column: "Todo",
         addItem: false,
         value: "blah"
     }
-    const expectedAction = {
+    let expectedFields = {
         type: actions.CHANGE_VALUE,
         project: input.project,
         column: input.column,
         addItem: input.addItem,
         value: input.value
     }
-    expect(actions.changeValue(input)).toEqual(expectedAction)
+    let action = actions.changeValue(input);
+    fieldTest(action, expectedFields);
 });

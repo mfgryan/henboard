@@ -7,7 +7,7 @@ import Selector from "../components/Selector";
 // action dep
 import { addSprint, setCurrentSprint } from "../actions/sprints";
 
-import { dateUtil } from "../util/Util"; 
+import { date } from "../util/util.js"; 
 
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find(project => project.current === true);
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         setSprint: ( week, project ) => {
             if(week === "add"){
-                dispatch(addSprint({project: project, week: dateUtil().getDateFormat(new Date())}));
+                dispatch(addSprint({project: project, week: date().getDateFormat(new Date())}));
             }else{
                 dispatch(setCurrentSprint({project: project, week: week}))
             }

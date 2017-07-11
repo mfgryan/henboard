@@ -4,7 +4,7 @@ function initInfo(info){
     return {
         type: INIT_INFO, 
         model: model,
-        skip: true,
+        skipValidation: true,
         info: info  
     }
 }

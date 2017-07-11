@@ -5,7 +5,7 @@ import React from "react";
 import { Modal, Col, Row, Button } from "react-bootstrap";
 
 // url dep
-import { urlUtil } from "../util/Util";
+import { url } from "../util/util.js";
 
 const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } ) => {
     return (
@@ -19,8 +19,8 @@ const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } )
                 {info.map((info,index) =>
                 <Row key={index} >
                     <Col md={10}>
-                        {!urlUtil().isUrl(info.value) ? info.value :
-                        <a href={urlUtil().checkProtocol(info.value)}>{info.value}</a>
+                        {!url().isUrl(info.value) ? info.value :
+                        <a href={url().checkProtocol(info.value)}>{info.value}</a>
                         }
                     </Col>
                     <Col md={2}>

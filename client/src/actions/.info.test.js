@@ -1,40 +1,53 @@
 import * as actions from './info.js';
 
-test('should create an action to init info', () => {
-    const info = []; 
-    const expectedAction = {
+const fieldTest = function(action, expectedFields){
+    for(let field in expectedFields){
+        if(expectedFields.hasOwnProperty(field)){
+            test('should contain correct '+field, () => {
+                expect(action[field]).toEqual(expectedFields[field]);
+            });
+        } 
+    }
+};
+
+describe('init info', () => {
+    let input = []; 
+    let expectedFields = {
         type: actions.INIT_INFO,
         info: []
     }
-    expect(actions.initInfo(info)).toEqual(expectedAction)
+    let action = actions.initInfo(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to add info', () => {
-    const info = {
+describe('add info', () => {
+    let input = {
         project: "henboard", 
         name: "item1", 
         value: "hello"
     }
-    const expectedAction = {
+    let expectedFields = {
         type: actions.ADD_INFO,
-        project: info.project,    
-        name: info.name,    
-        value: info.value    
+        project: input.project,
+        name: input.name,
+        value: input.value,
     }
-    expect(actions.addInfo(info)).toEqual(expectedAction)
+    let action = actions.addInfo(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to remove info', () => {
-    const info = {
-        project: "henboard",
-        name: "item1",
+describe('remove info', () => {
+    let input = {
+        project: "henboard", 
+        name: "item1", 
         value: "hello"
     }
-    const expectedAction = {
+    let expectedFields = {
         type: actions.REMOVE_INFO,
-        project: info.project,
-        name: info.name,
-        value: info.value
+        project: input.project,
+        name: input.name,
+        value: input.value,
     }
-    expect(actions.removeInfo(info)).toEqual(expectedAction)
+    let action = actions.removeInfo(input);
+    fieldTest(action, expectedFields);
 });

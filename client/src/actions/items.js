@@ -4,7 +4,7 @@ function initItems(items){
     return {
         type: INIT_ITEMS, 
         model: model,
-        skip: true,
+        skipValidation: true,
         items: items  
     }
 }

@@ -1,10 +1,8 @@
-import { dateUtil, urlUtil } from "./Util.js";
+import { date, url, tools } from "./util.js";
 
-const d = dateUtil();
-const u = urlUtil();
-
+const d = date();
 describe('the date utility', () => {
-    test('should return non falsy dateUtil', () => {
+    test('should return non falsy date', () => {
         expect(d).toBeTruthy();
     });
     
@@ -61,8 +59,9 @@ describe('the date utility', () => {
     });
 });
 
+const u = url();
 describe('the url utility', () => {
-    test('should return non falsy urlUtil', () => {
+    test('should return non falsy url', () => {
         expect(u).toBeTruthy();
     });
 
@@ -88,4 +87,79 @@ describe('the url utility', () => {
             expect(u.checkProtocol(input)).toBe("//"+input);
         });
     });
+});
+
+const t = tools();
+describe('the tools utility', () => {
+    test('should return non falsy tools', () => {
+        expect(t).toBeTruthy(); 
+    });
+
+    describe('keysMatch with no keys', () => {
+        let keys = [];        
+        let objectA = {
+            foo: "bar"
+        }
+        let objectB = {
+            foo: "bar"
+        }
+        expect(t.keysMatch(keys, objectA, objectB)).toBe(true);
+    });
+
+    describe('keysMatch with one key and a match', () => {
+        let keys = ["foo"];        
+        let objectA = {
+            foo: "bar"
+        }
+        let objectB = {
+            foo: "bar"
+        }
+        expect(t.keysMatch(keys, objectA, objectB)).toBe(true);
+    });
+    
+    describe('keysMatch with one key and no match', () => {
+        let keys = ["foo"];        
+        let objectA = {
+            foo: "bar"
+        }
+        let objectB = {
+            foo: "baz"
+        }
+        expect(t.keysMatch(keys, objectA, objectB)).toBe(false);
+    });
+    
+    describe('keysMatch with n keys and a match', () => {
+        let keys = ["foo", "bar", "baz"];        
+        let objectA = {
+            foo: "foo",
+            bar: "bar",
+            baz: "baz"
+        }
+        let objectB = {
+            foo: "foo",
+            bar: "bar",
+            baz: "baz"
+        }
+        expect(t.keysMatch(keys, objectA, objectB)).toBe(true);
+    });
+    
+    describe('keysMatch with n keys and no match', () => {
+        let keys = ["foo", "bar", "baz"];        
+        let objectA = {
+            foo: "foo",
+            bar: "bar",
+            baz: "baz"
+        }
+        let objectB = {
+            foo: "bar",
+            bar: "bar",
+            baz: "bar"
+        }
+        expect(t.keysMatch(keys, objectA, objectB)).toBe(false);
+    });
+
+    // TODO coming soon
+    //describe('indexOfMatch', () => {
+    //});
+    
 });

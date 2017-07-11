@@ -1,36 +1,49 @@
 import * as actions from './sprints.js';
 
-test('should create an action to init sprints', () => {
-    const input = []; 
-    const expectedAction = {
+const fieldTest = function(action, expectedFields){
+    for(let field in expectedFields){
+        if(expectedFields.hasOwnProperty(field)){
+            test('should contain correct '+field, () => {
+                expect(action[field]).toEqual(expectedFields[field]);
+            });
+        } 
+    }
+};
+
+describe('init sprints', () => {
+    let input = []; 
+    let expectedFields = {
         type: actions.INIT_SPRINTS,
         sprints: input
     }
-    expect(actions.initSprints(input)).toEqual(expectedAction)
+    let action = actions.initSprints(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to add sprint', () => {
-    const input = {
-        project: "henboard", 
-        weeek: "5/17/22"
-    }
-    const expectedAction = {
+describe('add sprint', () => {
+    let input = { 
+        project: "henboard",
+        week: "5/17/22",
+    };
+    let expectedFields = {
         type: actions.ADD_SPRINT,
         project: input.project,
-        week: input.week
+        week: input.week,
     }
-    expect(actions.addSprint(input)).toEqual(expectedAction)
+    let action = actions.addSprint(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to set current sprint', () => {
-    const input = {
+describe('set current sprint', () => {
+    let input = { 
         project: "henboard",
-        week: "5/17/22"
-    }
-    const expectedAction = {
+        week: "5/17/22",
+    };
+    let expectedFields = {
         type: actions.SET_CURRENT_SPRINT,
         project: input.project,
         week: input.week
     }
-    expect(actions.setCurrentSprint(input)).toEqual(expectedAction)
+    let action = actions.setCurrentSprint(input);
+    fieldTest(action, expectedFields);
 });

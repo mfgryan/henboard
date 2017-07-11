@@ -1,4 +1,4 @@
-let dateUtil = () => {
+let date = () => {
     const _MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
     return {
         // returns the most recent monday
@@ -31,7 +31,7 @@ let dateUtil = () => {
     }
 };
 
-let urlUtil = () => {
+let url = () => {
     let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
     let regex = new RegExp(expression);
     return {
@@ -48,4 +48,24 @@ let urlUtil = () => {
     };
 };
 
-export { dateUtil, urlUtil }
+let tools = () => {
+    return {
+        keysMatch: function(keys,objectA,objectB){
+            for(let i = 0; i < keys.length; i++){
+                if(objectA[keys[i]] !== objectB[keys[i]]){
+                    return false;
+                }
+            }
+            return true;
+        },
+        indexOfMatch: function(keys,object,collection){
+            let i = 0, len = collection.length;
+            while(i < len && (!collection[i] || !this.keysMatch(keys,object,collection[i]))){
+                i++;
+            }
+            return i === len ? -1 : i;
+        }
+    };
+};
+
+export { date, url, tools }

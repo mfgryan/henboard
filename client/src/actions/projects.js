@@ -4,7 +4,7 @@ function initProjects(projects){
     return {
         type: INIT_PROJECTS, 
         model: model,
-        skip: true,
+        skipValidation: true,
         projects: projects  
     }
 }

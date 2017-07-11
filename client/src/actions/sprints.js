@@ -4,7 +4,7 @@ function initSprints(sprints){
     return {
         type: INIT_SPRINTS, 
         model: model,
-        skip: true,
+        skipValidation: true,
         sprints: sprints  
     }
 }

@@ -1,19 +1,32 @@
 import * as actions from './projects.js';
 
-test('should create an action to init projects', () => {
-    const input = []; 
-    const expectedAction = {
+
+const fieldTest = function(action, expectedFields){
+    for(let field in expectedFields){
+        if(expectedFields.hasOwnProperty(field)){
+            test('should contain correct '+field, () => {
+                expect(action[field]).toEqual(expectedFields[field]);
+            });
+        } 
+    }
+};
+
+describe('init projects', () => {
+    let input = []; 
+    let expectedFields = {
         type: actions.INIT_PROJECTS,
         projects: input
     }
-    expect(actions.initProjects(input)).toEqual(expectedAction)
+    let action = actions.initProjects(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to set current project', () => {
-    const input = "henboard";
-    const expectedAction = {
+describe('set current project', () => {
+    let input = "henboard";
+    let expectedFields = {
         type: actions.SET_CURRENT_PROJECT,
         project: input
     }
-    expect(actions.setCurrentProject(input)).toEqual(expectedAction)
+    let action = actions.setCurrentProject(input);
+    fieldTest(action, expectedFields);
 });

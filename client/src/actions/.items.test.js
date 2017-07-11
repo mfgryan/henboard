@@ -1,109 +1,115 @@
 import * as actions from './items.js';
 
-test('should create an action to init items', () => {
-    const input = []; 
-    const expectedAction = {
+const fieldTest = function(action, expectedFields){
+    for(let field in expectedFields){
+        if(expectedFields.hasOwnProperty(field)){
+            test('should contain correct '+field, () => {
+                expect(action[field]).toEqual(expectedFields[field]);
+            });
+        } 
+    }
+};
+
+describe('init items', () => {
+    let input = []; 
+    let expectedFields = {
         type: actions.INIT_ITEMS,
         items: input
     }
-    expect(actions.initItems(input)).toEqual(expectedAction)
+    let action = actions.initItems(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to open info', () => {
-    const input = {
+describe('open info', () => {
+    let input = {
         project: "henboard", 
         name: "item1"
     }
-    const expectedAction = {
+    let expectedFields = {
         type: actions.OPEN_INFO,
-        project: input.project,    
+        project: input.project,
         name: input.name
     }
-    expect(actions.openInfo(input)).toEqual(expectedAction)
+    let action = actions.openInfo(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to close info', () => {
-    const input = {
-        project: "henboard",
+describe('close info', () => {
+    let input = {
+        project: "henboard", 
         name: "item1"
-    }
-    const expectedAction = {
+    };
+    let expectedFields = {
         type: actions.CLOSE_INFO,
         project: input.project,
         name: input.name
     }
-    expect(actions.closeInfo(input)).toEqual(expectedAction)
+    let action = actions.closeInfo(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to add item', () => {
-    const input = {
-        project: "henboard",
-        week: "5/22/17",
-        column: "todo",
-        name: "blah"
-    }
-    const expectedAction = {
+describe('add item', () => {
+    let input = {
+        project: "henboard", 
+        week: "5/22/17", 
+        column: "todo", 
+        name: "item1"
+    };
+    let expectedFields = {
         type: actions.ADD_ITEM,
-        project: input.project,
         week: input.week,
         column: input.column,
-        name: input.name,
-        validation: [
-            {
-                field: "name",
-                rules: [
-                    {key: "unique", value: true},
-                    {key: "empty", value: false},
-                    {key: "maxLength", value: 30}
-                ]
-            }
-        ]
+        name: input.name
     }
-    expect(actions.addItem(input)).toEqual(expectedAction)
+    let action = actions.addItem(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to remove item', () => {
-    const input = {
-        project: "henboard",
+describe('remove item', () => {
+    let input = {
+        project: "henboard", 
         name: "item1"
-    }
-    const expectedAction = {
+    };
+    let expectedFields = {
         type: actions.REMOVE_ITEM,
         project: input.project,
         name: input.name
     }
-    expect(actions.removeItem(input)).toEqual(expectedAction)
+    let action = actions.removeItem(input);
+    fieldTest(action, expectedFields);
 });
 
-
-test('should create an action to move item', () => {
-    const input = {
-        project: "henboard",
+describe('move item', () => {
+    let input = {
+        project: "henboard", 
         name: "item1",
         week: "5/17/22",
-        column: "todo"
-    }
-    const expectedAction = {
+        column: "Todo"
+    };
+    let expectedFields = {
         type: actions.MOVE_ITEM,
         project: input.project,
         name: input.name,
         week: input.week,
         column: input.column
     }
-    expect(actions.moveItem(input)).toEqual(expectedAction)
+    let action = actions.moveItem(input);
+    fieldTest(action, expectedFields);
 });
 
-test('should create an action to change item value', () => {
-    const input = {
-        project: "henboard",
+describe('change item value', () => {
+    let input = {
+        project: "henboard", 
         name: "item1",
         value: "yo"
-    }
-    const expectedAction = {
+    };
+    let expectedFields = {
         type: actions.CHANGE_ITEM_VALUE,
         project: input.project,
         name: input.name,
         value: input.value
     }
-    expect(actions.changeItemValue(input)).toEqual(expectedAction)
+    let action = actions.changeItemValue(input);
+    fieldTest(action, expectedFields);
 });
+
