@@ -1,7 +1,11 @@
-import middleware from "./middleware.js";
+import {logger, validate} from "./middleware.js";
 
-test('TODO add middleware tests', () => {
-    expect(middleware).toBeTruthy();
+test('should have truthy logger', () => {
+    expect(logger).toBeTruthy();
+});
+
+test('should have truthy validate', () => {
+    expect(validate).toBeTruthy();
 });
 
 //TODO test the logger function
