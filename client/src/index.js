@@ -19,9 +19,9 @@ import "./css/index.css";
 // dispatch inital state actions
 data.updateInitialState(store,() => {
     // watch store for changes and write to Database
-    //watch(store, ["projects","sprints","lanes","items","info"],(keys, beforeArray, afterArray) => {
-    //   data.write(data.checkChanges(keys, beforeArray, afterArray));
-    //});
+    watch(store, ["projects","sprints","lanes","items","info"],(keys, beforeArray, afterArray) => {
+        data.write(data.checkChanges(keys, beforeArray, afterArray));
+    });
 });
 
 ReactDOM.render(

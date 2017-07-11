@@ -25,13 +25,13 @@ data.getLocalState = function(){
 };
 
 data.getInitialState = function(callback){
-    axios.all([models.projects.get(), models.sprints.get(), models.lanes.get(), models.info.get(), models.items.get()])
+    axios.all([models.projects.get(), models.sprints.get(), models.lanes.get(), models.items.get(), models.info.get()])
         .then(axios.spread(function(projects, sprints, lanes, items, info){
             callback({
                 projects: projects.data, 
                 sprints: sprints.data, 
                 lanes: lanes.data, 
-                items: items.data, 
+                items: items.data,
                 info: info.data
             })
         }))
@@ -93,7 +93,7 @@ data.checkChanges = function(keys,beforeArray,afterArray){
     for(let i = 0, keyLen = keys.length; i < keyLen; i++){
         let beforeCollection = beforeArray[i];
         let afterCollection = afterArray[i];
-        let primaryKeys = data[keys[i]].primaryKeys;
+        let primaryKeys = models[keys[i]].primaryKeys;
         
         // check for updates, removals, and inserts
         changes[keys[i]] = checkCollectionChanges(primaryKeys,beforeCollection,afterCollection);
@@ -102,11 +102,11 @@ data.checkChanges = function(keys,beforeArray,afterArray){
 };
 
 const writeUpdates = function(key, updates){
-    data[key].post(updates);
+    updates.length > 0 && models[key].post(updates);
 };
 
 const writeRemovals = function(key, updates){
-    data[key].remove(updates);
+    updates.length > 0 && models[key].remove(updates);
 };
 
 const writeInserts = writeUpdates;
