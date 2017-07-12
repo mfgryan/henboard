@@ -2,6 +2,8 @@ import axios from "axios";
 
 const items = {};
 
+items.fields = ["project", "name", "column", "value", "week", "openInfo"];
+
 items.primaryKeys = ["project", "name"];
 
 items.validation = {

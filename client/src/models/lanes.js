@@ -2,6 +2,8 @@ import axios from "axios";
 
 const lanes = {};
 
+lanes.fields = ["project", "column", "value", "addItem"];
+
 lanes.primaryKeys = ["project", "column"];
 
 lanes.validation = {   

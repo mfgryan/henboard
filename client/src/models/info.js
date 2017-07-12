@@ -2,6 +2,8 @@ import axios from "axios";
 
 const info = {};
 
+info.fields = ["project", "name", "value"];
+
 info.primaryKeys = ["project", "name", "value"];
 
 info.validation = {

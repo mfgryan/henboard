@@ -2,6 +2,8 @@ import axios from "axios";
 
 const sprints = {};
 
+sprints.fields = ["project", "week", "current"];
+
 sprints.primaryKeys = ["project", "week"];
 
 sprints.validation = {
