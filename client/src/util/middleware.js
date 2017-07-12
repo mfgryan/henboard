@@ -5,12 +5,12 @@ import models from "../models/models.js";
 
 const logger = store => next => action => {
     // before
-    console.group(action.type)
-    console.info('dispatching', action)
+    console.group && console.group(action.type)
+    console.info && console.info('dispatching', action)
     let result = next(action)
     // after
     console.log('next state', store.getState())
-    console.groupEnd(action.type)
+    console.group && console.groupEnd(action.type)
     return result;
 };
 
