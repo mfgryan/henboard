@@ -7,7 +7,7 @@ items.primaryKeys = ["project", "name"];
 items.validation = {
     name: {
         empty: false,
-        maxLength: 30
+        maxLength: 40
     }
 };
 

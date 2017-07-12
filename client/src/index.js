@@ -16,12 +16,9 @@ import Backlog from "./components/views/Backlog.js";
 // css dep
 import "./css/index.css";
 
-// dispatch inital state actions
+// swaps the state with the returned state from the DB
 data.updateInitialState(store,() => {
-    // watch store for changes and write to Database
-    watch(store, ["projects","sprints","lanes","items","info"],(keys, beforeArray, afterArray) => {
-        data.write(data.checkChanges(keys, beforeArray, afterArray));
-    });
+    watch(store,["projects","sprints","lanes","items","info"],data.writeOnChanges);
 });
 
 ReactDOM.render(

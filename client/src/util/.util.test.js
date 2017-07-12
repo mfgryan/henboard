@@ -95,7 +95,7 @@ describe('the tools utility', () => {
         expect(t).toBeTruthy(); 
     });
 
-    describe('keysMatch with no keys', () => {
+    test('keysMatch with no keys', () => {
         let keys = [];        
         let objectA = {
             foo: "bar"
@@ -106,7 +106,7 @@ describe('the tools utility', () => {
         expect(t.keysMatch(keys, objectA, objectB)).toBe(true);
     });
 
-    describe('keysMatch with one key and a match', () => {
+    test('keysMatch with one key and a match', () => {
         let keys = ["foo"];        
         let objectA = {
             foo: "bar"
@@ -117,7 +117,7 @@ describe('the tools utility', () => {
         expect(t.keysMatch(keys, objectA, objectB)).toBe(true);
     });
     
-    describe('keysMatch with one key and no match', () => {
+    test('keysMatch with one key and no match', () => {
         let keys = ["foo"];        
         let objectA = {
             foo: "bar"
@@ -128,7 +128,7 @@ describe('the tools utility', () => {
         expect(t.keysMatch(keys, objectA, objectB)).toBe(false);
     });
     
-    describe('keysMatch with n keys and a match', () => {
+    test('keysMatch with n keys and a match', () => {
         let keys = ["foo", "bar", "baz"];        
         let objectA = {
             foo: "foo",
@@ -143,7 +143,7 @@ describe('the tools utility', () => {
         expect(t.keysMatch(keys, objectA, objectB)).toBe(true);
     });
     
-    describe('keysMatch with n keys and no match', () => {
+    test('keysMatch with n keys and no match', () => {
         let keys = ["foo", "bar", "baz"];        
         let objectA = {
             foo: "foo",
@@ -157,9 +157,42 @@ describe('the tools utility', () => {
         }
         expect(t.keysMatch(keys, objectA, objectB)).toBe(false);
     });
-
-    // TODO coming soon
-    //describe('indexOfMatch', () => {
-    //});
+    
+    test('indexOfMatch', () => {
+        test('no match should return -1', () => {
+            let keys = ["foo", "bar"]; 
+            let object = {
+                foo: "bar", 
+                bar: "foo"
+            }
+            let collection = [
+                {
+                    foo: "foo", 
+                    bar: "foo"
+                }
+            ];
+            expect(t.indexOfMatch(keys,object,collection)).toBe(-1);
+        });
+        
+        test('should return correct index of match', () => {
+            let keys = ["foo", "bar"]; 
+            let object = {
+                foo: "bar", 
+                bar: "foo"
+            }
+            let collection = [
+                {
+                    foo: "foo", 
+                    bar: "foo"
+                },
+                object,
+                {
+                    foo: "foo",
+                    bar: "foo"
+                }
+            ];
+            expect(t.indexOfMatch(keys,object,collection)).toBe(1);
+        });
+    });
     
 });

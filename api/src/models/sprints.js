@@ -21,15 +21,28 @@ module.exports.write = function(docs,callback,error){
     let name = "sprints";
     let newDocs = stripIds(docs);
     Mongodb.getDb(function(db){
-        db.collection(name).insertMany(newDocs)
-            .then(function(r){
-                console.log("inserted docs: "+JSON.stringify(newDocs));
+        let updates = [];
+        for(let i=0; i<docs.length;i++){
+            updates.push(new Promise(function(resolve, reject){
+                db.collection(name).updateOne({"project": newDocs[i]["project"],"week": newDocs[i]["week"]},newDocs[i],{upsert: true})
+                    .then(function(r){
+                        console.log("upserted doc: "+JSON.stringify(docs[i]));
+                        resolve();                                         
+                    })
+                    .catch(function(err){
+                        console.log("ERROR: "+err);
+                        reject();
+                    });
+            }));
+        }
+        Promise.all(updates)
+            .then(function(){
+                console.log("all writes done");
                 callback();
             })
-        .catch(function(err){
-            console.log("ERROR: " + err);
-            error();
-        });
+            .catch(function(err){
+                error(err);
+            });
     });
 };
 

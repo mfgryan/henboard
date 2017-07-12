@@ -6,4 +6,3 @@ describe('getLocalState', () => {
     });
 });
 
-// TODO test the api req with mock functions

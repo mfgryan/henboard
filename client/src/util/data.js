@@ -88,7 +88,7 @@ const checkCollectionChanges = function(primaryKeys,beforeCollection,afterCollec
     return {updates: updates, removals: removals, inserts: checkInserts(afterCollection)};
 };
 
-data.checkChanges = function(keys,beforeArray,afterArray){ 
+const checkChanges = function(keys,beforeArray,afterArray){ 
     let changes = {};
     for(let i = 0, keyLen = keys.length; i < keyLen; i++){
         let beforeCollection = beforeArray[i];
@@ -119,6 +119,10 @@ data.write = function(changes){
             writeInserts(key, changes[key].inserts);
         }
     }
+};
+
+data.writeOnChanges = (keys, beforeArray, afterArray) => {
+    data.write(checkChanges(keys, beforeArray, afterArray));
 };
 
 export default data;
