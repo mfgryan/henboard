@@ -2,11 +2,11 @@
 import { connect } from "react-redux";
 
 // component dep
-import Info from "../components/Info";
+import Info from "../Info";
 
 // action dep
-import { addInfo, removeInfo } from "../actions/info";
-import { closeInfo, changeItemValue } from "../actions/items";
+import { addInfo, removeInfo } from "../../actions/info";
+import { closeInfo, changeItemValue } from "../../actions/items";
 
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find(project => project.current === true);

@@ -5,7 +5,7 @@ import React from "react";
 import { Grid, Row } from "react-bootstrap";
 
 // component dep
-import GetHeader from "../containers/GetHeader.js";
+import GetHeader from "./containers/GetHeader.js";
 import Footer from "./Footer.js";
 
 // style dep

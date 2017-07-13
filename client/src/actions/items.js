@@ -33,7 +33,7 @@ function addItem(item){
         insert: true,
         model: model,
         project: item.project,
-        week: item.week, 
+        week: item.week || "",
         column: item.column || "",
         name: item.name,
     }
@@ -71,6 +71,5 @@ function changeItemValue(item){
         value: item.value
     }
 }
-
 
 export { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE, INIT_ITEMS, initItems, openInfo, closeInfo, addItem, removeItem, moveItem, changeItemValue }

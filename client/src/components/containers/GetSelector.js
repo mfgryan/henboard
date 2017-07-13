@@ -2,12 +2,12 @@
 import { connect } from "react-redux";
 
 // component dep
-import Selector from "../components/Selector";
+import Selector from "../Selector";
 
 // action dep
-import { addSprint, setCurrentSprint } from "../actions/sprints";
+import { addSprint, setCurrentSprint } from "../../actions/sprints";
 
-import { date } from "../util/util.js"; 
+import { date } from "../../util/util.js"; 
 
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find(project => project.current === true);

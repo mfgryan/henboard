@@ -2,8 +2,8 @@
 import React from "react";
 
 // component dep
-import GetAddItem from "../containers/GetAddItem";
-import GetItem from "../containers/GetItem";
+import GetAddItem from "./containers/GetAddItem";
+import GetItem from "./containers/GetItem";
 
 // style dep
 import "../css/Swimlane.css";

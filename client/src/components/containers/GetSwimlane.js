@@ -2,10 +2,10 @@
 import { connect } from "react-redux";
 
 // component dep
-import Swimlane from "../components/Swimlane";
+import Swimlane from "../Swimlane";
 
 // action dep
-import { moveItem } from "../actions/items";
+import { moveItem } from "../../actions/items";
 
 const mapStateToProps = (state, ownProps) => {
     const currentProject = state.projects.find( project => project.current === true );

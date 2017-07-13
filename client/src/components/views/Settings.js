@@ -3,19 +3,18 @@ import React, { Component } from "react";
 
 // component dep
 import App from "../App";
-import GetBoard from "../containers/GetBoard";
 
 // style dep
-import "../../css/Home.css";
+import "../../css/Settings.css";
 
-class Home extends Component {
+class Settings extends Component {
     render() {
         return (
             <App>
-                <GetBoard project="henboard" />
+                <p> Settings here!</p>
             </App>
         );
-    }
+    };
 };
 
-export default Home;
+export default Settings;

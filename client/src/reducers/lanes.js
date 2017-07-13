@@ -9,7 +9,9 @@ function lanes(state = [], action){
             return [...state,
                 {
                     project: action.project,
-                    column: action.column 
+                    column: action.column,
+                    addItem: action.addItem,
+                    value: action.value
                 }
             ]
         case TOGGLE_ADD_ITEM:

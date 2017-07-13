@@ -2,10 +2,10 @@
 import { connect } from "react-redux";
 
 // component dep
-import Header from "../components/Header";
+import Header from "../Header";
 
 // action dep
-import { removeMessages } from "../actions/messages.js";
+import { removeMessages } from "../../actions/messages.js";
 
 const mapStateToProps = (state, ownProps) => {
     return {

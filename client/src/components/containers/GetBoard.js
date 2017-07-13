@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 // component dep
-import Board from "../components/Board";
+import Board from "../Board";
 
 const mapStateToProps = (state) => {
     const currentProject = state.projects.find(project => project.current === true);

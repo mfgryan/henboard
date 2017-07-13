@@ -5,7 +5,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 // component dep
-import GetInfo from "../containers/GetInfo";
+import GetInfo from "./containers/GetInfo";
 
 const Item = ( {item, dragItem, openInfo, removeItem } ) => {
     return (

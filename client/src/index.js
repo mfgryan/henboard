@@ -12,6 +12,8 @@ import watch from "./util/watch.js";
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom"
 import Home from "./components/views/Home.js";
 import Backlog from "./components/views/Backlog.js";
+import Planning from "./components/views/Planning.js";
+import Settings from "./components/views/Settings.js";
 
 // css dep
 import "./css/index.css";
@@ -28,6 +30,8 @@ ReactDOM.render(
                     <Route exact path="/" component={Home} />
                     <Route path="/home" component={Home} store={store} />
                     <Route path="/backlog" component={Backlog} />
+                    <Route path="/planning" component={Planning} />
+                    <Route path="/settings" component={Settings} />
                 </div>
             </Provider>
         </Router>,

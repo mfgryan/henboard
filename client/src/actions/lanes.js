@@ -23,7 +23,9 @@ function addLane(lane){
         type: ADD_LANE,
         model: model,
         project: lane.project,
-        column: lane.column
+        column: lane.column,
+        addItem: lane.addItem,
+        value: lane.value,
     }
 }
 const CHANGE_VALUE = "CHANGE_VALUE";
