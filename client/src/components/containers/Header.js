@@ -1,14 +1,15 @@
-// react dep
+// react and redux
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { removeMessages } from "../../actions/messages.js";
+import projects from "../../models/projects.js";
 
-// bootstrap dep
+// style dep
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
+import "../../css/Header.css";
 
-//css dep
-import "../css/Header.css";
-
-const Header = ( { project, messages, removeMessages } ) => {
+export const Header = ( { title, messages, removeMessages } ) => {
     messages.length > 0 && setTimeout(removeMessages, 5000);
     return (
         <Row className="Header">
@@ -20,7 +21,7 @@ const Header = ( { project, messages, removeMessages } ) => {
                 }
             </Col>
             <Col md={4}>
-                <h1>{ project }</h1>
+                <h1>{ title }</h1>
             </Col>
             <Col md={4} className="HeaderDropdownCol">
                 <DropdownButton className="HeaderDropdownMenu" noCaret title="≡" id="HeaderMenu">
@@ -38,4 +39,20 @@ const Header = ( { project, messages, removeMessages } ) => {
     )
 };
 
-export default Header;
+const mapStateToProps = (state, ownProps) => {
+    let project = projects.getCurrentProject(state);
+    return {
+        title: project.project,
+        messages: state.messages
+    }
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        removeMessages: () => {
+            dispatch(removeMessages()); 
+        } 
+    };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

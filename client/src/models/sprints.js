@@ -16,6 +16,16 @@ sprints.initialState = [
     { project: "henboard", week: "05/15/17", current: true }
 ];
 
+sprints.getCurrentSprint = function(state){
+    return state.sprints.find( sprint => sprint.current === true ) || {};
+};
+
+sprints.getSprintArray = function(state, project){
+    return state.sprints.filter((sprint) =>
+        sprint.project === project
+    );
+};
+
 //PK [fk projects.project, week]
 sprints.get = function(){
     return axios.get("/api/sprints"); 

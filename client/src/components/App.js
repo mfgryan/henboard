@@ -1,11 +1,9 @@
 // react dep
 import React from "react";
-
-// bootstrap dep
 import { Grid, Row } from "react-bootstrap";
 
 // component dep
-import GetHeader from "./containers/GetHeader.js";
+import Header from "./containers/Header.js";
 import Footer from "./Footer.js";
 
 // style dep
@@ -13,7 +11,7 @@ import "../css/App.css";
 
 const App = (props) => (
     <Grid>
-        <GetHeader />
+        <Header />
             {props.children}
         <Footer />
     </Grid>

@@ -15,6 +15,12 @@ info.validation = {
 
 info.initialState = [];
 
+info.getInfoArray = function(state, project, name){
+    return state.info.filter((info) =>
+        info.project === project && info.name === name 
+    );
+};
+
 // PK [info.project, info.name, info.value]
 info.get = function(){
     return axios.get("/api/info"); 

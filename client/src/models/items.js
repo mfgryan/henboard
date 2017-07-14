@@ -15,6 +15,13 @@ items.validation = {
 
 items.initialState = [];
 
+items.getItem = function(state, project, name){
+    return state.items.find((item) =>
+            item.project === project && 
+            item.name === name
+    );
+};
+
 //PK [items]
 items.get = function(){
     return axios.get("/api/items"); 

@@ -1,19 +1,18 @@
 // react dep
 import React from "react";
-
-// bootstrap dep
 import { Modal, Col, Row, Button } from "react-bootstrap";
 
-// url dep
+// component dep
+import AddItemInfo from "./containers/AddItemInfo.js";
+
+// utilities
 import { url } from "../util/util.js";
 
-const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } ) => {
+const Info = ( { project, info, title, removeInfo, closeInfo } ) => {
     return (
         <Modal.Dialog draggable="false">
             <Modal.Header>
-                <h2>{item.name}</h2>
-                <input type="text" onChange={(event) =>changeItemValue(event,item)} value={item.value}/>
-                <button onClick={() => addInfo(item)}>Add</button>
+                <AddItemInfo project={project} title={title} showAddItem />
             </Modal.Header>
             {info.length > 0 && <Modal.Body>
                 {info.map((info,index) =>
@@ -30,7 +29,7 @@ const Info = ( { info, item, addInfo, removeInfo, changeItemValue, closeInfo } )
                 )}
             </Modal.Body>}
             <Modal.Footer>
-                <Button onClick={(event) => closeInfo(event,item)}>Close</Button>
+                <Button onClick={(event) => closeInfo(event,title)}>Close</Button>
             </Modal.Footer>
         </Modal.Dialog>
     );

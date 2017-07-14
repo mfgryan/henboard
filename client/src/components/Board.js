@@ -1,7 +1,5 @@
 // react dep
 import React from "react";
-
-// bootstrap dep
 import { Col, Row } from "react-bootstrap";
 
 // component dep

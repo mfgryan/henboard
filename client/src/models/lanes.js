@@ -19,6 +19,19 @@ lanes.initialState = [
     { project: "henboard", column: "Done", addItem: false, value: "" }
 ];
 
+lanes.getLane = function(state, project, column){
+    return state.lanes.find((lane) =>
+            lane.project === project && 
+            lane.column === column
+    );
+};
+
+lanes.getLanes = function(state, project){
+    return state.lanes.filter((lane) =>
+        lane.project === project
+    );
+};
+
 //PK [lanes]
 lanes.get = function(){
     return axios.get("/api/lanes"); 

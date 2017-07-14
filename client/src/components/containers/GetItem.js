@@ -1,19 +1,19 @@
 // redux dep
 import { connect } from "react-redux";
+import { openInfo, closeInfo, removeItem } from "../../actions/items";
+import projects from "../../models/projects.js";
+import sprints from "../../models/sprints.js";
 
 // component dep
 import Item from "../Item";
 
-// action dep
-import { openInfo, closeInfo, removeItem } from "../../actions/items";
-
 const mapStateToProps = (state, ownProps) => {
-    const currentProject = state.projects.find(project => project.current === true);
-    const currentSprint = state.sprints.find(sprint => sprint.current === true);
+    let project = projects.getCurrentProject(state);
+    let sprint = sprints.getCurrentSprint(state);
     return {
         item: {
-            project: currentProject.project, 
-            week: currentSprint.week,
+            project: project.project,
+            week: sprint.week,
             column: ownProps.column,
             name: ownProps.name,
             openInfo: ownProps.openInfo,

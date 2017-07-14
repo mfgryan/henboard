@@ -1,45 +1,24 @@
 // redux dep
 import { connect } from "react-redux";
+import { removeInfo } from "../../actions/info";
+import { closeInfo } from "../../actions/items";
+import projects from "../../models/projects.js";
+import info from "../../models/info.js";
 
 // component dep
 import Info from "../Info";
 
-// action dep
-import { addInfo, removeInfo } from "../../actions/info";
-import { closeInfo, changeItemValue } from "../../actions/items";
-
 const mapStateToProps = (state, ownProps) => {
-    const currentProject = state.projects.find(project => project.current === true);
+    let project = projects.getCurrentProject(state);
     return {
-        info: state.info.filter((info) =>
-            info.project === currentProject.project && info.name === ownProps.name 
-        ),
-        item: {
-            project: currentProject.project, 
-            name: ownProps.name,
-            value: ownProps.value
-        }
+        project: project.project,
+        info: info.getInfoArray(state, project.project, ownProps.name),
+        title: ownProps.name
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addInfo: (item) => { 
-            //only add info item if non blank
-            if(item.value !== ""){
-                dispatch(addInfo({
-                    project: item.project, 
-                    name: item.name, 
-                    value: item.value
-                }));
-            }
-            // clear the input field after adding info item
-            dispatch(changeItemValue({
-                project: item.project,  
-                name: item.name,
-                value: ""
-            }));
-        },
         removeInfo: (info) => {
             dispatch(removeInfo({
                 project: info.project, 
@@ -47,17 +26,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 value: info.value
             }));
         },
-        changeItemValue: (event,item) => {
-            dispatch(changeItemValue({
-                project: item.project, 
-                name: item.name, 
-                value: event.target.value
-            }));
-        },
-        closeInfo: (event,item) =>{
+        closeInfo: (event,title) =>{
             dispatch(closeInfo({
-                project: item.project, 
-                name: item.name
+                project: ownProps.project, 
+                name: title 
             }));    
         }
     }

@@ -17,6 +17,10 @@ projects.initialState = [
     { project: "henboard", current: true }
 ];
 
+projects.getCurrentProject = function(state){
+    return state.projects.find( project => project.current === true ) || {};
+};
+
 //PK [projects]
 projects.get = function(){
     return axios.get("/api/projects"); 

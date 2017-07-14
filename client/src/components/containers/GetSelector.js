@@ -1,22 +1,21 @@
 // redux dep
 import { connect } from "react-redux";
+import { addSprint, setCurrentSprint } from "../../actions/sprints";
+import projects from "../../models/projects.js"
+import sprints from "../../models/sprints.js"
 
 // component dep
 import Selector from "../Selector";
 
-// action dep
-import { addSprint, setCurrentSprint } from "../../actions/sprints";
-
+// utilities
 import { date } from "../../util/util.js"; 
 
 const mapStateToProps = (state, ownProps) => {
-    const currentProject = state.projects.find(project => project.current === true);
+    let project = projects.getCurrentProject(state);
     return {
-        project: currentProject.project,
-        sprints: state.sprints.filter((sprint) =>
-            sprint.project === currentProject.project
-        ),
-        currentSprint: state.sprints.find(sprint => sprint.current)
+        project: project.project,
+        sprints: sprints.getSprintArray(state, project.project),
+        currentSprint: sprints.getCurrentSprint(state, project.project)
     }
 }
 

@@ -1,19 +1,19 @@
 // redux dep
 import { connect } from "react-redux";
+import projects from "../../models/projects.js";
+import lanes from "../../models/lanes.js";
 
 // component dep
 import Board from "../Board";
 
 const mapStateToProps = (state) => {
-    const currentProject = state.projects.find(project => project.current === true);
+    let project = projects.getCurrentProject(state);
     return {
-        lanes: state.lanes.filter((lane) =>
-            lane.project === currentProject.project
-        )
+        lanes: lanes.getLanes(state, project.project)
     };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
