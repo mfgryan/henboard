@@ -3,8 +3,8 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 // component dep
-import GetSwimlane from "./containers/GetSwimlane";
-import GetSelector from "./containers/GetSelector";
+import SwimlaneBoard from "./containers/SwimlaneBoard";
+import SelectorBoard from "./containers/SelectorBoard";
 
 // style dep
 import "../css/Board.css";
@@ -18,13 +18,13 @@ const Board = ( { lanes } ) => {
             <Row className="board">
                 {lanes.map((lane, index) => 
                     <Col md={getColWidth(lanes.length,index)} key={index}>
-                        <GetSwimlane project={lane.project} column={lane.column} />
+                        <SwimlaneBoard project={lane.project} column={lane.column} />
                     </Col>
                 )}
             </Row>
             <Row>
                 <Col md={12}>
-                    <GetSelector />
+                    <SelectorBoard />
                 </Col>
             </Row>
         </div>

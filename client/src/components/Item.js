@@ -5,18 +5,18 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 // component dep
-import GetInfo from "./containers/GetInfo";
+import InfoItem from "./containers/InfoItem.js";
 
-const Item = ( {item, dragItem, openInfo, removeItem } ) => {
+const Item = ( { draggable, item, dragItem, itemClicked, removeItem } ) => {
     return (
-        <Row draggable={!item.openInfo} onDragStart={(event) => dragItem(event,item)}>
+        <Row draggable={draggable} onDragStart={(event) => dragItem(event,item)}>
             <Col md={10}> 
-                <p onClick={(event) => openInfo(event,item)}>{item.name}</p>
+                <p onClick={(event) => itemClicked(event,item)}>{item.name}</p>
             </Col>
             <Col md={2}>
                 <p onClick={() => removeItem(item)}>{item.column === "Done" ? "✔": "X"}</p>
             </Col>
-            {item.openInfo && <GetInfo project="henboard" name={item.name} value={item.value} />}
+            {item.openInfo && <InfoItem project="henboard" name={item.name} value={item.value} />}
         </Row>
     );
 };

@@ -17,9 +17,9 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-const GetBoard = connect(  
+const BoardHome = connect(  
     mapStateToProps,
     mapDispatchToProps
 )(Board);
 
-export default GetBoard;
+export default BoardHome;

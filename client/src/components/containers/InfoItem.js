@@ -35,9 +35,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-const GetInfo = connect(  
+const InfoItem = connect(  
     mapStateToProps,
     mapDispatchToProps
 )(Info);
 
-export default GetInfo;
+export default InfoItem;
