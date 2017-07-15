@@ -5,14 +5,14 @@ import projects from "../../models/projects.js";
 import lanes from "../../models/lanes.js";
 
 // component dep
-import SwimlaneBoard from "./SwimlaneBoard";
+import Swimlane from "./Swimlane";
 import SelectorBoard from "./SelectorBoard";
 
 // style dep
 import { Col, Row } from "react-bootstrap";
 import "../../css/Board.css";
 
-export const Board = ( { lanes } ) => {
+export const Board = ( { project, lanes } ) => {
     const getColWidth = (laneCount, index) => (
         (12 / laneCount) + (index < (12 % laneCount) ? 1 : 0 )
     );
@@ -21,13 +21,13 @@ export const Board = ( { lanes } ) => {
             <Row className="board">
                 {lanes.map((lane, index) => 
                     <Col md={getColWidth(lanes.length,index)} key={index}>
-                        <SwimlaneBoard project={lane.project} column={lane.column} />
+                        <Swimlane project={project.project} column={lane.column} />
                     </Col>
                 )}
             </Row>
             <Row>
                 <Col md={12}>
-                    <SelectorBoard />
+                    <SelectorBoard project={project.project} />
                 </Col>
             </Row>
         </div>
@@ -37,6 +37,7 @@ export const Board = ( { lanes } ) => {
 const mapStateToProps = (state) => {
     let project = projects.getCurrentProject(state);
     return {
+        project: project,
         lanes: lanes.getLanes(state, project.project)
     };
 };
@@ -44,7 +45,5 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {};
 };
-
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(Board);

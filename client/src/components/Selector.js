@@ -1,20 +1,17 @@
 // react dep
 import React from "react";
-
-// bootstrap dep
 import { Col, Row, DropdownButton, MenuItem } from "react-bootstrap";
 
-const Selector = ( { project, sprints, currentSprint, setSprint, addSprint } ) => {
-    const title = <span>Sprint Week {currentSprint.week}</span>
+const Selector = ( { title, items, itemKey, addItemTitle, itemClicked} ) => {
     return (
         <Row>
             <Col md={12}>
-                <DropdownButton noCaret onSelect={(event) => setSprint(event,project)} id={project} title={title}>
-                    {sprints.map((sprint, index) =>
-                        <MenuItem key={sprint.week} eventKey={sprint.week}>{index+1}&nbsp;&nbsp;<small>{sprint.week}</small></MenuItem>
+                <DropdownButton noCaret onSelect={(event) => itemClicked(event)} id="Selector" title={title}>
+                    {items.map((item, index) =>
+                        <MenuItem key={item[itemKey]} eventKey={item[itemKey]}>{index+1}&nbsp;&nbsp;<small>{item[itemKey]}</small></MenuItem>
                     )}
                     <MenuItem divider />
-                    <MenuItem eventKey={"add"}>New Sprint + </MenuItem>
+                    <MenuItem eventKey={"add"}>{addItemTitle}</MenuItem>
                 </DropdownButton>
             </Col>
         </Row>

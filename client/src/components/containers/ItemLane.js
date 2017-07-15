@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
             column: ownProps.column,
             name: ownProps.name,
             openInfo: ownProps.openInfo,
-            value: ownProps.value
+            value: ownProps.value,
+            check: ownProps.column === "Done"
         }
     }
 };

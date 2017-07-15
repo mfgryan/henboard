@@ -11,21 +11,21 @@ import Selector from "../Selector";
 import { date } from "../../util/util.js"; 
 
 const mapStateToProps = (state, ownProps) => {
-    let project = projects.getCurrentProject(state);
     return {
-        project: project.project,
-        sprints: sprints.getSprintArray(state, project.project),
-        currentSprint: sprints.getCurrentSprint(state, project.project)
+        title: "Sprint Week  " +  sprints.getCurrentSprint(state, ownProps.project).week,
+        items: sprints.getSprintArray(state, ownProps.project),
+        itemKey: "week",
+        addItemTitle: "New Sprint +"
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        setSprint: ( week, project ) => {
-            if(week === "add"){
-                dispatch(addSprint({project: project, week: date().getDateFormat(new Date())}));
+        itemClicked: (key) => {
+            if(key === "add"){
+                dispatch(addSprint({project: ownProps.project, week: date().getDateFormat(new Date())}));
             }else{
-                dispatch(setCurrentSprint({project: project, week: week}))
+                dispatch(setCurrentSprint({project: ownProps.project, week: key}))
             }
         }
     }

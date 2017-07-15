@@ -12,7 +12,7 @@ class Home extends Component {
     render() {
         return (
             <App>
-                <Board project="henboard" />
+                <Board />
             </App>
         );
     }
