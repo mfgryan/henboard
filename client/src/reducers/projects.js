@@ -1,7 +1,11 @@
 //action types
 import { SET_CURRENT_PROJECT, INIT_PROJECTS, setCurrentProject } from "../actions/projects";
 
-function projects(state = [], action){
+export const initialState = [
+    { project: "henboard", current: true }
+];
+
+function projects(state = initialState, action){
     switch (action.type){
         case INIT_PROJECTS:
             return action.projects

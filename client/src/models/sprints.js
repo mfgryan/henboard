@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const sprints = {};
 
 sprints.fields = ["project", "week", "current"];
@@ -11,10 +9,6 @@ sprints.validation = {
         empty: false
     }
 };
-
-sprints.initialState = [
-    { project: "henboard", week: "05/15/17", current: true }
-];
 
 sprints.getCurrentSprint = function(state){
     return state.sprints.find( sprint => sprint.current === true ) || {};

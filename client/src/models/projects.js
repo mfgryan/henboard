@@ -13,10 +13,6 @@ projects.validation = {
     }
 };
 
-projects.initialState = [
-    { project: "henboard", current: true }
-];
-
 projects.getCurrentProject = function(state){
     return state.projects.find( project => project.current === true ) || {};
 };

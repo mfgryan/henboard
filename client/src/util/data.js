@@ -14,17 +14,6 @@ import models from "../models/models.js";
 const data = {};
 const toolBox = tools();
 
-data.getLocalState = function(){   
-    return { 
-        projects: models.projects.initialState,
-        sprints: models.sprints.initialState,
-        lanes: models.lanes.initialState,
-        items: models.items.initialState,
-        info: models.info.initialState,
-        messages: []
-    };
-};
-
 data.getInitialState = function(callback){
     axios.all([api.get("projects"), api.get("sprints"), api.get("lanes"), api.get("items"), api.get("info")])
         .then(axios.spread(function(projects, sprints, lanes, items, info){

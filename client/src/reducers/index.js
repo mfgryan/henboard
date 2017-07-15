@@ -9,7 +9,7 @@ import items from "./items.js";
 import info from "./info.js";
 import messages from "./messages.js";
 
-const henboardApp = combineReducers({
+const rootReducer = combineReducers({
     projects,
     lanes,
     sprints,
@@ -18,4 +18,4 @@ const henboardApp = combineReducers({
     messages
 })
 
-export default henboardApp
+export default rootReducer

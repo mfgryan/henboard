@@ -1,7 +1,6 @@
 import watch from "./watch.js";
 import { createStore } from "redux";
-import data from "../util/data.js";
-import henboardApp from "../reducers/index.js";
+import rootReducer from "../reducers/index.js";
 import * as actions from "../actions/projects.js";
 
 describe('watch function', () => {
@@ -13,19 +12,15 @@ describe('watch function', () => {
         expect(createStore).toBeTruthy();
     });
     
-    test('should return non falsy data object', () => {
-        expect(data).toBeTruthy();
-    });
-    
-    test('should return non falsy henboardApp object', () => {
-        expect(henboardApp).toBeTruthy();
+    test('should return non falsy rootReducer object', () => {
+        expect(rootReducer).toBeTruthy();
     });
     
     test('should return non falsy actions object', () => {
         expect(actions).toBeTruthy();
     });
 
-    const store = createStore(henboardApp, data.getLocalState());
+    const store = createStore(rootReducer);
     
     test('should not not call the mockCallback', () => {
         let mockCallback = jest.fn();

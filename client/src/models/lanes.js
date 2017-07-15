@@ -11,12 +11,6 @@ lanes.validation = {
     } 
 };
 
-lanes.initialState = [
-    { project: "henboard", column: "Todo", addItem: false, value: "" },
-    { project: "henboard", column: "Dev", addItem: false, value: "" }, 
-    { project: "henboard", column: "Done", addItem: false, value: "" }
-];
-
 lanes.getLane = function(state, project, column){
     return state.lanes.find((lane) =>
             lane.project === project && 

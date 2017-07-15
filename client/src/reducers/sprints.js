@@ -1,7 +1,11 @@
 // action types
 import { ADD_SPRINT, SET_CURRENT_SPRINT, INIT_SPRINTS } from "../actions/sprints";
 
-function sprints(state = [], action){
+export const initialState = [
+    { project: "henboard", week: "05/15/17", current: true }
+];
+
+function sprints(state = initialState, action){
     switch (action.type){
         case INIT_SPRINTS:
             return action.sprints
