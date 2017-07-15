@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const lanes = {};
 
 lanes.fields = ["project", "column", "value", "addItem"];
@@ -30,19 +28,6 @@ lanes.getLanes = function(state, project){
     return state.lanes.filter((lane) =>
         lane.project === project
     );
-};
-
-//PK [lanes]
-lanes.get = function(){
-    return axios.get("/api/lanes"); 
-};
-
-lanes.post = function(data){
-    return axios.post("/api/lanes",data); 
-};
-
-lanes.remove = function(data){
-    return axios.post("/api/lanes/delete",data); 
 };
 
 export default lanes;

@@ -21,17 +21,4 @@ projects.getCurrentProject = function(state){
     return state.projects.find( project => project.current === true ) || {};
 };
 
-//PK [projects]
-projects.get = function(){
-    return axios.get("/api/projects"); 
-};
-
-projects.post = function(data){
-    return axios.post("/api/projects",data); 
-};
-
-projects.remove = function(data){
-    return axios.post("/api/projects/delete",data);
-};
-
 export default projects;

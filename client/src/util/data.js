@@ -7,6 +7,7 @@ import { initItems } from "../actions/items.js";
 import { initInfo } from "../actions/info.js";
 
 import { tools } from "./util.js";
+import api from "./api.js";
 
 import models from "../models/models.js";
 
@@ -25,7 +26,7 @@ data.getLocalState = function(){
 };
 
 data.getInitialState = function(callback){
-    axios.all([models.projects.get(), models.sprints.get(), models.lanes.get(), models.items.get(), models.info.get()])
+    axios.all([api.get("projects"), api.get("sprints"), api.get("lanes"), api.get("items"), api.get("info")])
         .then(axios.spread(function(projects, sprints, lanes, items, info){
             callback({
                 projects: projects.data, 
@@ -102,11 +103,11 @@ const checkChanges = function(keys,beforeArray,afterArray){
 };
 
 const writeUpdates = function(key, updates){
-    updates.length > 0 && models[key].post(updates);
+    updates.length > 0 && api.post(key,updates);
 };
 
 const writeRemovals = function(key, updates){
-    updates.length > 0 && models[key].remove(updates);
+    updates.length > 0 && api.remove(key,updates);
 };
 
 const writeInserts = writeUpdates;
