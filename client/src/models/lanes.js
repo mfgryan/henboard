@@ -20,7 +20,12 @@ lanes.getLane = function(state, project, column){
 
 lanes.getLanes = function(state, project){
     return state.lanes.filter((lane) =>
-        lane.project === project
+        lane.project === project && lane.column !== "Backlog"
+    );
+};
+lanes.getBacklog = function(state, project){
+    return state.lanes.filter((lane) =>
+        lane.project === project && lane.column === "Backlog"
     );
 };
 

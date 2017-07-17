@@ -12,7 +12,7 @@ const Info = ( { project, info, title, removeInfo, closeInfo } ) => {
     return (
         <Modal.Dialog draggable="false">
             <Modal.Header>
-                <AddItemInfo project={project} title={title} showAddItem />
+                <AddItemInfo project={project} title={title}/>
             </Modal.Header>
             {info.length > 0 && <Modal.Body>
                 {info.map((info,index) =>

@@ -1,0 +1,7 @@
+.BacklogButton {
+    visibility: hidden;
+}
+
+.Item:hover > .BacklogButton {
+    visibility: visible;
+}

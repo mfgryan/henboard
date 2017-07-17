@@ -1,6 +1,6 @@
 // redux dep
 import { connect } from "react-redux";
-import { changeItemValue  } from "../../actions/items";
+import { changeItemValue, toggleInfoAdd  } from "../../actions/items";
 import { addInfo } from "../../actions/info";
 import items from "../../models/items.js";
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         title: ownProps.title,
         value: item.value,
-        showAddItem: ownProps.showAddItem,
+        showAddItem: item.addItem,
         item: {
             project: ownProps.project,
             name: ownProps.title,
@@ -23,7 +23,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toggleAddItem: (title) => {}, 
+        toggleAddItem: (title) => {
+            dispatch(toggleInfoAdd({project: ownProps.project, name: title})); 
+        }, 
         changeValue: (event,title) => {
             dispatch(changeItemValue({
                 project: ownProps.project,  

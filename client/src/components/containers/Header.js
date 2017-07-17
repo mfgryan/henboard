@@ -9,7 +9,7 @@ import projects from "../../models/projects.js";
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
 import "../../css/Header.css";
 
-export const Header = ( { title, messages, removeMessages } ) => {
+export const Header = ( { title, messages, removeMessages, itemClicked } ) => {
     messages.length > 0 && setTimeout(removeMessages, 5000);
     return (
         <Row className="Header">
@@ -24,15 +24,15 @@ export const Header = ( { title, messages, removeMessages } ) => {
                 <h1>{ title }</h1>
             </Col>
             <Col md={4} className="HeaderDropdownCol">
-                <DropdownButton className="HeaderDropdownMenu" noCaret title="≡" id="HeaderMenu">
-                    <MenuItem key="home" eventKey="home"><Link to="/home">home</Link></MenuItem>
-                    <MenuItem key="backlog" eventKey="backlog"><Link to="/backlog">backlog</Link></MenuItem>
-                    <MenuItem key="planning" eventKey="planning"><Link to="/planning">planning</Link></MenuItem>
+                <DropdownButton noCaret className="HeaderDropdownMenu" title="≡" id="HeaderMenu" onSelect={(event) => itemClicked(event)} >
+                    <li><Link to="/home">home</Link></li>
+                    <li><Link to="/backlog">backlog</Link></li>
+                    <li><Link to="/planning">planning</Link></li>
                     <MenuItem divider />
-                    <MenuItem key="undo" eventKey="undo">undo <small>(← key)</small></MenuItem>
-                    <MenuItem key="redo" eventKey="redo">redo <small>(→ key)</small></MenuItem>
+                    <MenuItem key="undo" eventKey="undo">undo</MenuItem>
+                    <MenuItem key="redo" eventKey="redo">redo</MenuItem>
                     <MenuItem divider />
-                    <MenuItem key="settings" eventKey="settings"><Link to="/settings">settings</Link></MenuItem>
+                    <li><Link to="/settings">settings</Link></li>
                 </DropdownButton>
             </Col>
         </Row>
@@ -51,7 +51,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         removeMessages: () => {
             dispatch(removeMessages()); 
-        } 
+        },
+        itemClicked: (key) => {
+        }
     };
 };
 

@@ -4,7 +4,8 @@ import { ADD_LANE, TOGGLE_ADD_ITEM, CHANGE_VALUE, INIT_LANES } from "../actions/
 export const initialState = [
     { project: "henboard", column: "Todo", addItem: false, value: "" },
     { project: "henboard", column: "Dev", addItem: false, value: "" }, 
-    { project: "henboard", column: "Done", addItem: false, value: "" }
+    { project: "henboard", column: "Done", addItem: false, value: "" },
+    { project: "henboard", column: "Backlog", addItem: false, value: "" }
 ];
 
 function lanes(state = initialState, action){

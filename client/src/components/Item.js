@@ -7,7 +7,7 @@ import InfoItem from "./containers/InfoItem.js";
 
 const Item = ( { draggable, item, children, dragItem, itemClicked, removeItem } ) => {
     return (
-        <Row draggable={draggable} onDragStart={(event) => dragItem(event,item)}>
+        <Row className="Item" draggable={draggable} onDragStart={(event) => dragItem(event,item)}>
             <Col md={10}> 
                 <p onClick={(event) => itemClicked(event,item)}>{item.name}</p>
             </Col>

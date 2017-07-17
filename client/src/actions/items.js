@@ -36,6 +36,7 @@ function addItem(item){
         week: item.week || "",
         column: item.column || "",
         name: item.name,
+        addItem: false
     }
 }
 const REMOVE_ITEM = "REMOVE_ITEM";
@@ -72,4 +73,14 @@ function changeItemValue(item){
     }
 }
 
-export { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE, INIT_ITEMS, initItems, openInfo, closeInfo, addItem, removeItem, moveItem, changeItemValue }
+const TOGGLE_INFO_ADD = "TOGGLE_INFO_ADD";
+function toggleInfoAdd(item){
+    return {
+        type: TOGGLE_INFO_ADD,
+        model: model,
+        project: item.project,
+        name: item.name
+    }
+}
+
+export { OPEN_INFO, CLOSE_INFO, ADD_ITEM, REMOVE_ITEM, MOVE_ITEM, CHANGE_ITEM_VALUE, INIT_ITEMS, TOGGLE_INFO_ADD, initItems, openInfo, closeInfo, addItem, removeItem, moveItem, changeItemValue, toggleInfoAdd }
