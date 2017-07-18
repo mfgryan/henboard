@@ -1,0 +1,37 @@
+version: '3'
+services:
+    client:
+        image: mfgryan/henclient:latest
+        entrypoint: /bin/bash
+        command: -c "npm run prod" 
+        ports:
+            - "${CLIENT_PORT:-4000}:4000"
+        networks:
+            - henboard
+        volumes:
+            - node_modules:/home/nginx/node_modules
+    api:
+        image: mfgryan/henapi:latest
+        entrypoint: /bin/bash
+        command: -c "npm run prod" 
+        ports:
+            - "${CLIENT_PORT:-4001}:4001"
+        networks:
+            - henboard
+        volumes:
+            - node_modules:/home/nginx/node_modules
+    db:
+        image: mfgryan/hendb:latest
+        command: "mongod" 
+        ports:
+            - 27016:27017 
+        networks:
+            - henboard
+        volumes:
+            - node_modules:/home/nginx/node_modules
+        environment:
+            ENV: prod
+networks:
+    henboard:
+volumes:
+    node_modules:

@@ -1,8 +1,9 @@
 var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 
 // Connection URL
-var host = 'db_db_1';
-var port = '27017';
+var isProd = process.env.ENV && process.env.ENV === "prod";
+var host = isProd ? 'henboard_db_1' : 'db_db_1';
+var port = isProd ? '27016' : '27017';
 var name = 'henboard';
 var url = 'mongodb://'+host+':'+port+'/'+name;
 var db;

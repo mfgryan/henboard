@@ -17,7 +17,7 @@
     "nodemon": "^1.11.0",
     "react-scripts": "0.9.5"
   },
-  "proxy": "http://api_api_1:8080",
+  "proxy": "http://api_api_1:3001",
   "scripts": {
     "dev": "npm install; npm start", 
     "prod": "npm install; npm run build; nginx -g \"daemon off;\" ",

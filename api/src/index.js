@@ -15,6 +15,9 @@ app.use('/api/info', info);
 app.use('/api/items', items);
 app.use('/api/lanes', lanes);
 
-app.listen(8080, function () {
-    console.log('app listening on port 8080');
+const isProd = process.env.ENV && process.env.ENV === 'prod';
+const port = isProd ? 4001 : 3001;
+
+app.listen(port, function () {
+    console.log('app listening on port ' + port);
 });
