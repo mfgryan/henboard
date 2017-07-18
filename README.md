@@ -12,7 +12,7 @@ You can then use npm or Docker to run the app.
 
   #### Node.js / npm 
 
-  run **`npm install`**, and then **`npm start`**
+  run **`npm install`**, and then **`npm start`** in client, db, and api directories
 
 
   #### Docker
@@ -23,9 +23,11 @@ You can then use npm or Docker to run the app.
 
   #### Hosts / Ports
   
-  dev server **`localhost:3000`** (npm start)
+  client server **`localhost:3000`**
   
-  prod **`localhost:8000`** (docker-compose up)
+  api server **`localhost:8080`**
+  
+  db server **`localhost:27017`**
   
 
 ## Questions?
@@ -33,6 +35,7 @@ You can then use npm or Docker to run the app.
   #### Contact
   - email [henao@henserver.com](http://www.henserver.com)
   - linkedin [linkedin.com/in/ryan-henao-4173917b](https://www.linkedin.com/in/ryan-henao-4173917b/)
+  - website [henserver](http://www.henserver.com)
 
   #### Author
   Ryan Henao
