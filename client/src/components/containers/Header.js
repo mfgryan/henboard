@@ -20,10 +20,7 @@ export const Header = ( { title, messages, removeMessages, itemClicked } ) => {
                 </Alert>
                 }
             </Col>
-            <Col md={4}>
-                <h1>{ title }</h1>
-            </Col>
-            <Col md={4} className="HeaderDropdownCol">
+            <Col md={4} mdOffset={8} className="HeaderDropdownCol">
                 <DropdownButton noCaret className="HeaderDropdownMenu" title="≡" id="HeaderMenu" onSelect={(event) => itemClicked(event)} >
                     <li><Link to="/home">home</Link></li>
                     <li><Link to="/backlog">backlog</Link></li>

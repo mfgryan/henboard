@@ -4,3 +4,6 @@
 .AddItemInput {
     width: 100%;    
 }
+.input-group {
+    width: 75%;
+}
