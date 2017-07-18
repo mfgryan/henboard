@@ -10,6 +10,8 @@ services:
             - henboard
         volumes:
             - node_modules:/home/nginx/node_modules
+        environment:
+            ENV: prod
     api:
         image: mfgryan/henapi:latest
         entrypoint: /bin/bash
@@ -19,7 +21,9 @@ services:
         networks:
             - henboard
         volumes:
-            - node_modules:/home/nginx/node_modules
+            - node_modules:/home/express/node_modules
+        environment:
+            ENV: prod
     db:
         image: mfgryan/hendb:latest
         command: "mongod" 
@@ -28,7 +32,7 @@ services:
         networks:
             - henboard
         volumes:
-            - node_modules:/home/nginx/node_modules
+            - node_modules:/home/mongo/node_modules
         environment:
             ENV: prod
 networks:
