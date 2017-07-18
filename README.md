@@ -23,8 +23,10 @@ You can then use npm or Docker to run the app.
 
   #### Hosts / Ports
   
-  client server **`localhost:3000`** 
+  client server **`localhost:3000`**
+  
   api server **`localhost:8080`**
+  
   db server **`localhost:27017`**
   
 
