@@ -21,7 +21,8 @@ function items(state = [], action){
                     column: action.column, 
                     name: action.name,
                     openInfo: false,
-                    value: ""
+                    value: "",
+                    addItem: true
                 }
             ]
         case REMOVE_ITEM:

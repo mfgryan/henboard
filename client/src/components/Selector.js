@@ -2,9 +2,12 @@
 import React from "react";
 import { Col, Row, DropdownButton, MenuItem } from "react-bootstrap";
 
+// style dep
+import "../css/Selector.css";
+
 const Selector = ( { title, items, itemKey, addItemTitle, itemClicked} ) => {
     return (
-        <Row>
+        <Row className="Selector">
             <Col md={12}>
                 <DropdownButton noCaret onSelect={(event) => itemClicked(event)} id="Selector" title={title}>
                     {items.map((item, index) =>

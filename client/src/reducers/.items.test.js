@@ -38,7 +38,7 @@ describe('items reducer', () => {
         let input = { project: "henboard", name: "fooItem" };
         let action = actions.addItem(input);
 
-        let expectedState = [{ project: "henboard", name: "fooItem", week: "", column: "", openInfo: false, value: "" }];
+        let expectedState = [{ project: "henboard", name: "fooItem", week: "", column: "", openInfo: false, value: "", addItem: true}];
         expect(items(initialState, action)).toEqual(expectedState);  
     });
     
