@@ -1,8 +1,11 @@
 //action types
-import { INIT_PLANNING, SET_PLANNING, initPlanning, setPlanning } from "../actions/planning.js";
+import { INIT_PLANNING, SET_PLANNING, TOGGLE_PLANNING, CHANGE_PLANNING_VALUE, initPlanning, setPlanning } from "../actions/planning.js";
 
 export const initialState = [{
-    project: "henboard", missionStatement: ""
+    project: "henboard", 
+    missionStatement: "Click \"Mission Statement\" to create a new plan",
+    editing: false,
+    value: ""
 }];
 
 function planning(state = initialState, action){
@@ -11,7 +14,15 @@ function planning(state = initialState, action){
             return action.planning
         case SET_PLANNING: 
             return state.map((plan) =>{
-                return (plan.project === action.project) ? Object.assign({},{project: action.project, missionStatement: action.missionStatement}) : plan
+                return (plan.project === action.project) ? Object.assign({}, plan, {missionStatement: action.missionStatement}) : plan
+            })
+        case TOGGLE_PLANNING:
+            return state.map((plan) => {
+                return (plan.project === action.project) ? Object.assign({}, plan, {editing: !plan.editing}) : plan 
+            })
+        case CHANGE_PLANNING_VALUE:
+            return state.map((plan) => {
+                return (plan.project === action.project) ? Object.assign({}, plan, {value: action.value}) : plan 
             })
         default:
             return state

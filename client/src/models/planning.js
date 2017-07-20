@@ -1,17 +1,13 @@
 const planning = {};
 
-planning.fields = ["project", "missionStatement"];
+planning.fields = ["project", "missionStatement", "value", "editing"];
 
-planning.primaryKeys = ["project"];
+planning.primaryKeys = ["project", "missionStatement"];
 
-planning.validation = {
-    planning: {
-        maxLength: 1000
-    }
-};
+planning.validation = {};
 
-planning.getMissionStatement = function(state){
-    return state.planning.find( project => project.current === true ) || {};
+planning.getPlan = function(state, project){
+    return state.planning.find( plan => plan.project === project ) || {};
 };
 
 export default planning;

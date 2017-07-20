@@ -22,6 +22,42 @@ describe('planning reducer', () => {
         expect(planning(initialState, action)).toEqual(expectedState);  
     });
     
+    test('togglePlanning', () => {
+        let initialState = [{
+            project: "henboard", 
+            missionStatement: "foo bar statement",
+            editing: false,
+            value: "foo bar value"
+        }];
+        let input = {project: "henboard"};
+        let action = actions.togglePlanning(input);
+        let expectedState = [{
+            project: "henboard", 
+            missionStatement: "foo bar statement",
+            editing: true,
+            value: "foo bar value"
+        }];
+        expect(planning(initialState, action)).toEqual(expectedState);  
+    });
+    
+    test('changePlanningValue', () => {
+        let initialState = [{
+            project: "henboard", 
+            missionStatement: "foo bar statement",
+            editing: true,
+            value: "foo bar value"
+        }];
+        let input = {project: "henboard", value: "new foo bar"};
+        let action = actions.changePlanningValue(input);
+        let expectedState = [{
+            project: "henboard",
+            missionStatement: "foo bar statement",
+            editing: true,
+            value: input.value
+        }];
+        expect(planning(initialState, action)).toEqual(expectedState);  
+    });
+    
     test('default ', () => {
         let initialState = [];
         let action = {type: "UNKNOWN_TYPE"};

@@ -8,6 +8,7 @@ import sprints from "./sprints.js";
 import items from "./items.js";
 import info from "./info.js";
 import messages from "./messages.js";
+import planning from "./planning.js";
 
 const rootReducer = combineReducers({
     projects,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
     sprints,
     items,
     info,
-    messages
+    messages,
+    planning
 })
 
 export default rootReducer

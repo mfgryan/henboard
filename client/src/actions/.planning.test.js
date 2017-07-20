@@ -31,3 +31,24 @@ describe('set planning', () => {
     let action = actions.setPlanning(input);
     fieldTest(action, expectedFields);
 });
+
+describe('toggle planning', () => {
+    let input = {project: "henboard"}
+    let expectedFields = {
+        type: actions.TOGGLE_PLANNING,
+        project: input.project
+    }
+    let action = actions.togglePlanning(input);
+    fieldTest(action, expectedFields);
+});
+
+describe('change planning value', () => {
+    let input = {project: "henboard", value: "foo bar mission statement"}
+    let expectedFields = {
+        type: actions.CHANGE_PLANNING_VALUE,
+        project: input.project,
+        value: input.value
+    }
+    let action = actions.changePlanningValue(input);
+    fieldTest(action, expectedFields);
+});

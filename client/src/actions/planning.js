@@ -17,5 +17,22 @@ function setPlanning(plan){
         missionStatement: plan.missionStatement
     }
 }
+const TOGGLE_PLANNING = "TOGGLE_PLANNING";
+function togglePlanning(plan){
+    return {
+        type: TOGGLE_PLANNING,
+        model: model,
+        project: plan.project
+    }
+}
+const CHANGE_PLANNING_VALUE = "CHANGE_PLANNING_VALUE";
+function changePlanningValue(plan){
+    return {
+        type: CHANGE_PLANNING_VALUE,
+        model: model,
+        project: plan.project,
+        value: plan.value
+    }
+}
 
-export { INIT_PLANNING, SET_PLANNING, initPlanning, setPlanning }
+export { INIT_PLANNING, SET_PLANNING, TOGGLE_PLANNING, CHANGE_PLANNING_VALUE, initPlanning, setPlanning, togglePlanning, changePlanningValue }
