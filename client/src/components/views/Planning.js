@@ -1,7 +1,7 @@
 // react dep
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import projects from "../../models/projects.js";
 import sprints from "../../models/sprints.js";
 
@@ -17,7 +17,16 @@ export const Planning = ({ project, week }) => {
             <Row>
                 <Col md={8} mdOffset={2}>
                     <h2>Mission Statement</h2>
+                </Col>
+            </Row>
+            <Row>
+                <Col md={8} mdOffset={2}>
                     <textarea/>
+                </Col>
+            </Row>
+            <Row>
+                <Col md={8} mdOffset={2} className="PlanningButton" >
+                    <Button>Save</Button>
                 </Col>
             </Row>
         </App>

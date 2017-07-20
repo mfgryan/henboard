@@ -7,7 +7,7 @@ info.primaryKeys = ["project", "name", "value"];
 info.validation = {
     value: {
         empty: false,
-        maxLength: 50
+        maxLength: 100
     }
 }
 
