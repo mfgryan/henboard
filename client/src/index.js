@@ -20,7 +20,7 @@ import "./css/index.css";
 
 // swaps the state with the returned state from the DB
 data.updateInitialState(store,() => {
-    watch(store,["projects","sprints","lanes","items","info"],data.writeOnChanges);
+    watch(store,["projects","sprints","lanes","items","info", "planning"],data.writeOnChanges);
 });
 
 ReactDOM.render(

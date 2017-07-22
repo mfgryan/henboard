@@ -5,6 +5,7 @@ import { initSprints } from "../actions/sprints.js";
 import { initLanes } from "../actions/lanes.js";
 import { initItems } from "../actions/items.js";
 import { initInfo } from "../actions/info.js";
+import { initPlanning } from "../actions/planning.js";
 
 import { tools } from "./util.js";
 import api from "./api.js";
@@ -15,14 +16,15 @@ const data = {};
 const toolBox = tools();
 
 data.getInitialState = function(callback){
-    axios.all([api.get("projects"), api.get("sprints"), api.get("lanes"), api.get("items"), api.get("info")])
-        .then(axios.spread(function(projects, sprints, lanes, items, info){
+    axios.all([api.get("projects"), api.get("sprints"), api.get("lanes"), api.get("items"), api.get("info"), api.get("planning")])
+        .then(axios.spread(function(projects, sprints, lanes, items, info, planning){
             callback({
                 projects: projects.data, 
                 sprints: sprints.data, 
                 lanes: lanes.data, 
                 items: items.data,
-                info: info.data
+                info: info.data,
+                planning: planning.data
             })
         }))
         .catch(function(err){
@@ -37,6 +39,7 @@ data.updateInitialState = (store,callback) => {
         store.dispatch(initLanes(state.lanes));
         store.dispatch(initItems(state.items));
         store.dispatch(initInfo(state.info));
+        store.dispatch(initPlanning(state.planning));
         callback();
     });
 };
