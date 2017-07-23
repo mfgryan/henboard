@@ -8,7 +8,6 @@
 
 To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`**
 
-You can then use npm or Docker to run the app.
 
   #### Node.js / npm 
 
