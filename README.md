@@ -2,7 +2,10 @@
 
   A minimalist todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
   
-
+<img
+    src="https://raw.githubusercontent.com/mfgryan/henboard/master/demo.png"
+    width="600"
+    alt="demo image"/>
 
 ## Development
 
@@ -19,11 +22,6 @@ To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`*
   docker [repository](https://hub.docker.com/r/mfgryan/henboard/)
   
   run **`docker-compose up`**
-
-  <img
-    src="https://raw.githubusercontent.com/mfgryan/henboard/master/demo.png"
-    width="600"
-    alt="demo image"/>
 
   #### Hosts / Ports
   
