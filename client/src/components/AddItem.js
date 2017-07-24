@@ -7,13 +7,14 @@ import "../css/AddItem.css";
 
 const AddItem = ( { title, value, showAddItem, item, toggleAddItem, changeValue, addItem } ) => {
     const style = { visibility: showAddItem ? "visible" : "hidden" }
+    const keyPressed = (event, item) => event.key === "Enter" && addItem(item);
     return (
         <div className="AddItem">
             <h2 onClick={() => toggleAddItem(title)} >{title}</h2>
             <div className="AddItemInput" style={style}>
                 <FormGroup>
                     <InputGroup bsSize="sm">
-                        <FormControl type="text" value={value} onChange={(event) => changeValue(event,title)} />
+                        <FormControl type="text" value={value} onKeyPress={(event) => keyPressed(event,item)} onChange={(event) => changeValue(event,title)} />
                         <InputGroup.Button type="text">
                             <Button onClick={() => addItem(item)} >Add</Button>
                         </InputGroup.Button>
