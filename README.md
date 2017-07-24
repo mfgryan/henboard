@@ -20,6 +20,11 @@ To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`*
   
   run **`docker-compose up`**
 
+  <img
+    src="https://raw.githubusercontent.com/mfgryan/henboard/master/demo.png"
+    width="600"
+    alt="demo image"/>
+
   #### Hosts / Ports
   
   client server **`localhost:3000`** prod **`localhost:4000`**
