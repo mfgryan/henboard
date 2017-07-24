@@ -8,7 +8,6 @@
 
 To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`**
 
-You can then use npm or Docker to run the app.
 
   #### Node.js / npm 
 
@@ -23,11 +22,11 @@ You can then use npm or Docker to run the app.
 
   #### Hosts / Ports
   
-  client server **`localhost:3000`**
+  client server **`localhost:3000`** prod **`localhost:4000`**
   
-  api server **`localhost:8080`**
+  api server **`localhost:8080`** prod **`localhost:4001`**
   
-  db server **`localhost:27017`**
+  db server **`localhost:27017`** prod **`localhost:27016`**
   
 
 ## Questions?
