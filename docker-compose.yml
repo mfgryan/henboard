@@ -9,7 +9,7 @@ services:
         networks:
             - henboard
         volumes:
-            - node_modules:/home/nginx/node_modules
+            - client_node_modules:/home/nginx/node_modules
         environment:
             ENV: prod
     api:
@@ -21,21 +21,18 @@ services:
         networks:
             - henboard
         volumes:
-            - node_modules:/home/express/node_modules
+            - api_node_modules:/home/express/node_modules
         environment:
             ENV: prod
     db:
         image: mfgryan/hendb:latest
-        command: "mongod" 
-        ports:
-            - 27016:27017 
+        command: "sleep infinity" #"mongod" 
         networks:
             - henboard
-        volumes:
-            - node_modules:/home/mongo/node_modules
         environment:
             ENV: prod
 networks:
     henboard:
 volumes:
-    node_modules:
+    client_node_modules:
+    api_node_modules:
