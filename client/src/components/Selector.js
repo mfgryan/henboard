@@ -23,7 +23,7 @@ class Selector extends Component {
                         )}
                         {!this.state.showAll && 
                             <li>
-                                <a href="#" onClick={() => this.setState({showAll: true})}>load all</a>
+                                <a href="#" onClick={() => this.setState({showAll: true})}><b>load all</b></a>
                             </li>}
                         <MenuItem divider />
                         <MenuItem eventKey={"add"}>{this.props.addItemTitle}</MenuItem>

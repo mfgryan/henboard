@@ -35,6 +35,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         addItem: (item) => {
             dispatch(addInfo(item));
+            //after adding an item clear the input field
+            dispatch(changeItemValue({
+                project: item.project, 
+                name: item.name,
+                value: ""
+            }));
         }
     };
 };
