@@ -1,0 +1,19 @@
+exports[`test ItemLane renders correctly 1`] = `
+<div
+  className="Item row"
+  draggable={false}
+  onDragStart={[Function]}>
+  <div
+    className="col-md-10">
+    <p
+      onClick={[Function]} />
+  </div>
+  <div
+    className="col-md-2">
+    <p
+      onClick={[Function]}>
+      X
+    </p>
+  </div>
+</div>
+`;

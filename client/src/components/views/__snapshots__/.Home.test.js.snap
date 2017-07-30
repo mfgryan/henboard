@@ -1,0 +1,345 @@
+exports[`test Home renders correctly 1`] = `
+<div
+  className="container">
+  <div
+    className="Header row">
+    <div
+      className="col-md-4" />
+    <div
+      className="HeaderDropdownCol col-md-4 col-md-offset-8">
+      <div
+        className="dropdown btn-group">
+        <button
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="HeaderDropdownMenu dropdown-toggle btn btn-default"
+          disabled={false}
+          id="HeaderMenu"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          type="button">
+          ≡
+        </button>
+        <ul
+          aria-labelledby="HeaderMenu"
+          className="dropdown-menu"
+          role="menu">
+          <li
+            onKeyDown={[Function]}
+            onSelect={[Function]}>
+            <a
+              href="/home"
+              onClick={[Function]}>
+              home
+            </a>
+          </li>
+          <li
+            onKeyDown={[Function]}
+            onSelect={[Function]}>
+            <a
+              href="/backlog"
+              onClick={[Function]}>
+              backlog
+            </a>
+          </li>
+          <li
+            onKeyDown={[Function]}
+            onSelect={[Function]}>
+            <a
+              href="/planning"
+              onClick={[Function]}>
+              planning
+            </a>
+          </li>
+          <li
+            className="divider"
+            onKeyDown={[Function]}
+            role="separator"
+            style={undefined} />
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              undo
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}>
+            <a
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1">
+              redo
+            </a>
+          </li>
+          <li
+            className="divider"
+            onKeyDown={[Function]}
+            role="separator"
+            style={undefined} />
+          <li
+            onKeyDown={[Function]}
+            onSelect={[Function]}>
+            <a
+              href="/settings"
+              onClick={[Function]}>
+              settings
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="board row">
+      <div
+        className="col-md-4">
+        <div
+          className="swimlane">
+          <div
+            className="AddItem">
+            <h2
+              onClick={[Function]}>
+              Todo
+            </h2>
+            <div
+              className="AddItemInput"
+              style={
+                Object {
+                  "visibility": "hidden",
+                }
+              }>
+              <div
+                className="form-group">
+                <span
+                  className="input-group input-group-sm">
+                  <input
+                    className="form-control"
+                    id={undefined}
+                    onChange={[Function]}
+                    onKeyPress={[Function]}
+                    type="text"
+                    value="" />
+                  <span
+                    className="input-group-btn"
+                    type="text">
+                    <button
+                      className="btn btn-default"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button">
+                      Add
+                    </button>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="itemsArea"
+            onDragOver={[Function]}
+            onDrop={[Function]} />
+        </div>
+      </div>
+      <div
+        className="col-md-4">
+        <div
+          className="swimlane">
+          <div
+            className="AddItem">
+            <h2
+              onClick={[Function]}>
+              Dev
+            </h2>
+            <div
+              className="AddItemInput"
+              style={
+                Object {
+                  "visibility": "hidden",
+                }
+              }>
+              <div
+                className="form-group">
+                <span
+                  className="input-group input-group-sm">
+                  <input
+                    className="form-control"
+                    id={undefined}
+                    onChange={[Function]}
+                    onKeyPress={[Function]}
+                    type="text"
+                    value="" />
+                  <span
+                    className="input-group-btn"
+                    type="text">
+                    <button
+                      className="btn btn-default"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button">
+                      Add
+                    </button>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="itemsArea"
+            onDragOver={[Function]}
+            onDrop={[Function]} />
+        </div>
+      </div>
+      <div
+        className="col-md-4">
+        <div
+          className="swimlane">
+          <div
+            className="AddItem">
+            <h2
+              onClick={[Function]}>
+              Done
+            </h2>
+            <div
+              className="AddItemInput"
+              style={
+                Object {
+                  "visibility": "hidden",
+                }
+              }>
+              <div
+                className="form-group">
+                <span
+                  className="input-group input-group-sm">
+                  <input
+                    className="form-control"
+                    id={undefined}
+                    onChange={[Function]}
+                    onKeyPress={[Function]}
+                    type="text"
+                    value="" />
+                  <span
+                    className="input-group-btn"
+                    type="text">
+                    <button
+                      className="btn btn-default"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button">
+                      Add
+                    </button>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="itemsArea"
+            onDragOver={[Function]}
+            onDrop={[Function]} />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row">
+      <div
+        className="col-md-12">
+        <div
+          className="Selector row">
+          <div
+            className="col-md-12">
+            <div
+              className="dropdown btn-group">
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-default"
+                disabled={false}
+                id="Selector"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                type="button">
+                Sprint Week  05/15/17
+              </button>
+              <ul
+                aria-labelledby="Selector"
+                className="dropdown-menu"
+                role="menu">
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}>
+                  <a
+                    href="#"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1">
+                    1
+                      
+                    <small>
+                      05/15/17
+                    </small>
+                  </a>
+                </li>
+                <li
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}>
+                  <a
+                    href="#"
+                    onClick={[Function]}>
+                    <b>
+                      load all
+                    </b>
+                  </a>
+                </li>
+                <li
+                  className="divider"
+                  onKeyDown={[Function]}
+                  role="separator"
+                  style={undefined} />
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}>
+                  <a
+                    href="#"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1">
+                    New Sprint +
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row">
+    <div
+      className="col-md-12"
+      id="footer">
+      <i>
+        Henboard 2017
+      </i>
+    </div>
+  </div>
+</div>
+`;

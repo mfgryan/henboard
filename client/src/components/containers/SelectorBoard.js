@@ -40,6 +40,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
 };
 
-const GetSelector = connect(mapStateToProps, mapDispatchToProps)(Selector);
-
-export default GetSelector;
+export default connect(mapStateToProps, mapDispatchToProps)(Selector);

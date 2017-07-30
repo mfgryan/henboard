@@ -1,0 +1,39 @@
+exports[`test Footer renders correctly 1`] = `
+<div
+  className="AddItem">
+  <h2
+    onClick={[Function]} />
+  <div
+    className="AddItemInput"
+    style={
+      Object {
+        "visibility": "hidden",
+      }
+    }>
+    <div
+      className="form-group">
+      <span
+        className="input-group input-group-sm">
+        <input
+          className="form-control"
+          id={undefined}
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          type="text"
+          value={undefined} />
+        <span
+          className="input-group-btn"
+          type="text">
+          <button
+            className="btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button">
+            Add
+          </button>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;

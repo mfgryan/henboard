@@ -11,12 +11,12 @@ const mapStateToProps = (state, ownProps) => {
     let item = items.getItem(state, ownProps.project, ownProps.title);
     return {
         title: ownProps.title,
-        value: item.value,
-        showAddItem: item.addItem,
+        value: item.value || "",
+        showAddItem: item.addItem || "",
         item: {
             project: ownProps.project,
             name: ownProps.title,
-            value: item.value
+            value: item.value || ""
         }
     };
 };

@@ -1,0 +1,89 @@
+exports[`test Info renders correctly 1`] = `
+<div
+  className="modal"
+  draggable="false"
+  role="dialog"
+  style={
+    Object {
+      "display": "block",
+    }
+  }
+  tabIndex="-1">
+  <div
+    className="modal-dialog">
+    <div
+      className="modal-content"
+      role="document">
+      <div
+        className="modal-header">
+        <div
+          className="AddItem">
+          <h2
+            onClick={[Function]}>
+            test
+          </h2>
+          <div
+            className="AddItemInput"
+            style={
+              Object {
+                "visibility": "hidden",
+              }
+            }>
+            <div
+              className="form-group">
+              <span
+                className="input-group input-group-sm">
+                <input
+                  className="form-control"
+                  id={undefined}
+                  onChange={[Function]}
+                  onKeyPress={[Function]}
+                  type="text"
+                  value="" />
+                <span
+                  className="input-group-btn"
+                  type="text">
+                  <button
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button">
+                    Add
+                  </button>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal-body">
+        <div
+          className="row">
+          <div
+            className="col-md-10">
+            hello
+          </div>
+          <div
+            className="col-md-2">
+            <p
+              onClick={[Function]}>
+              X
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal-footer">
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

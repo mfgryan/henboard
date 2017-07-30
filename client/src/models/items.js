@@ -24,7 +24,7 @@ items.initialState = [];
 items.getItem = function(state, project, name) {
     return state.items.find(
         item => item.project === project && item.name === name
-    );
+    ) || {};
 };
 
 items.getItemsBySprint = function(state, project, week) {

@@ -1,0 +1,22 @@
+exports[`test Item renders correctly 1`] = `
+<div
+  className="Item row"
+  draggable={true}
+  onDragStart={[Function]}>
+  <div
+    className="col-md-10">
+    <p
+      onClick={[Function]}>
+      test
+    </p>
+  </div>
+  <div
+    className="col-md-2">
+    <p
+      onClick={[Function]}>
+      X
+    </p>
+  </div>
+  test
+</div>
+`;
