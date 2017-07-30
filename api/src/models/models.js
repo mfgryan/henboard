@@ -17,20 +17,17 @@ models.info = info;
 models.planning = planning;
 
 module.exports.init = function(name, initialDocs, db, callback){
-    return db.collections()
-            .then(function(collections){
-                return collections.indexOf(name) >= 0  ? null : db.createCollection(name)
-            })
-            .then(function(collection){
-                return collection && collection.insertMany(initialDocs)
-            })
-            .then(function(r){
-                r && console.log(r.ops); 
-                callback();
-            })
-            .catch(function(error){
-                console.log(error); 
-            });
+    let collection = db.collection(name);
+    collection.count(function(err, count){
+        assert.equal(null, err);
+        if(count === 0){
+            collection.insertMany(initialDocs, function(){
+                callback(); 
+            }); 
+        }else{
+            callback(); 
+        }
+    });
 };
 
 // return array of documents to callback
