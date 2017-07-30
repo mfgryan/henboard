@@ -1,39 +1,45 @@
 // redux dep
 import { connect } from "react-redux";
 import { addSprint, setCurrentSprint } from "../../actions/sprints";
-import projects from "../../models/projects.js"
-import sprints from "../../models/sprints.js"
+import projects from "../../models/projects.js";
+import sprints from "../../models/sprints.js";
 
 // component dep
 import Selector from "../Selector";
 
 // utilities
-import { date } from "../../util/util.js"; 
+import { date } from "../../util/util.js";
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        title: "Sprint Week  " +  sprints.getCurrentSprint(state, ownProps.project).week,
+        title:
+            "Sprint Week  " +
+            sprints.getCurrentSprint(state, ownProps.project).week,
         items: sprints.getSprintArray(state, ownProps.project),
         itemKey: "week",
         addItemTitle: "New Sprint +"
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        itemClicked: (key) => {
-            if(key === "add"){
-                dispatch(addSprint({project: ownProps.project, week: date().getDateFormat(new Date())}));
-            }else{
-                dispatch(setCurrentSprint({project: ownProps.project, week: key}))
+        itemClicked: key => {
+            if (key === "add") {
+                dispatch(
+                    addSprint({
+                        project: ownProps.project,
+                        week: date().getDateFormat(new Date())
+                    })
+                );
+            } else {
+                dispatch(
+                    setCurrentSprint({ project: ownProps.project, week: key })
+                );
             }
         }
-    }
-}
+    };
+};
 
-const GetSelector = connect(  
-    mapStateToProps,
-    mapDispatchToProps
-)(Selector)
+const GetSelector = connect(mapStateToProps, mapDispatchToProps)(Selector);
 
 export default GetSelector;

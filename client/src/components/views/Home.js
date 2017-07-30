@@ -13,17 +13,19 @@ import SelectorBoard from "../containers/SelectorBoard";
 import { Col, Row } from "react-bootstrap";
 import "../../css/Home.css";
 
-export const Home = ( { project, lanes } ) => {
-    const getColWidth = (laneCount, index) => (
-        (12 / laneCount) + (index < (12 % laneCount) ? 1 : 0 )
-    );
+export const Home = ({ project, lanes }) => {
+    const getColWidth = (laneCount, index) =>
+        12 / laneCount + (index < 12 % laneCount ? 1 : 0);
     return (
         <App>
             <div>
                 <Row className="board">
-                    {lanes.map((lane, index) => 
-                        <Col md={getColWidth(lanes.length,index)} key={index}>
-                            <Swimlane project={project.project} column={lane.column} />
+                    {lanes.map((lane, index) =>
+                        <Col md={getColWidth(lanes.length, index)} key={index}>
+                            <Swimlane
+                                project={project.project}
+                                column={lane.column}
+                            />
                         </Col>
                     )}
                 </Row>
@@ -37,7 +39,7 @@ export const Home = ( { project, lanes } ) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     let project = projects.getCurrentProject(state);
     return {
         project: project,
@@ -45,8 +47,8 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

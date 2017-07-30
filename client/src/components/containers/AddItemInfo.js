@@ -1,6 +1,6 @@
 // redux dep
 import { connect } from "react-redux";
-import { changeItemValue, toggleInfoAdd  } from "../../actions/items";
+import { changeItemValue, toggleInfoAdd } from "../../actions/items";
 import { addInfo } from "../../actions/info";
 import items from "../../models/items.js";
 
@@ -23,31 +23,32 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toggleAddItem: (title) => {
-            dispatch(toggleInfoAdd({project: ownProps.project, name: title})); 
-        }, 
-        changeValue: (event,title) => {
-            dispatch(changeItemValue({
-                project: ownProps.project,  
-                name: title,
-                value: event.target.value
-            }));
+        toggleAddItem: title => {
+            dispatch(toggleInfoAdd({ project: ownProps.project, name: title }));
         },
-        addItem: (item) => {
+        changeValue: (event, title) => {
+            dispatch(
+                changeItemValue({
+                    project: ownProps.project,
+                    name: title,
+                    value: event.target.value
+                })
+            );
+        },
+        addItem: item => {
             dispatch(addInfo(item));
             //after adding an item clear the input field
-            dispatch(changeItemValue({
-                project: item.project, 
-                name: item.name,
-                value: ""
-            }));
+            dispatch(
+                changeItemValue({
+                    project: item.project,
+                    name: item.name,
+                    value: ""
+                })
+            );
         }
     };
 };
 
-const AddItemLane = connect(  
-    mapStateToProps,
-    mapDispatchToProps
-)(AddItem);
+const AddItemLane = connect(mapStateToProps, mapDispatchToProps)(AddItem);
 
 export default AddItemLane;

@@ -1,45 +1,52 @@
 import sprints from "./sprints.js";
 import * as actions from "../actions/sprints.js";
 
-describe('sprints reducer', () => {
-    test('should be non falsy sprints reducer', () => {
-        expect(sprints).toBeTruthy();  
+describe("sprints reducer", () => {
+    test("should be non falsy sprints reducer", () => {
+        expect(sprints).toBeTruthy();
     });
-    
-    test('initSprints', () => {
+
+    test("initSprints", () => {
         let initialState = [];
-        let input = [{foo: "bar"}];
+        let input = [{ foo: "bar" }];
         let action = actions.initSprints(input);
 
         let expectedState = input;
-        expect(sprints(initialState, action)).toEqual(expectedState);  
+        expect(sprints(initialState, action)).toEqual(expectedState);
     });
-    
-    test('addSprint', () => {
-        let initialState = [{ project: "henboard", week: "05/15/17", current: true }];
-        let input = {project: "henboard", week: "05/22/17"};
+
+    test("addSprint", () => {
+        let initialState = [
+            { project: "henboard", week: "05/15/17", current: true }
+        ];
+        let input = { project: "henboard", week: "05/22/17" };
         let action = actions.addSprint(input);
 
         let expectedState = [
-            {project: "henboard", week: "05/15/17", current: false},
-            {project: "henboard", week: "05/22/17", current: true}];
-        expect(sprints(initialState, action)).toEqual(expectedState);  
+            { project: "henboard", week: "05/15/17", current: false },
+            { project: "henboard", week: "05/22/17", current: true }
+        ];
+        expect(sprints(initialState, action)).toEqual(expectedState);
     });
-    
-    test('setCurrentSprint', () => {
-        let initialState = [{project: "henboard", week: "05/15/17", current: false}];
-        let input = {project: "henboard", week: "05/15/17"};
+
+    test("setCurrentSprint", () => {
+        let initialState = [
+            { project: "henboard", week: "05/15/17", current: false }
+        ];
+        let input = { project: "henboard", week: "05/15/17" };
         let action = actions.setCurrentSprint(input);
 
-        let expectedState = [{project: "henboard", week: "05/15/17", current: true}];
-        expect(sprints(initialState, action)).toEqual(expectedState);  
+        let expectedState = [
+            { project: "henboard", week: "05/15/17", current: true }
+        ];
+        expect(sprints(initialState, action)).toEqual(expectedState);
     });
-    
-    test('default ', () => {
+
+    test("default ", () => {
         let initialState = [];
 
         let expectedState = [];
-        let action = {type: "UNKNOWN_TYPE"};
-        expect(sprints(initialState, action)).toEqual(expectedState);  
+        let action = { type: "UNKNOWN_TYPE" };
+        expect(sprints(initialState, action)).toEqual(expectedState);
     });
 });

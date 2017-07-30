@@ -12,13 +12,16 @@ import Swimlane from "../containers/Swimlane";
 import { Col, Row } from "react-bootstrap";
 import "../../css/Backlog.css";
 
-export const Backlog = ( { project, lanes } ) => {
+export const Backlog = ({ project, lanes }) => {
     return (
         <App>
             <Row className="board">
-                {lanes.map((lane, index) => 
+                {lanes.map((lane, index) =>
                     <Col md={4} key={index}>
-                        <Swimlane project={project.project} column={lane.column} />
+                        <Swimlane
+                            project={project.project}
+                            column={lane.column}
+                        />
                     </Col>
                 )}
             </Row>
@@ -26,17 +29,17 @@ export const Backlog = ( { project, lanes } ) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     let project = projects.getCurrentProject(state);
-    let backlog = lanes.getBacklog(state, project.project); 
+    let backlog = lanes.getBacklog(state, project.project);
     return {
-        project: project, 
+        project: project,
         lanes: backlog
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Backlog);
+export default connect(mapStateToProps, mapDispatchToProps)(Backlog);

@@ -1,67 +1,78 @@
 import planning from "./planning.js";
 import * as actions from "../actions/planning.js";
 
-describe('planning reducer', () => {
-    test('should be non falsy planning reducer', () => {
-        expect(planning).toBeTruthy();  
+describe("planning reducer", () => {
+    test("should be non falsy planning reducer", () => {
+        expect(planning).toBeTruthy();
     });
-    
-    test('initPlanning', () => {
+
+    test("initPlanning", () => {
         let initialState = [];
-        let input = [{foo: "bar"}];
+        let input = [{ foo: "bar" }];
         let action = actions.initPlanning(input);
         let expectedState = input;
-        expect(planning(initialState, action)).toEqual(expectedState);  
+        expect(planning(initialState, action)).toEqual(expectedState);
     });
-    
-    test('setPlanning', () => {
-        let initialState = [{project: "henboard", missionStatement: ""}];
-        let input = {project: "henboard", missionStatement: "foo bar mission statement"};
+
+    test("setPlanning", () => {
+        let initialState = [{ project: "henboard", missionStatement: "" }];
+        let input = {
+            project: "henboard",
+            missionStatement: "foo bar mission statement"
+        };
         let action = actions.setPlanning(input);
         let expectedState = [input];
-        expect(planning(initialState, action)).toEqual(expectedState);  
+        expect(planning(initialState, action)).toEqual(expectedState);
     });
-    
-    test('togglePlanning', () => {
-        let initialState = [{
-            project: "henboard", 
-            missionStatement: "foo bar statement",
-            editing: false,
-            value: "foo bar value"
-        }];
-        let input = {project: "henboard"};
+
+    test("togglePlanning", () => {
+        let initialState = [
+            {
+                project: "henboard",
+                missionStatement: "foo bar statement",
+                editing: false,
+                value: "foo bar value"
+            }
+        ];
+        let input = { project: "henboard" };
         let action = actions.togglePlanning(input);
-        let expectedState = [{
-            project: "henboard", 
-            missionStatement: "foo bar statement",
-            editing: true,
-            value: "foo bar value"
-        }];
-        expect(planning(initialState, action)).toEqual(expectedState);  
+        let expectedState = [
+            {
+                project: "henboard",
+                missionStatement: "foo bar statement",
+                editing: true,
+                value: "foo bar value"
+            }
+        ];
+        expect(planning(initialState, action)).toEqual(expectedState);
     });
-    
-    test('changePlanningValue', () => {
-        let initialState = [{
-            project: "henboard", 
-            missionStatement: "foo bar statement",
-            editing: true,
-            value: "foo bar value"
-        }];
-        let input = {project: "henboard", value: "new foo bar"};
+
+    test("changePlanningValue", () => {
+        let initialState = [
+            {
+                project: "henboard",
+                missionStatement: "foo bar statement",
+                editing: true,
+                value: "foo bar value"
+            }
+        ];
+        let input = { project: "henboard", value: "new foo bar" };
         let action = actions.changePlanningValue(input);
-        let expectedState = [{
-            project: "henboard",
-            missionStatement: "foo bar statement",
-            editing: true,
-            value: input.value
-        }];
-        expect(planning(initialState, action)).toEqual(expectedState);  
+        let expectedState = [
+            {
+                project: "henboard",
+                missionStatement: "foo bar statement",
+                editing: true,
+                value: input.value
+            }
+        ];
+        expect(planning(initialState, action)).toEqual(expectedState);
     });
-    
-    test('default ', () => {
+
+    test("default ", () => {
         let initialState = [];
-        let action = {type: "UNKNOWN_TYPE"};
+        let action = { type: "UNKNOWN_TYPE" };
         let expectedState = [];
-        expect(planning(initialState, action)).toEqual(expectedState);  
+        expect(planning(initialState, action)).toEqual(expectedState);
     });
 });

@@ -1,5 +1,5 @@
 // redux dep
-import { combineReducers } from "redux"
+import { combineReducers } from "redux";
 
 // reducer dep
 import projects from "./projects.js";
@@ -18,6 +18,6 @@ const rootReducer = combineReducers({
     info,
     messages,
     planning
-})
+});
 
-export default rootReducer
+export default rootReducer;

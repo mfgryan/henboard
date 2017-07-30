@@ -34,11 +34,11 @@ const mapStateToProps = (state, ownProps) => {
     return {
         project: project.project,
         week: sprint.week
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Planning);
+export default connect(mapStateToProps, mapDispatchToProps)(Planning);

@@ -9,31 +9,47 @@ import projects from "../../models/projects.js";
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
 import "../../css/Header.css";
 
-export const Header = ( { title, messages, removeMessages, itemClicked } ) => {
+export const Header = ({ title, messages, removeMessages, itemClicked }) => {
     messages.length > 0 && setTimeout(removeMessages, 5000);
     return (
         <Row className="Header">
             <Col md={4}>
-                { messages.length > 0 &&
-                <Alert className="HeaderErrorMessage" bsStyle="danger">
-                    <strong>Error. </strong> { messages[0] }
-                </Alert>
-                }
+                {messages.length > 0 &&
+                    <Alert className="HeaderErrorMessage" bsStyle="danger">
+                        <strong>Error. </strong> {messages[0]}
+                    </Alert>}
             </Col>
             <Col md={4} mdOffset={8} className="HeaderDropdownCol">
-                <DropdownButton noCaret className="HeaderDropdownMenu" title="≡" id="HeaderMenu" onSelect={(event) => itemClicked(event)} >
-                    <li><Link to="/home">home</Link></li>
-                    <li><Link to="/backlog">backlog</Link></li>
-                    <li><Link to="/planning">planning</Link></li>
+                <DropdownButton
+                    noCaret
+                    className="HeaderDropdownMenu"
+                    title="≡"
+                    id="HeaderMenu"
+                    onSelect={event => itemClicked(event)}>
+                    <li>
+                        <Link to="/home">home</Link>
+                    </li>
+                    <li>
+                        <Link to="/backlog">backlog</Link>
+                    </li>
+                    <li>
+                        <Link to="/planning">planning</Link>
+                    </li>
                     <MenuItem divider />
-                    <MenuItem key="undo" eventKey="undo">undo</MenuItem>
-                    <MenuItem key="redo" eventKey="redo">redo</MenuItem>
+                    <MenuItem key="undo" eventKey="undo">
+                        undo
+                    </MenuItem>
+                    <MenuItem key="redo" eventKey="redo">
+                        redo
+                    </MenuItem>
                     <MenuItem divider />
-                    <li><Link to="/settings">settings</Link></li>
+                    <li>
+                        <Link to="/settings">settings</Link>
+                    </li>
                 </DropdownButton>
             </Col>
         </Row>
-    )
+    );
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -41,17 +57,16 @@ const mapStateToProps = (state, ownProps) => {
     return {
         title: project.project,
         messages: state.messages
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         removeMessages: () => {
-            dispatch(removeMessages()); 
+            dispatch(removeMessages());
         },
-        itemClicked: (key) => {
-        }
+        itemClicked: key => {}
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

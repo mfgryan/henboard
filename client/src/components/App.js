@@ -9,12 +9,11 @@ import Footer from "./Footer.js";
 // style dep
 import "../css/App.css";
 
-const App = (props) => (
+const App = props =>
     <Grid>
         <Header />
-            {props.children}
+        {props.children}
         <Footer />
-    </Grid>
-);
+    </Grid>;
 
 export default App;

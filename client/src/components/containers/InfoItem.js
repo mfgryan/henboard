@@ -19,25 +19,26 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        removeInfo: (info) => {
-            dispatch(removeInfo({
-                project: info.project, 
-                name: info.name, 
-                value: info.value
-            }));
+        removeInfo: info => {
+            dispatch(
+                removeInfo({
+                    project: info.project,
+                    name: info.name,
+                    value: info.value
+                })
+            );
         },
-        closeInfo: (event,title) =>{
-            dispatch(closeInfo({
-                project: ownProps.project, 
-                name: title 
-            }));    
+        closeInfo: (event, title) => {
+            dispatch(
+                closeInfo({
+                    project: ownProps.project,
+                    name: title
+                })
+            );
         }
-    }
+    };
 };
 
-const InfoItem = connect(  
-    mapStateToProps,
-    mapDispatchToProps
-)(Info);
+const InfoItem = connect(mapStateToProps, mapDispatchToProps)(Info);
 
 export default InfoItem;

@@ -21,26 +21,23 @@ const mapStateToProps = (state, ownProps) => {
             value: ownProps.value,
             check: ownProps.column === "Done"
         }
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        dragItem: (event,item) => { 
+        dragItem: (event, item) => {
             event.dataTransfer.setData("text", item.name);
         },
-        itemClicked: (event,item) => {
-            dispatch(openInfo({project: item.project, name: item.name}));
+        itemClicked: (event, item) => {
+            dispatch(openInfo({ project: item.project, name: item.name }));
         },
-        removeItem: (item) => {
-            dispatch(removeItem(item))
-        },
+        removeItem: item => {
+            dispatch(removeItem(item));
+        }
     };
 };
 
-const ItemLane = connect(  
-    mapStateToProps,
-    mapDispatchToProps
-)(Item);
+const ItemLane = connect(mapStateToProps, mapDispatchToProps)(Item);
 
 export default ItemLane;

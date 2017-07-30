@@ -1,50 +1,50 @@
-import {logger, validate} from "./middleware.js";
+import { logger, validate } from "./middleware.js";
 
-describe('logger', () => {
-    test('should have truthy logger', () => {
+describe("logger", () => {
+    test("should have truthy logger", () => {
         expect(logger).toBeTruthy();
     });
-    
+
     const create = () => {
         const store = {
             getState: jest.fn(() => ({})),
-            dispatch: jest.fn(),
+            dispatch: jest.fn()
         };
-        const next = jest.fn()
+        const next = jest.fn();
 
-        const invoke = (action) => logger(store)(next)(action)
+        const invoke = action => logger(store)(next)(action);
 
-        return {store, next, invoke}
+        return { store, next, invoke };
     };
 
-    test('should pass through the action', () => {
-        const {next, invoke} = create();
-        const action = {type: 'TEST'};
+    test("should pass through the action", () => {
+        const { next, invoke } = create();
+        const action = { type: "TEST" };
         invoke(action);
         expect(next).toHaveBeenCalledWith(action);
     });
 });
 
-describe('validate', () => {
-    test('should have truthy validate', () => {
+describe("validate", () => {
+    test("should have truthy validate", () => {
         expect(validate).toBeTruthy();
     });
-    
+
     const create = () => {
         const store = {
             getState: jest.fn(() => ({})),
-            dispatch: jest.fn(),
+            dispatch: jest.fn()
         };
-        const next = jest.fn()
+        const next = jest.fn();
 
-        const invoke = (action) => validate(store)(next)(action)
+        const invoke = action => validate(store)(next)(action);
 
-        return {store, next, invoke}
+        return { store, next, invoke };
     };
 
-    test('should have passed through the action', () => {
-        const {next, invoke} = create();
-        const action = {type: 'TEST'};
+    test("should have passed through the action", () => {
+        const { next, invoke } = create();
+        const action = { type: "TEST" };
         invoke(action);
         expect(next).toHaveBeenCalledWith(action);
     });

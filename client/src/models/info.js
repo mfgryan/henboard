@@ -9,15 +9,14 @@ info.validation = {
         empty: false,
         maxLength: 100
     }
-}
+};
 
 info.initialState = [];
 
-info.getInfoArray = function(state, project, name){
-    return state.info.filter((info) =>
-        info.project === project && info.name === name 
+info.getInfoArray = function(state, project, name) {
+    return state.info.filter(
+        info => info.project === project && info.name === name
     );
 };
 
 export default info;
-

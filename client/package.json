@@ -15,15 +15,17 @@
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^6.10.3",
     "nodemon": "^1.11.0",
+    "prettier": "^1.5.3",
     "react-scripts": "0.9.5"
   },
   "proxy": "http://api_api_1:3001",
   "scripts": {
-    "dev": "npm install; npm start", 
+    "dev": "npm install; npm start",
     "prod": "npm install; npm run build; nginx -g \"daemon off;\" ",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom"
+    "test": "react-scripts test --env=jsdom",
+    "prettify": "prettier --tab-width 4 -l --jsx-bracket-same-line --write \"./src/**/*.js\""
   }
 }

@@ -28,39 +28,44 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toggleAddItem: (title) => {
-            dispatch(toggleAddItem({
-                project: ownProps.project,
-                column: title
-            })); 
-        }, 
-        changeValue: (event,title) => {
-            dispatch(changeValue({
-                project: ownProps.project, 
-                column: title,
-                value: event.target.value
-            }));
+        toggleAddItem: title => {
+            dispatch(
+                toggleAddItem({
+                    project: ownProps.project,
+                    column: title
+                })
+            );
         },
-        addItem: (item) => {
-            dispatch(addItem({
-                project: item.project, 
-                week: item.week, 
-                column: item.column, 
-                name: item.name
-            }));
+        changeValue: (event, title) => {
+            dispatch(
+                changeValue({
+                    project: ownProps.project,
+                    column: title,
+                    value: event.target.value
+                })
+            );
+        },
+        addItem: item => {
+            dispatch(
+                addItem({
+                    project: item.project,
+                    week: item.week,
+                    column: item.column,
+                    name: item.name
+                })
+            );
             //after adding an item clear the input field
-            dispatch(changeValue({
-                project: item.project, 
-                column: item.column,
-                value: ""
-            }));
+            dispatch(
+                changeValue({
+                    project: item.project,
+                    column: item.column,
+                    value: ""
+                })
+            );
         }
     };
 };
 
-const AddItemLane = connect(  
-    mapStateToProps,
-    mapDispatchToProps
-)(AddItem);
+const AddItemLane = connect(mapStateToProps, mapDispatchToProps)(AddItem);
 
 export default AddItemLane;
