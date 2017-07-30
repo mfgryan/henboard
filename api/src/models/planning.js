@@ -1,15 +1,12 @@
 const assert = require('assert'), Mongodb = require('../db'),
     ObjectId = require('mongodb').ObjectID;
+const models = require('./models');
 
-// return array of sprint documents to callback
-module.exports.read = function(callback){
-    Mongodb.getDb(function(db){
-        db.collection('planning').find().toArray(function(err, docs){
-            assert.equal(null, err);
-            callback(docs);
-        });
-    });
-};
+const name = "planning";
+
+// planning schema
+// PK [planning]
+module.exports.initialDocs = [{ project: "henboard", missionStatement: "", value: "", editing: false }];
 
 const stripIds = function(docs){
     for(let i =0; i<docs.length;i++){
@@ -20,7 +17,6 @@ const stripIds = function(docs){
 
 module.exports.write = function(docs,callback,error){
     let newDocs = stripIds(docs);
-    let name = "planning";
     Mongodb.getDb(function(db){
         let updates = [];
         for(let i=0; i<docs.length;i++){
@@ -48,7 +44,6 @@ module.exports.write = function(docs,callback,error){
 };
 
 module.exports.remove = function (docs,callback,error){
-    let name = "planning";
     Mongodb.getDb(function(db){
         let deletes = [];
         for(let i=0; i<docs.length;i++){

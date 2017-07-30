@@ -3,15 +3,19 @@ services:
     db:
         build: .
         image: mfgryan/hendb:latest
-        command: "mongod"
+        command: "mongod" 
         ports:
             - 27017:27017
         networks:
             - henboard
         volumes:
             - node_modules:/home/mongo/node_modules
+            - db_config:/data/configdb
+            - db:/data/db
 networks:
     henboard:
         external: true
 volumes:
     node_modules:
+    db_config:
+    db:

@@ -29,6 +29,9 @@ services:
         command: "sleep infinity" #"mongod" 
         networks:
             - henboard
+        volumes:
+            - db_config:/data/configdb
+            - db:/data/db
         environment:
             ENV: prod
 networks:
@@ -36,3 +39,5 @@ networks:
 volumes:
     client_node_modules:
     api_node_modules:
+    db_config:
+    db:

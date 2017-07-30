@@ -1,6 +1,7 @@
 const express = require('express'), sprints = require('../models/sprints')
     bodyParser = require('body-parser');
 const app = express();
+const models = require('../models/models');
 
 // middleware
 app.use(bodyParser.json());
@@ -8,7 +9,7 @@ app.use(bodyParser.json());
 /* GET sprints route */
 app.get('/', function(req, res){
     console.log(req.method,req.hostname,req.baseUrl + req.path);
-    sprints.read(function(docs){
+    models.read("sprints", function(docs){
         res.json(docs);
     });
 });

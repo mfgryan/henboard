@@ -1,6 +1,7 @@
 const express = require('express'), planning = require('../models/planning'),
     bodyParser = require('body-parser');
 const app = express();
+const models = require('../models/models');
 
 // middleware
 app.use(bodyParser.json());
@@ -8,7 +9,7 @@ app.use(bodyParser.json());
 /* GET index route */
 app.get('/', function(req, res){
     console.log(req.method,req.hostname,req.baseUrl + req.path);
-    planning.read(function(docs){
+    models.read("planning", function(docs){
         res.json(docs);
     });
 });
