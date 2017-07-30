@@ -10,5 +10,6 @@ package-lock.json
 *.swp
 *.swo
 
-# production build directory
+# build and test artifacts
 build
+coverage
