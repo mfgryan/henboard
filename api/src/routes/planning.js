@@ -1,42 +1,28 @@
-const express = require('express'), planning = require('../models/planning'),
-    bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
+const routes = require("./routes");
+const planning = require("../models/planning");
+
 const app = express();
-const models = require('../models/models');
 
 // middleware
 app.use(bodyParser.json());
 
+const name = planning.name;
+
 /* GET index route */
-app.get('/', function(req, res){
-    console.log(req.method,req.hostname,req.baseUrl + req.path);
-    models.read("planning", function(docs){
-        res.json(docs);
-    });
+app.get("/", function(req, res) {
+    routes.get(name, req, res);
 });
 
 /* POST upsert each document in array */
-app.post('/', function(req, res){
-    console.log(req.method,req.hostname,req.baseUrl + req.path);
-    planning.write(req.body, function(){
-        console.log("success");  
-        res.json({"success": "200"});
-    }, function(error){
-        console.log(error);
-        res.status(500).send(error);
-    });
+app.post("/", function(req, res) {
+    routes.upsert(name, req, res);
 });
 
 /* POST remove each document in array */
-app.post('/delete', function(req, res){
-    console.log(req.method,req.hostname,req.baseUrl + req.path);
-    planning.remove(req.body, function(){
-        console.log("success");
-        res.json({"success": "200"});
-    }, function(error){
-        console.log(error);
-        res.status(500).send(error);
-    });
+app.post("/delete", function(req, res) {
+    routes.delete(name, req, res);
 });
-
 
 module.exports = app;
