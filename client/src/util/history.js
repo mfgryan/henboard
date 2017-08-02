@@ -12,7 +12,7 @@ import projects from "../models/projects.js";
 
 const history = {};
 
-// when true this means undo / redo are being moved through and it locks push changes.
+// when true this means undo / redo are being moved through and it locks push history changes.
 history.locked = false;
 history.lock = () => {
     history.locked = true;
