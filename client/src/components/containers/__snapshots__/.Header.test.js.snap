@@ -65,7 +65,10 @@ exports[`test Header renders correctly 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1">
-            undo
+            undo 
+            <small>
+              Ctrl-left
+            </small>
           </a>
         </li>
         <li
@@ -78,7 +81,10 @@ exports[`test Header renders correctly 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1">
-            redo
+            redo 
+            <small>
+              Ctrl-right
+            </small>
           </a>
         </li>
         <li
