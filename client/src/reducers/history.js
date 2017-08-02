@@ -73,7 +73,7 @@ const provideHistory = (next) => (state,action) => {
             return next(Object.assign({},state,newKey), action);
         case REMOVALS:
             newKey[action.key] = state[action.key].filter((obj) => {
-                tools().indexOfMatch(models[action.key].primaryKeys, obj, action.data) < 0
+                return tools().indexOfMatch(models[action.key].primaryKeys, obj, action.data) < 0
             });
             return next(Object.assign({},state,newKey), action);
         default:

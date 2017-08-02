@@ -15,6 +15,7 @@ import Home from "./components/views/Home.js";
 import Backlog from "./components/views/Backlog.js";
 import Planning from "./components/views/Planning.js";
 import Settings from "./components/views/Settings.js";
+import undo from "./util/undo.js";
 
 // css dep
 import "./css/index.css";

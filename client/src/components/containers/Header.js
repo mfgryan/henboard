@@ -39,10 +39,10 @@ export const Header = ({ title, messages, removeMessages, itemClicked }) => {
                     </li>
                     <MenuItem divider />
                     <MenuItem key="undo" eventKey="undo">
-                        undo
+                        undo <small>Ctrl-left</small>
                     </MenuItem>
                     <MenuItem key="redo" eventKey="redo">
-                        redo
+                        redo <small>Ctrl-right</small>
                     </MenuItem>
                     <MenuItem divider />
                     <li>
