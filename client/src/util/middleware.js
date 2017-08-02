@@ -15,10 +15,10 @@ const logger = store => next => action => {
 };
 
 const validate = store => next => action => {
-    let model = action.model;
-    let state = store.getState()[model];
+    let model = action.model || null;
+    let state = (model && store.getState()[model]) || null;
     let validation =
-        model && !action.skipValidation && models[model].validation;
+        (model && !action.skipValidation && models[model].validation) || null;
 
     let errors = validation
         ? validations.checkErrors(action, state, validation)

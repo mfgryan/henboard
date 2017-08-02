@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "./util/store.js";
 import data from "./util/data.js";
 import watch from "./util/watch.js";
+import history from "./util/history.js";
 
 // react router dep
 import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom";
@@ -20,11 +21,9 @@ import "./css/index.css";
 
 // swaps the state with the returned state from the DB
 data.updateInitialState(store, () => {
-    watch(
-        store,
-        ["projects", "sprints", "lanes", "items", "info", "planning"],
-        data.writeOnChanges
-    );
+    let keys = ["projects", "sprints", "lanes", "items", "info", "planning"];
+    watch(store,keys,data.writeOnChanges);
+    watch(store,keys,history.push);
 });
 
 ReactDOM.render(

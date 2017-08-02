@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { removeMessages } from "../../actions/messages.js";
 import projects from "../../models/projects.js";
+import { undo, redo } from "../../actions/history.js";
+import history from "../../util/history.js"
 
 // style dep
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
@@ -65,7 +67,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         removeMessages: () => {
             dispatch(removeMessages());
         },
-        itemClicked: key => {}
+        itemClicked: key => {
+            if(key === "undo"){
+                history.undo();
+            }else if(key === "redo"){
+                history.redo();
+            }
+        }
     };
 };
 
