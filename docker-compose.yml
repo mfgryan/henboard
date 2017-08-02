@@ -25,15 +25,12 @@ services:
         environment:
             ENV: prod
     db:
-        image: mfgryan/hendb:latest
-        command: "sleep infinity" #"mongod" 
+        image: mongo:latest
         networks:
             - henboard
         volumes:
             - db_config:/data/configdb
             - db:/data/db
-        environment:
-            ENV: prod
 networks:
     henboard:
 volumes:
