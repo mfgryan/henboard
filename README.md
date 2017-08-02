@@ -1,4 +1,4 @@
-# Henboard
+# Henboard    [![Build Status](https://travis-ci.org/mfgryan/henboard.svg?branch=master)](https://travis-ci.org/mfgryan/henboard)
 
   A minimalist todo list board using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
   
