@@ -8,5 +8,6 @@ install: true
 
 script:
   - docker-compose -f client/docker-compose.yml build
+  - docker-compose -f api/docker-compose.yml build
   - docker-compose up -d
   - docker-compose ps
