@@ -1,7 +1,9 @@
 sudo: required
 services: 
   - docker
-  
+
+language: javascript
+
 scripts:
   - docker-compose -f client/docker-compose.yml build
   - docker-compose up -d
