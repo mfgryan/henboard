@@ -1,0 +1,8 @@
+sudo: required
+services: 
+  - docker
+  
+scripts:
+  - docker-compose -f client/docker-compose.yml build
+  - docker-compose up -d
+  - docker-compose ps
