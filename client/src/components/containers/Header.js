@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { removeMessages } from "../../actions/messages.js";
 import projects from "../../models/projects.js";
 import { undo, redo } from "../../actions/history.js";
-import history from "../../util/history.js"
+import history from "../../util/history.js";
 
 // style dep
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
@@ -68,9 +68,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(removeMessages());
         },
         itemClicked: key => {
-            if(key === "undo"){
+            if (key === "undo") {
                 history.undo();
-            }else if(key === "redo"){
+            } else if (key === "redo") {
                 history.redo();
             }
         }

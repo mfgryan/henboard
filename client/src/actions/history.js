@@ -11,7 +11,7 @@ function initHistory(history) {
 const PUSH_CHANGE = "PUSH_CHANGE";
 function pushChange(history) {
     return {
-        type: PUSH_CHANGE, 
+        type: PUSH_CHANGE,
         model: model,
         skipValidation: true,
         project: history.project,
@@ -46,8 +46,8 @@ function updates(key, changes) {
         skipValidation: true,
         key: key,
         data: changes
-    }
-};
+    };
+}
 
 const REMOVALS = "REMOVALS";
 function removals(key, changes) {
@@ -56,8 +56,8 @@ function removals(key, changes) {
         skipValidation: true,
         key: key,
         data: changes
-    }
-};
+    };
+}
 
 const INSERTS = "INSERTS";
 function inserts(key, changes) {
@@ -66,8 +66,8 @@ function inserts(key, changes) {
         skipValidation: true,
         key: key,
         data: changes
-    }
-};
+    };
+}
 
 export {
     INIT_HISTORY,

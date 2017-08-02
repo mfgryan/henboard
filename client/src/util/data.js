@@ -74,9 +74,9 @@ const checkInserts = function(collection) {
     return inserts;
 };
 
-const checkCollectionChanges = function(primaryKeys,bc,ac) {
-    let beforeCollection = Object.assign([],bc);
-    let afterCollection = Object.assign([],ac);
+const checkCollectionChanges = function(primaryKeys, bc, ac) {
+    let beforeCollection = Object.assign([], bc);
+    let afterCollection = Object.assign([], ac);
     let updates = [];
     let removals = [];
     for (let j = 0, bcLen = beforeCollection.length; j < bcLen; j++) {

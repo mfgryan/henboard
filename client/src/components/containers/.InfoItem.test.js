@@ -9,13 +9,15 @@ import { store } from "../../util/store.js";
 // router dep
 import { BrowserRouter as Router } from "react-router-dom";
 
-it('InfoItem renders correctly', () => {
-    const tree = renderer.create(
-        <Router>
-            <Provider store={store}>
-                <InfoItem project="henboard" name="bar" />
-            </Provider>
-        </Router>
-    ).toJSON();
+it("InfoItem renders correctly", () => {
+    const tree = renderer
+        .create(
+            <Router>
+                <Provider store={store}>
+                    <InfoItem project="henboard" name="bar" />
+                </Provider>
+            </Router>
+        )
+        .toJSON();
     expect(tree).toMatchSnapshot();
 });

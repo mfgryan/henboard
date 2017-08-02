@@ -23,8 +23,8 @@ import "./css/index.css";
 // swaps the state with the returned state from the DB
 data.updateInitialState(store, () => {
     let keys = ["projects", "sprints", "lanes", "items", "info", "planning"];
-    watch(store,keys,data.writeOnChanges);
-    watch(store,keys,history.push);
+    watch(store, keys, data.writeOnChanges);
+    watch(store, keys, history.push);
 });
 
 ReactDOM.render(

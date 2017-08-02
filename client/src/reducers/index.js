@@ -11,15 +11,17 @@ import messages from "./messages.js";
 import planning from "./planning.js";
 import { history, provideHistory } from "./history.js";
 
-const rootReducer = provideHistory(combineReducers({
-    projects,
-    lanes, 
-    sprints, 
-    items,
-    info,
-    planning, 
-    messages,
-    history
-}));
+const rootReducer = provideHistory(
+    combineReducers({
+        projects,
+        lanes,
+        sprints,
+        items,
+        info,
+        planning,
+        messages,
+        history
+    })
+);
 
 export default rootReducer;
