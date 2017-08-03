@@ -27,7 +27,7 @@ To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`*
   
   client server **`localhost:3000`** prod **`localhost:4000`**
   
-  api server **`localhost:8080`** prod **`localhost:4001`**
+  api server **`localhost:3001`** prod **`localhost:4001`**
   
 
 ## Questions?
