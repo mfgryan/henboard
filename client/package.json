@@ -11,8 +11,8 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0"
   },
-
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^6.10.3",
     "nodemon": "^1.11.0",
