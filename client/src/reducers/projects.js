@@ -1,8 +1,5 @@
 //action types
-import {
-    SET_CURRENT_PROJECT,
-    INIT_PROJECTS
-} from "../actions/projects";
+import { SET_CURRENT_PROJECT, INIT_PROJECTS } from "../actions/projects";
 
 export const initialState = [{ project: "henboard", current: true }];
 
