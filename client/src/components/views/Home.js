@@ -1,5 +1,5 @@
 // react dep
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import projects from "../../models/projects.js";
 import lanes from "../../models/lanes.js";

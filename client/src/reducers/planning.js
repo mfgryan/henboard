@@ -3,15 +3,13 @@ import {
     INIT_PLANNING,
     SET_PLANNING,
     TOGGLE_PLANNING,
-    CHANGE_PLANNING_VALUE,
-    initPlanning,
-    setPlanning
+    CHANGE_PLANNING_VALUE
 } from "../actions/planning.js";
 
 export const initialState = [
     {
         project: "henboard",
-        missionStatement: 'Click "Mission Statement" to create a new plan',
+        missionStatement: "Click \"Mission Statement\" to create a new plan",
         editing: false,
         value: ""
     }

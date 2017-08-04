@@ -13,28 +13,13 @@ module.exports = {
     },
     "plugins": [
         "react"
-    ],
+        ],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-unused-vars": [
-            "error",
-            { "vars": "all", "args": "none", "argsIgnorePattern": "React" }
-        ]
+        "no-console": ["warn", { "allow": ["info", "warn", "error"]}],
+        "linebreak-style": ["warn","unix"],
+        "quotes": ["warn","double"],
+        "semi": ["warn","always"],
+        "no-unused-vars": ["warn",{ "vars": "all", "args": "none", "varsIgnorePattern": "React" }],
         "react/jsx-uses-vars": [2]
     }
 };

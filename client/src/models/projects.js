@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const projects = {};
 
 projects.fields = ["project", "current"];

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { displayErrorMessages } from "../actions/messages.js";
 import validations from "./validations.js";
 

@@ -8,23 +8,37 @@ describe("lanes", () => {
     test("non falsy fields", () => {
         expect(lanes.fields).toBeTruthy();
     });
-    
+
     test("non falsy primaryKeys", () => {
         expect(lanes.primaryKeys).toBeTruthy();
     });
-    
+
     test("getLane", () => {
-        let state = {lanes: [{project: "x", column: "todo"}]};
-        expect(lanes.getLane(state,"x","todo")).toEqual(state.lanes[0]);
+        let state = { lanes: [{ project: "x", column: "todo" }] };
+        expect(lanes.getLane(state, "x", "todo")).toEqual(state.lanes[0]);
     });
-    
+
     test("getLanes", () => {
-        let state = {lanes: [{project: "x", column: "todo"},{project: "x", column: "Backlog"}]};
-        expect(lanes.getLanes(state,"x")).toEqual([{project: "x", column: "todo"}]);
+        let state = {
+            lanes: [
+                { project: "x", column: "todo" },
+                { project: "x", column: "Backlog" }
+            ]
+        };
+        expect(lanes.getLanes(state, "x")).toEqual([
+            { project: "x", column: "todo" }
+        ]);
     });
-    
+
     test("getBacklog", () => {
-        let state = {lanes: [{project: "x", column: "todo"},{project: "x", column: "Backlog"}]};
-        expect(lanes.getBacklog(state,"x")).toEqual([{project: "x", column: "Backlog"}]);
+        let state = {
+            lanes: [
+                { project: "x", column: "todo" },
+                { project: "x", column: "Backlog" }
+            ]
+        };
+        expect(lanes.getBacklog(state, "x")).toEqual([
+            { project: "x", column: "Backlog" }
+        ]);
     });
 });

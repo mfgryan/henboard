@@ -14,11 +14,11 @@ validations.rules = {
         let object = input.object;
         let objectArray = input.objectArray;
         let keys = condition;
-        let message = '" ';
+        let message = "\" ";
         for (let i = 0; i < keys.length; i++) {
             message += object[keys[i]] + " ";
         }
-        message += '"\n Already exists.';
+        message += "\"\n Already exists.";
         return toolBox.indexOfMatch(keys, object, objectArray) !== -1
             ? errors.concat([message])
             : errors;

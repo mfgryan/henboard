@@ -1,7 +1,6 @@
 // redux dep
 import { connect } from "react-redux";
 import { addSprint, setCurrentSprint } from "../../actions/sprints";
-import projects from "../../models/projects.js";
 import sprints from "../../models/sprints.js";
 
 // component dep

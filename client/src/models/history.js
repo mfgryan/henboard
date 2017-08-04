@@ -1,8 +1,8 @@
 const history = {};
 
-history.fields = ["project", "moving", "undo": [], "redo": []];
-history.undoFields = ["keys", "do", "undo"];
-history.redoFields = ["keys", "do", "undo"];
+history.fields = ["project", "moving", "undo", "redo"];
+history.undoFields = ["keys", "redo", "undo"];
+history.redoFields = ["keys", "redo", "undo"];
 
 history.primaryKeys = ["project", "index"];
 

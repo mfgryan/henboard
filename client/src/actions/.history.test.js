@@ -39,7 +39,7 @@ describe("push change", () => {
 });
 
 describe("undo", () => {
-    let input = {project: "henboard"};
+    let input = { project: "henboard" };
     let expectedFields = {
         type: actions.UNDO,
         project: input.project
@@ -49,7 +49,7 @@ describe("undo", () => {
 });
 
 describe("redo", () => {
-    let input = {project: "henboard"};
+    let input = { project: "henboard" };
     let expectedFields = {
         type: actions.REDO,
         project: input.project
@@ -59,18 +59,18 @@ describe("redo", () => {
 });
 
 describe("UPDATES", () => {
-    let input = {key: "foo", data: "bar"};
+    let input = { key: "foo", data: "bar" };
     let expectedFields = {
         type: actions.UPDATES,
         key: input.key,
-        data: input.data,
+        data: input.data
     };
     let action = actions.updates(input.key, input.data);
     fieldTest(action, expectedFields);
 });
 
 describe("REMOVALS", () => {
-    let input = {key: "foo", data: "bar"};
+    let input = { key: "foo", data: "bar" };
     let expectedFields = {
         type: actions.REMOVALS,
         key: input.key,
@@ -81,7 +81,7 @@ describe("REMOVALS", () => {
 });
 
 describe("INSERTS", () => {
-    let input = {key: "foo", data: "bar"};
+    let input = { key: "foo", data: "bar" };
     let expectedFields = {
         type: actions.INSERTS,
         key: input.key,

@@ -8,10 +8,10 @@ import { store } from "./util/store.js";
 import data from "./util/data.js";
 import watch from "./util/watch.js";
 import history from "./util/history.js";
-import undo from "./util/undo.js";
+import undo from "./util/undo.js"; // eslint-disable-line no-unused-vars
 
 // react router dep
-import { BrowserRouter as Router, Route, IndexRoute } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/views/Home.js";
 import Backlog from "./components/views/Backlog.js";
 import Planning from "./components/views/Planning.js";

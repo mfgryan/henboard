@@ -2,9 +2,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 
-// component dep
-import InfoItem from "./containers/InfoItem.js";
-
 const Item = ({
     draggable,
     item,

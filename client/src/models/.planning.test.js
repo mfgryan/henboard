@@ -8,13 +8,13 @@ describe("planning", () => {
     test("non falsy fields", () => {
         expect(planning.fields).toBeTruthy();
     });
-    
+
     test("non falsy primaryKeys", () => {
         expect(planning.primaryKeys).toBeTruthy();
     });
-    
+
     test("getPlan", () => {
-        let state = {planning: [{project: "x", plan: "foo"}]};
-        expect(planning.getPlan(state,"x")).toEqual(state.planning[0]);
+        let state = { planning: [{ project: "x", plan: "foo" }] };
+        expect(planning.getPlan(state, "x")).toEqual(state.planning[0]);
     });
 });

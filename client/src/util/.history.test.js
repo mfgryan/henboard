@@ -8,11 +8,11 @@ describe("history", () => {
     test("undo", () => {
         expect(history.undo).toBeTruthy();
     });
-    
+
     test("redo", () => {
         expect(history.redo).toBeTruthy();
     });
-    
+
     test("push", () => {
         expect(history.push).toBeTruthy();
     });

@@ -1,7 +1,7 @@
 // redux dep
 import React from "react";
 import { connect } from "react-redux";
-import { Button, Row, Col } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import { moveItem } from "../../actions/items.js";
 import projects from "../../models/projects";
 import sprints from "../../models/sprints";
