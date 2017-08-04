@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const models = require("../models/models.js");
 
 const log = function(req) {
@@ -21,7 +22,7 @@ module.exports.upsert = function(name, req, res) {
             res.json({ success: "200" });
         },
         function(error) {
-            console.log(error);
+            console.error(error);
             res.status(500).send(error);
         }
     );
@@ -37,7 +38,7 @@ module.exports.delete = function(name, req, res) {
             res.json({ success: "200" });
         },
         function(error) {
-            console.log(error);
+            console.error(error);
             res.status(500).send(error);
         }
     );

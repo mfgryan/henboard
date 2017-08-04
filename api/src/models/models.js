@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const assert = require("assert"),
     Mongodb = require("../db");
 
@@ -86,7 +87,7 @@ module.exports.write = function(name, docs, callback, error) {
                             resolve();
                         })
                         .catch(function(err) {
-                            console.log(err);
+                            console.error(err);
                             reject();
                         });
                 })
@@ -119,7 +120,7 @@ module.exports.remove = function(name, docs, callback, error) {
                             resolve();
                         })
                         .catch(function(err) {
-                            console.log(err);
+                            console.error(err);
                             reject();
                         });
                 })

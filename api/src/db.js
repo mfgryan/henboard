@@ -1,6 +1,6 @@
+/* eslint-disable no-console */
 var MongoClient = require("mongodb").MongoClient,
     assert = require("assert");
-var models = require("./models/models.js");
 
 // Connection URL
 var isProd = process.env.ENV && process.env.ENV === "prod";
