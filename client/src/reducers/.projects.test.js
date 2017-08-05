@@ -15,10 +15,10 @@ describe("projects reducer", () => {
     });
 
     test("setCurrentProject", () => {
-        let initialState = [{ project: "henboard", current: false }];
+        let initialState = [{ project: "henboard", current: false },{ project: "x", current: true }];
         let input = "henboard";
         let action = actions.setCurrentProject(input);
-        let expectedState = [{ project: "henboard", current: true }];
+        let expectedState = [{ project: "henboard", current: true },{project: "x", current: false }];
         expect(projects(initialState, action)).toEqual(expectedState);
     });
 

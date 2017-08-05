@@ -17,18 +17,27 @@ describe("sprints", () => {
         expect(sprints.validation).toBeTruthy();
     });
 
-    test("getCurrentSprint", () => {
-        let state = { sprints: [{ project: "x", current: true }] };
-        expect(sprints.getCurrentSprint(state)).toEqual(state.sprints[0]);
+    describe("getCurrentSprint", () => {
+        test("should have one value", () => {
+            let state = { sprints: [{ project: "x", current: true }] };
+            expect(sprints.getCurrentSprint(state)).toEqual(state.sprints[0]);
+        });
+        test("should be empty", () => {
+            let state = { sprints: [{ project: "x", current: false }] };
+            expect(sprints.getCurrentSprint(state)).toEqual({});
+        });
     });
 
-    test("getSprintArray", () => {
-        let state = { sprints: [{ project: "x", week: "foo" }] };
-        expect(sprints.getSprintArray(state, "x")).toEqual(state.sprints);
+    describe("getSprintArray", () => {
+        test("getSprintArray", () => {
+            let state = { sprints: [{ project: "x", week: "foo" }] };
+            expect(sprints.getSprintArray(state, "x")).toEqual(state.sprints);
+        });
+        
+        test("getSprintArray should be empty", () => {
+            let state = { sprints: [{ project: "x", week: "foo" }] };
+            expect(sprints.getSprintArray(state, "henboard")).toEqual([]);
+        });
     });
-    
-    test("getSprintArray should be empty", () => {
-        let state = { sprints: [{ project: "x", week: "foo" }] };
-        expect(sprints.getSprintArray(state, "henboard")).toEqual([]);
-    });
+
 });

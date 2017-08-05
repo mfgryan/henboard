@@ -63,6 +63,23 @@ describe("add item", () => {
     };
     let action = actions.addItem(input);
     fieldTest(action, expectedFields);
+    
+    describe("empty values", () => {
+        let input = {
+            project: "henboard",
+            week: null,
+            column: null,
+            name: "item1"
+        };
+        let expectedFields = {
+            type: actions.ADD_ITEM,
+            week: "",
+            column: "",
+            name: input.name
+        };
+        action = actions.addItem(input);
+        fieldTest(action, expectedFields);
+    });
 });
 
 describe("remove item", () => {
@@ -95,6 +112,23 @@ describe("move item", () => {
     };
     let action = actions.moveItem(input);
     fieldTest(action, expectedFields);
+    
+    describe("empty values", () => {
+        let input = {
+            project: "henboard",
+            week: null,
+            column: null,
+            name: "item1"
+        };
+        let expectedFields = {
+            type: actions.MOVE_ITEM,
+            week: "",
+            column: "",
+            name: input.name
+        };
+        action = actions.moveItem(input);
+        fieldTest(action, expectedFields);
+    });
 });
 
 describe("change item value", () => {
