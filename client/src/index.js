@@ -8,7 +8,6 @@ import { store } from "./util/store.js";
 import data from "./util/data.js";
 import watch from "./util/watch.js";
 import history from "./util/history.js";
-import undo from "./util/undo.js"; // eslint-disable-line no-unused-vars
 
 // react router dep
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -27,6 +26,8 @@ data.updateInitialState(store, () => {
     watch(store, keys, data.writeOnChanges);
     watch(store, keys, history.push);
 });
+
+history.setUndoRedoKeys();
 
 ReactDOM.render(
     <Router>

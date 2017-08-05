@@ -21,6 +21,9 @@
     "react-test-renderer": "^15.6.1"
   },
   "proxy": "http://api_api_1:3001",
+  "jest": {
+    "coveragePathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/src/index.js"]
+  },
   "scripts": {
     "dev": "npm start",
     "prod": "npm install; npm run build; nginx -g \"daemon off;\" ",

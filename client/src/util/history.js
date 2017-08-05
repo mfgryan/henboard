@@ -83,4 +83,15 @@ history.push = function(keys, beforeArray, afterArray) {
     }
 };
 
+history.setUndoRedoKeys = function(){
+    return document.onkeydown = (evt) => {
+        evt = evt || window.event;
+        if (evt.ctrlKey && evt.keyCode === 37) {
+            history.undo();
+        } else if (evt.ctrlKey && evt.keyCode === 39) {
+            history.redo();
+        }
+    };
+};
+
 export default history;
