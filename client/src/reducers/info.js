@@ -1,5 +1,5 @@
 //action types
-import { ADD_INFO, REMOVE_INFO, REMOVE_ITEM, INIT_INFO } from "../actions/info";
+import { ADD_INFO, REMOVE_INFO, INIT_INFO } from "../actions/info";
 
 function info(state = [], action) {
     switch (action.type) {
@@ -21,14 +21,6 @@ function info(state = [], action) {
                         info.project === action.project &&
                         info.name === action.name &&
                         info.value === action.value
-                    )
-            );
-        case REMOVE_ITEM:
-            return state.filter(
-                info =>
-                    !(
-                        info.project === action.project &&
-                        info.name === action.name
                     )
             );
         default:

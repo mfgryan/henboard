@@ -60,6 +60,24 @@ describe("items reducer", () => {
         expect(items(initialState, action)).toEqual(expectedState);
     });
 
+    test("removeItem", () => {
+        let initialState = [
+            {
+                project: "henboard",
+                name: "fooItem",
+                week: "",
+                column: "",
+                openInfo: false,
+                value: ""
+            }
+        ];
+        let input = { project: "henboard", name: "fooItem" };
+        let action = actions.removeItem(input);
+
+        let expectedState = [];
+        expect(items(initialState, action)).toEqual(expectedState);
+    });
+    
     test("moveItem", () => {
         let initialState = [
             {
@@ -92,24 +110,6 @@ describe("items reducer", () => {
         expect(items(initialState, action)).toEqual(expectedState);
     });
 
-    test("removeItem", () => {
-        let initialState = [
-            {
-                project: "henboard",
-                name: "fooItem",
-                week: "",
-                column: "",
-                openInfo: false,
-                value: ""
-            }
-        ];
-        let input = { project: "henboard", name: "fooItem" };
-        let action = actions.removeItem(input);
-
-        let expectedState = [];
-        expect(items(initialState, action)).toEqual(expectedState);
-    });
-
     test("changeItemValue", () => {
         let initialState = [
             {
@@ -132,6 +132,35 @@ describe("items reducer", () => {
                 column: "",
                 openInfo: false,
                 value: "bar"
+            }
+        ];
+        expect(items(initialState, action)).toEqual(expectedState);
+    });
+    
+    test("toggleInfoAdd", () => {
+        let initialState = [
+            {
+                project: "henboard",
+                name: "fooItem",
+                week: "",
+                column: "",
+                openInfo: false,
+                value: "",
+                addItem: false
+            }
+        ];
+        let input = { project: "henboard", name: "fooItem" };
+        let action = actions.toggleInfoAdd(input);
+
+        let expectedState = [
+            {
+                project: "henboard",
+                name: "fooItem",
+                week: "",
+                column: "",
+                openInfo: false,
+                value: "",
+                addItem: true,
             }
         ];
         expect(items(initialState, action)).toEqual(expectedState);

@@ -34,4 +34,12 @@ describe("info reducer", () => {
         let expectedState = [];
         expect(info(initialState, action)).toEqual(expectedState);
     });
+
+    test("default ", () => {
+        let initialState = [];
+
+        let expectedState = [];
+        let action = { type: "UNKNOWN_TYPE" };
+        expect(items(initialState, action)).toEqual(expectedState);
+    });
 });
