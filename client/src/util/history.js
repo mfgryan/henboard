@@ -42,6 +42,7 @@ history.write = function(changes) {
             writeInserts(key, changes[key].inserts);
         }
     }
+    return changes;
 };
 
 history.undo = function() {
@@ -50,12 +51,13 @@ history.undo = function() {
     let undoStack = state.history.find(history => history.project === project)
         .undo;
     let undoChanges =
-        undoStack.length - 1 >= 0 ? undoStack[undoStack.length - 1].undo : {};
+        undoStack.length - 1 >= 0 ? undoStack[undoStack.length - 1].undo : [];
 
     store.dispatch(undo({ project: project }));
     history.lock();
     history.write(undoChanges);
     history.unlock();
+    return undoChanges;
 };
 
 history.redo = function() {
@@ -70,6 +72,7 @@ history.redo = function() {
     history.lock();
     history.write(redoChanges);
     history.unlock();
+    return redoChanges;
 };
 
 history.push = function(keys, beforeArray, afterArray) {
@@ -80,7 +83,9 @@ history.push = function(keys, beforeArray, afterArray) {
         store.dispatch(
             pushChange({ project: project, keys: keys, redo: redo, undo: undo })
         );
+        return true;
     }
+    return false;
 };
 
 history.setUndoRedoKeys = function(){

@@ -18,20 +18,27 @@ describe("history", () => {
         });
     });
 
-    test("writing", () => {
-        expect(history.write).toBeTruthy();
+    test("write", () => {
+        let changes = {};
+        expect(history.write(changes)).toEqual({});
     });
 
     test("undo", () => {
-        expect(history.undo).toBeTruthy();
+        expect(history.undo()).toEqual([]);
     });
 
     test("redo", () => {
-        expect(history.redo).toBeTruthy();
+        expect(history.redo()).toEqual([]);
     });
 
-    test("push", () => {
-        expect(history.push).toBeTruthy();
+    test("push locked", () => {
+        history.lock();
+        expect(history.push()).toBe(false);
+    });
+    
+    test("push unlocked", () => {
+        history.unlock();
+        expect(history.push(["projects"],[{"project": "foo"}],[{"project": "bar"}])).toBe(true);
     });
 
     let testUndoRedo = history.setUndoRedoKeys();

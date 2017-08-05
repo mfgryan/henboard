@@ -4,8 +4,7 @@ services:
 
 language: node_js
 
-install: 
-  - npm install coveralls
+install: true
 
 script:
   - docker-compose -f client/docker-compose.yml build
