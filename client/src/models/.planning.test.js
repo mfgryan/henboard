@@ -21,4 +21,9 @@ describe("planning", () => {
         let state = { planning: [{ project: "x", plan: "foo" }] };
         expect(planning.getPlan(state, "x")).toEqual(state.planning[0]);
     });
+    
+    test("getPlan should be empty", () => {
+        let state = { planning: [{ project: "x", plan: "foo" }] };
+        expect(planning.getPlan(state, "henboard")).toEqual({});
+    });
 });

@@ -21,4 +21,9 @@ describe("projects", () => {
         let state = { projects: [{ project: "x", current: true }] };
         expect(projects.getCurrentProject(state)).toEqual(state.projects[0]);
     });
+    
+    test("getCurrentProject should be empty", () => {
+        let state = { projects: [{ project: "x", current: false }] };
+        expect(projects.getCurrentProject(state)).toEqual({});
+    });
 });

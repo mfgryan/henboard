@@ -26,4 +26,9 @@ describe("sprints", () => {
         let state = { sprints: [{ project: "x", week: "foo" }] };
         expect(sprints.getSprintArray(state, "x")).toEqual(state.sprints);
     });
+    
+    test("getSprintArray should be empty", () => {
+        let state = { sprints: [{ project: "x", week: "foo" }] };
+        expect(sprints.getSprintArray(state, "henboard")).toEqual([]);
+    });
 });
