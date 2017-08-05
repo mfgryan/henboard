@@ -12,6 +12,10 @@ describe("projects", () => {
     test("non falsy primaryKeys", () => {
         expect(projects.primaryKeys).toBeTruthy();
     });
+    
+    test("non falsy validation", () => {
+        expect(projects.validation).toBeTruthy();
+    });
 
     test("getCurrentProject", () => {
         let state = { projects: [{ project: "x", current: true }] };

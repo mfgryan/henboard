@@ -12,6 +12,10 @@ describe("planning", () => {
     test("non falsy primaryKeys", () => {
         expect(planning.primaryKeys).toBeTruthy();
     });
+    
+    test("non falsy validation", () => {
+        expect(planning.validation).toEqual({});
+    });
 
     test("getPlan", () => {
         let state = { planning: [{ project: "x", plan: "foo" }] };

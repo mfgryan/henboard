@@ -40,6 +40,6 @@ describe("info reducer", () => {
 
         let expectedState = [];
         let action = { type: "UNKNOWN_TYPE" };
-        expect(items(initialState, action)).toEqual(expectedState);
+        expect(info(initialState, action)).toEqual(expectedState);
     });
 });

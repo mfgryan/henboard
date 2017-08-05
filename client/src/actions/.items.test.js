@@ -112,3 +112,17 @@ describe("change item value", () => {
     let action = actions.changeItemValue(input);
     fieldTest(action, expectedFields);
 });
+
+describe("toggle info add", () => {
+    let input = {
+        project: "henboard",
+        name: "item1"
+    };
+    let expectedFields = {
+        type: actions.TOGGLE_INFO_ADD,
+        project: input.project,
+        name: input.name
+    };
+    let action = actions.toggleInfoAdd(input);
+    fieldTest(action, expectedFields);
+});

@@ -12,6 +12,10 @@ describe("sprints", () => {
     test("non falsy primaryKeys", () => {
         expect(sprints.primaryKeys).toBeTruthy();
     });
+    
+    test("non falsy validation", () => {
+        expect(sprints.validation).toBeTruthy();
+    });
 
     test("getCurrentSprint", () => {
         let state = { sprints: [{ project: "x", current: true }] };
