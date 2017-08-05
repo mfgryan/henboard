@@ -150,6 +150,7 @@ data.write = function(changes) {
             writeInserts(key, changes[key].inserts);
         }
     }
+    return changes;
 };
 
 data.writeOnChanges = (keys, beforeArray, afterArray) => {

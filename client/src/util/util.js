@@ -43,7 +43,7 @@ let url = () => {
             return test.match(regex);
         },
         checkProtocol: function(url) {
-            if (!url.includes("http")) {
+            if (this.isUrl(url) && !url.includes("http")) {
                 return "//" + url;
             } else {
                 return url;

@@ -36,8 +36,14 @@ describe("the date utility", () => {
 
     describe("getDateFormat function", () => {
         test("should return correct date string", () => {
-            let input = new Date(2017, 0, 14);
-            let expectedValue = "01/14/17";
+            let input = new Date(2017, 1, 1);
+            let expectedValue = "02/01/17";
+            expect(d.getDateFormat(input)).toBe(expectedValue);
+        });
+        
+        test("should return correct date string double digits", () => {
+            let input = new Date(2017, 10, 10);
+            let expectedValue = "11/10/17";
             expect(d.getDateFormat(input)).toBe(expectedValue);
         });
     });
@@ -85,6 +91,11 @@ describe("the url utility", () => {
         test("should return url with double slash prefix", () => {
             let input = "www.test.com";
             expect(u.checkProtocol(input)).toBe("//" + input);
+        });
+        
+        test("should not return url with double slash prefix", () => {
+            let input = "www";
+            expect(u.checkProtocol(input)).toBe(input);
         });
     });
 });

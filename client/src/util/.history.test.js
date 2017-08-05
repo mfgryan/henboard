@@ -19,8 +19,8 @@ describe("history", () => {
     });
 
     test("write", () => {
-        let changes = {};
-        expect(history.write(changes)).toEqual({});
+        let changes = {projects: {updates: ["henboard"], removals: ["henboard"], inserts: ["henboard"]}};
+        expect(history.write(changes)).toEqual(changes);
     });
 
     test("undo", () => {
@@ -58,11 +58,13 @@ describe("history", () => {
     
     test("key redo", () => {
         history.redo = jest.fn();
-        let evt = {
-            ctrlKey: 39, 
-            keyCode: 39
-        }
-        testUndoRedo(evt);
+        global.window = {
+            event: {
+                ctrlKey: 39, 
+                keyCode: 39
+            }
+        };
+        testUndoRedo();
         expect(history.redo.mock.calls.length).toBe(1);
     });
 });
