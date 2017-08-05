@@ -7,23 +7,23 @@ import { initItems } from "../actions/items.js";
 import { initInfo } from "../actions/info.js";
 import { initPlanning } from "../actions/planning.js";
 
-import { tools } from "./util.js";
-import api from "./api.js";
+import { tools, api as apis } from "./util.js";
 
 import models from "../models/models.js";
 
 const data = {};
 const toolBox = tools();
+const api = apis();
 
 const getInitialState = function(callback) {
     axios
         .all([
-            api.get("projects"),
-            api.get("sprints"),
-            api.get("lanes"),
-            api.get("items"),
-            api.get("info"),
-            api.get("planning")
+            axios.get(api.getPath("projects")),
+            axios.get(api.getPath("sprints")),
+            axios.get(api.getPath("lanes")),
+            axios.get(api.getPath("items")),
+            axios.get(api.getPath("info")),
+            axios.get(api.getPath("planning"))
         ])
         .then(
             axios.spread(function(
@@ -133,11 +133,11 @@ data.checkChanges = function(keys, beforeArray, afterArray) {
 };
 
 const writeUpdates = function(key, updates) {
-    updates.length > 0 && api.post(key, updates);
+    updates.length > 0 && axios.post(api.postPath(key), updates);
 };
 
 const writeRemovals = function(key, updates) {
-    updates.length > 0 && api.remove(key, updates);
+    updates.length > 0 && axios.post(api.removePath(key), updates);
 };
 
 const writeInserts = writeUpdates;

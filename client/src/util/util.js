@@ -76,4 +76,18 @@ let tools = () => {
     };
 };
 
-export { date, url, tools };
+let api = () => {
+    return {
+        getPath: function(key){
+            return "/api/" + key; 
+        },
+        postPath: function(key){
+            return this.getPath(key);
+        },
+        removePath: function(key){
+            return this.getPath(key)+"/delete";
+        }
+    };
+};
+
+export { date, url, tools, api };

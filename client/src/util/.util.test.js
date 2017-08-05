@@ -1,4 +1,4 @@
-import { date, url, tools } from "./util.js";
+import { date, url, tools, api } from "./util.js";
 
 const d = date();
 describe("the date utility", () => {
@@ -193,5 +193,19 @@ describe("the tools utility", () => {
             ];
             expect(t.indexOfMatch(keys, object, collection)).toBe(1);
         });
+    });
+});
+
+const a = api();
+describe("api tests", () => {
+    let key = "projects";
+    test("getPath", () => {
+        expect(a.getPath(key)).toEqual("/api/projects");     
+    });
+    test("postPath", () => {
+        expect(a.postPath(key)).toEqual("/api/projects");     
+    });
+    test("removePath", () => {
+        expect(a.removePath(key)).toEqual("/api/projects/delete");     
     });
 });

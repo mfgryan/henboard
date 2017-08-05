@@ -1,4 +1,4 @@
-exports[`test Item renders correctly 1`] = `
+exports[`test Item renders correctly check 1`] = `
 <div
   className="Item row"
   draggable={true}
@@ -14,9 +14,36 @@ exports[`test Item renders correctly 1`] = `
     className="col-md-2">
     <p
       onClick={[Function]}>
-      X
+      ✔
     </p>
   </div>
-  test
+  <p>
+    test
+  </p>
+</div>
+`;
+
+exports[`test Item renders correctly no check 1`] = `
+<div
+  className="Item row"
+  draggable={true}
+  onDragStart={[Function]}>
+  <div
+    className="col-md-10">
+    <p
+      onClick={[Function]}>
+      test
+    </p>
+  </div>
+  <div
+    className="col-md-2">
+    <p
+      onClick={[Function]}>
+      ✔
+    </p>
+  </div>
+  <p>
+    test
+  </p>
 </div>
 `;

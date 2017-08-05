@@ -31,13 +31,15 @@ describe("sprints reducer", () => {
 
     test("setCurrentSprint", () => {
         let initialState = [
-            { project: "henboard", week: "05/15/17", current: false }
+            { project: "henboard", week: "05/15/17", current: false },
+            { project: "henboard", week: "05/22/17", current: true }
         ];
         let input = { project: "henboard", week: "05/15/17" };
         let action = actions.setCurrentSprint(input);
 
         let expectedState = [
-            { project: "henboard", week: "05/15/17", current: true }
+            { project: "henboard", week: "05/15/17", current: true },
+            { project: "henboard", week: "05/22/17", current: false }
         ];
         expect(sprints(initialState, action)).toEqual(expectedState);
     });
