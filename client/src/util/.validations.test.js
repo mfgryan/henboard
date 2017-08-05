@@ -89,3 +89,21 @@ describe("check errors", () => {
         expect(checkErrors(action, state, fields).length).toBeGreaterThan(0);
     });
 });
+
+describe("check primaryKeys", () => {
+    let checkPrimaryKeys = validations.checkPrimaryKeys;
+
+    test("should return error message", () => {
+        let object = { project: "henboard" };
+        let objectArray = [{project: "henboard" }];
+        let keys = ["project"];
+        expect(checkPrimaryKeys(object, objectArray, keys).length).toBeGreaterThan(0);
+    });
+    
+    test("should not return error message", () => {
+        let object = { project: "henboard" };
+        let objectArray = [{project: "x" }];
+        let keys = ["project"];
+        expect(checkPrimaryKeys(object, objectArray, keys).length).toBe(0);
+    });
+});

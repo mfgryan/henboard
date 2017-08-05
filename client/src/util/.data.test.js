@@ -1,8 +1,12 @@
 import data from "./data.js";
 
 describe("data", () => {
-    test("should return non data", () => {
+    test("should return non falsy data", () => {
         expect(data).toBeTruthy();
+    });
+
+    test("should return non falsy getInitialState", () => {
+        expect(data.updateInitialState).toBeTruthy();
     });
 
     test("check changes update", () => {

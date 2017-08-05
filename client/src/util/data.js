@@ -15,7 +15,7 @@ import models from "../models/models.js";
 const data = {};
 const toolBox = tools();
 
-data.getInitialState = function(callback) {
+const getInitialState = function(callback) {
     axios
         .all([
             api.get("projects"),
@@ -49,15 +49,19 @@ data.getInitialState = function(callback) {
         });
 };
 
-data.updateInitialState = (store, callback) => {
-    data.getInitialState(function(state) {
-        store.dispatch(initProjects(state.projects));
-        store.dispatch(initSprints(state.sprints));
-        store.dispatch(initLanes(state.lanes));
-        store.dispatch(initItems(state.items));
-        store.dispatch(initInfo(state.info));
-        store.dispatch(initPlanning(state.planning));
-        callback();
+const dispatches = (store, state) => {
+    store.dispatch(initProjects(state.projects));
+    store.dispatch(initSprints(state.sprints));
+    store.dispatch(initLanes(state.lanes));
+    store.dispatch(initItems(state.items));
+    store.dispatch(initInfo(state.info));
+    store.dispatch(initPlanning(state.planning));
+};
+
+data.updateInitialState = (store, callback) => { 
+    getInitialState((state) => {
+        dispatches(store, state);
+        callback(state);
     });
 };
 
