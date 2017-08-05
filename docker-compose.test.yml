@@ -3,11 +3,15 @@ services:
     client:
         image: mfgryan/henclient:latest
         entrypoint: /bin/bash
-        command: -c "npm install; npm run test -- --coverage" 
+        command: -c "npm install; npm run test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
         volumes:
             - client_node_modules:/home/nginx/node_modules
         environment:
             ENV: prod
-            CI: "true"
+            CI: "true",
+            TRAVIS: ${TRAVIS},
+            TRAVIS_JOB_ID: ${TRAVIS_JOB_ID},
+            TRAVIS_BRANCH: ${TRAVIS_BRANCH},
+            TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}
 volumes:
     client_node_modules:
