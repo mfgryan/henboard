@@ -63,8 +63,7 @@ let tools = () => {
             return true;
         },
         indexOfMatch: function(keys, object, collection) {
-            let i = 0,
-                len = collection.length;
+            let i = 0,len = (collection && collection.length) || 0;
             while (
                 i < len &&
                 (!collection[i] || !this.keysMatch(keys, object, collection[i]))

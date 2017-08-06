@@ -48,4 +48,30 @@ describe("validate", () => {
         invoke(action);
         expect(next).toHaveBeenCalledWith(action);
     });
+    
+    test("should have no errors", () => {
+        const { next, invoke } = create();
+        const action = { 
+            type: "TEST", 
+            model: "projects",
+            project: "x",
+            current: "false",
+            insert: true
+        };
+        invoke(action);
+        expect(next).toHaveBeenCalledWith(action);
+    });
+    
+    test("should have errors", () => {
+        const { next, invoke } = create();
+        const action = { 
+            type: "TEST", 
+            model: "projects",
+            project: "",
+            current: "false",
+            insert: true
+        };
+        invoke(action);
+        expect(next.mock.calls.length).toEqual(0);
+    });
 });
