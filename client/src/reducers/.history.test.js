@@ -15,7 +15,7 @@ describe("history reducer", () => {
     });
 
     test("pushChange", () => {
-        let initialState = [{ project: "henboard", undo: [], redo: [] }];
+        let initialState = [{ project: "henboard", undo: [], redo: [] },{project: "x"}];
         let input = {
             project: "henboard",
             keys: ["lane"],
@@ -23,7 +23,7 @@ describe("history reducer", () => {
             redo: "bar"
         };
         let action = actions.pushChange(input);
-        let expectedState = [{ project: "henboard", undo: [input], redo: [] }];
+        let expectedState = [{ project: "henboard", undo: [input], redo: [] },{project: "x"}];
         expect(history(initialState, action)).toEqual(expectedState);
     });
 
@@ -34,10 +34,10 @@ describe("history reducer", () => {
             undo: "foo",
             redo: "bar"
         };
-        let initialState = [{ project: "henboard", undo: [obj], redo: [] }];
+        let initialState = [{ project: "henboard", undo: [obj], redo: [] },{project: "x"}];
         let input = { project: "henboard" };
         let action = actions.undo(input);
-        let expectedState = [{ project: "henboard", undo: [], redo: [obj] }];
+        let expectedState = [{ project: "henboard", undo: [], redo: [obj] },{project: "x"}];
         expect(history(initialState, action)).toEqual(expectedState);
     });
 
@@ -48,10 +48,10 @@ describe("history reducer", () => {
             undo: "foo",
             redo: "bar"
         };
-        let initialState = [{ project: "henboard", undo: [], redo: [obj] }];
+        let initialState = [{ project: "henboard", undo: [], redo: [obj] },{project: "x"}];
         let input = { project: "henboard" };
         let action = actions.redo(input);
-        let expectedState = [{ project: "henboard", undo: [obj], redo: [] }];
+        let expectedState = [{ project: "henboard", undo: [obj], redo: [] },{project: "x"}];
         expect(history(initialState, action)).toEqual(expectedState);
     });
 

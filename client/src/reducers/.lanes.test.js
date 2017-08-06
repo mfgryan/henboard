@@ -17,13 +17,15 @@ describe("lanes reducer", () => {
 
     test("toggleAddItem", () => {
         let initialState = [
-            { project: "henboard", column: "Todo", addItem: false, value: "" }
+            { project: "henboard", column: "Todo", addItem: false, value: "" },
+            { project: "x", column: "Todo", addItem: false, value: "" }
         ];
         let input = { project: "henboard", column: "Todo" };
         let action = actions.toggleAddItem(input);
 
         let expectedState = [
-            { project: "henboard", column: "Todo", addItem: true, value: "" }
+            { project: "henboard", column: "Todo", addItem: true, value: "" },
+            { project: "x", column: "Todo", addItem: false, value: "" }
         ];
         expect(lanes(initialState, action)).toEqual(expectedState);
     });
@@ -54,7 +56,8 @@ describe("lanes reducer", () => {
 
     test("changeValue", () => {
         let initialState = [
-            { project: "henboard", column: "Todo", addItem: false, value: "" }
+            { project: "henboard", column: "Todo", addItem: false, value: "" },
+            { project: "x", column: "Todo", addItem: false, value: "" }
         ];
         let input = {
             project: "henboard",
@@ -70,6 +73,12 @@ describe("lanes reducer", () => {
                 column: "Todo",
                 addItem: false,
                 value: "foo"
+            },
+            { 
+                project: "x", 
+                column: "Todo", 
+                addItem: false, 
+                value: "" 
             }
         ];
         expect(lanes(initialState, action)).toEqual(expectedState);

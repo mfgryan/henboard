@@ -15,13 +15,13 @@ describe("planning reducer", () => {
     });
 
     test("setPlanning", () => {
-        let initialState = [{ project: "henboard", missionStatement: "" }];
+        let initialState = [{ project: "henboard", missionStatement: "" },{ project: "x" }];
         let input = {
             project: "henboard",
             missionStatement: "foo bar mission statement"
         };
         let action = actions.setPlanning(input);
-        let expectedState = [input];
+        let expectedState = [input,initialState[1]];
         expect(planning(initialState, action)).toEqual(expectedState);
     });
 
@@ -32,6 +32,9 @@ describe("planning reducer", () => {
                 missionStatement: "foo bar statement",
                 editing: false,
                 value: "foo bar value"
+            },
+            {
+                project: "x",
             }
         ];
         let input = { project: "henboard" };
@@ -42,6 +45,9 @@ describe("planning reducer", () => {
                 missionStatement: "foo bar statement",
                 editing: true,
                 value: "foo bar value"
+            },
+            {
+                project: "x",
             }
         ];
         expect(planning(initialState, action)).toEqual(expectedState);
@@ -54,6 +60,9 @@ describe("planning reducer", () => {
                 missionStatement: "foo bar statement",
                 editing: true,
                 value: "foo bar value"
+            },
+            {
+                project: "x",
             }
         ];
         let input = { project: "henboard", value: "new foo bar" };
@@ -64,6 +73,9 @@ describe("planning reducer", () => {
                 missionStatement: "foo bar statement",
                 editing: true,
                 value: input.value
+            },
+            {
+                project: "x",
             }
         ];
         expect(planning(initialState, action)).toEqual(expectedState);

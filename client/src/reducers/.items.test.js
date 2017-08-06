@@ -17,26 +17,30 @@ describe("items reducer", () => {
 
     test("openInfo", () => {
         let initialState = [
-            { project: "henboard", name: "fooItem", openInfo: false }
+            { project: "henboard", name: "fooItem", openInfo: false },
+            { project: "henboard", name: "barItem", openInfo: false }
         ];
         let input = { project: "henboard", name: "fooItem" };
         let action = actions.openInfo(input);
 
         let expectedState = [
-            { project: "henboard", name: "fooItem", openInfo: true }
+            { project: "henboard", name: "fooItem", openInfo: true },
+            { project: "henboard", name: "barItem", openInfo: false }
         ];
         expect(items(initialState, action)).toEqual(expectedState);
     });
 
     test("closeInfo", () => {
         let initialState = [
-            { project: "henboard", name: "fooItem", openInfo: true }
+            { project: "henboard", name: "fooItem", openInfo: true },
+            { project: "henboard", name: "barItem", openInfo: false }
         ];
         let input = { project: "henboard", name: "fooItem" };
         let action = actions.closeInfo(input);
 
         let expectedState = [
-            { project: "henboard", name: "fooItem", openInfo: false }
+            { project: "henboard", name: "fooItem", openInfo: false },
+            { project: "henboard", name: "barItem", openInfo: false }
         ];
         expect(items(initialState, action)).toEqual(expectedState);
     });
@@ -87,6 +91,10 @@ describe("items reducer", () => {
                 column: "",
                 openInfo: false,
                 value: ""
+            },
+            {
+                project: "foo",
+                name: "bar"
             }
         ];
         let input = {
@@ -105,6 +113,10 @@ describe("items reducer", () => {
                 column: "Todo",
                 openInfo: false,
                 value: ""
+            },
+            {
+                project: "foo",
+                name: "bar"
             }
         ];
         expect(items(initialState, action)).toEqual(expectedState);
@@ -119,6 +131,10 @@ describe("items reducer", () => {
                 column: "",
                 openInfo: false,
                 value: ""
+            },
+            {
+                project: "foo",
+                name: "bar"
             }
         ];
         let input = { project: "henboard", name: "fooItem", value: "bar" };
@@ -132,6 +148,10 @@ describe("items reducer", () => {
                 column: "",
                 openInfo: false,
                 value: "bar"
+            },
+            {
+                project: "foo",
+                name: "bar"
             }
         ];
         expect(items(initialState, action)).toEqual(expectedState);
@@ -147,6 +167,10 @@ describe("items reducer", () => {
                 openInfo: false,
                 value: "",
                 addItem: false
+            },
+            {
+                project: "foo",
+                name: "bar"
             }
         ];
         let input = { project: "henboard", name: "fooItem" };
@@ -161,6 +185,10 @@ describe("items reducer", () => {
                 openInfo: false,
                 value: "",
                 addItem: true,
+            },
+            {
+                project: "foo",
+                name: "bar"
             }
         ];
         expect(items(initialState, action)).toEqual(expectedState);
