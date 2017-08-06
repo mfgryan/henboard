@@ -58,11 +58,9 @@ describe("history", () => {
     
     test("key redo", () => {
         history.redo = jest.fn();
-        global.window = {
-            event: {
-                ctrlKey: 39, 
-                keyCode: 39
-            }
+        global.event = {
+            ctrlKey: 39, 
+            keyCode: 39
         };
         testUndoRedo();
         expect(history.redo.mock.calls.length).toBe(1);

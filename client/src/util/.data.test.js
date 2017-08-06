@@ -56,6 +56,6 @@ describe("data", () => {
 
     describe("data write", () => {
         let changes = {projects: {updates: ["henboard"], removals: ["henboard"], inserts: ["henboard"]}};
-        expect(data.write()).toBe(changes)); 
+        expect(data.write(changes)).toBe(changes); 
     });
 });
