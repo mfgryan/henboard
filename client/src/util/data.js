@@ -16,7 +16,7 @@ const toolBox = tools();
 const api = apis();
 
 const getInitialState = function(callback) {
-    axios
+    return axios
         .all([
             axios.get(api.getPath("projects")),
             axios.get(api.getPath("sprints")),
@@ -59,7 +59,7 @@ const dispatches = (store, state) => {
 };
 
 data.updateInitialState = (store, callback) => { 
-    getInitialState((state) => {
+    return getInitialState((state) => {
         dispatches(store, state);
         callback(state);
     });

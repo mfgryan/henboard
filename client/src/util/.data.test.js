@@ -8,6 +8,11 @@ describe("data", () => {
     test("should return non falsy getInitialState", () => {
         expect(data.updateInitialState).toBeTruthy();
     });
+    
+    test("should return promise ", () => {
+        console.log(data.updateInitialState());
+        expect(data.updateInitialState().then).toBeTruthy();
+    });
 
     test("check changes update", () => {
         let keys = ["projects"];
