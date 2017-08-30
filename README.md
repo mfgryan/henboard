@@ -9,7 +9,7 @@
 
 ## Development
 
-To work on this app clone **`git clone https://github.com/mfgryan/henboard.git`**
+To work on this app run **`git clone https://github.com/mfgryan/henboard.git`**
 
 
   #### Node.js / npm 
