@@ -8,6 +8,9 @@ import AddItemInfo from "./containers/AddItemInfo.js";
 // utilities
 import { url } from "../util/util.js";
 
+// style
+import "../css/Info.css";
+
 const Info = ({ project, info, title, removeInfo, closeInfo }) => {
     return (
         <Modal.Dialog draggable="false">
