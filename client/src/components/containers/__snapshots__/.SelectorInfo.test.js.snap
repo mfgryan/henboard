@@ -27,10 +27,27 @@ exports[`test SelectorInfo renders correctly 1`] = `
         onKeyDown={[Function]}
         role="menuitem"
         tabIndex="-1">
-        1
+        2
           
         <small>
           05/15/17
+        </small>
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        1
+          
+        <small>
+          Backlog
         </small>
       </a>
     </li>
