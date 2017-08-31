@@ -21,6 +21,7 @@ class Selector extends Component {
                         id="Selector"
                         title={this.props.title}>
                         {this.props.items
+                            .slice()
                             .reverse()
                             .slice(0, range)
                             .map((item, index) =>
