@@ -13,3 +13,6 @@ package-lock.json
 # build and test artifacts
 build
 coverage
+
+# private keys
+*.pem
