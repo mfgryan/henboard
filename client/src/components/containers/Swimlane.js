@@ -9,7 +9,6 @@ import items from "../../models/items.js";
 import ItemLane from "./ItemLane";
 import AddItemLane from "./AddItemLane.js";
 import InfoItem from "./InfoItem.js";
-import BacklogButton from "./BacklogButton.js";
 
 // style dep
 import "../../css/Swimlane.css";
@@ -38,8 +37,6 @@ export const Swimlane = ({
                         value={item.value}>
                         {item.openInfo &&
                             <InfoItem project={project} name={item.name} />}
-                        {item.column === "Backlog" &&
-                            <BacklogButton item={item} />}
                     </ItemLane>
                 )}
             </div>

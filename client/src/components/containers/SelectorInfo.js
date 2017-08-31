@@ -8,9 +8,11 @@ import { moveItem } from "../../actions/items.js";
 import Selector from "../Selector";
 
 const mapStateToProps = (state, ownProps) => {
+    var items = sprints.getSprintArray(state, ownProps.project);
+    items.unshift({week: "Backlog"});
     return {
         title: "Send To",
-        items: sprints.getSprintArray(state, ownProps.project),
+        items: items, 
         itemKey: "week"
     };
 };
@@ -21,8 +23,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(moveItem({
                 project: ownProps.project, 
                 name: ownProps.title,
-                week: key,
-                column: "Todo"
+                week: key === "Backlog" ? "" : key,
+                column: key === "Backlog" ? "Backlog" : "Todo"
             }));  
             dispatch(
                 closeInfo({
