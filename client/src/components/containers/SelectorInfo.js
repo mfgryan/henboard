@@ -1,38 +1,35 @@
 // redux dep
 import { connect } from "react-redux";
-import { addSprint, setCurrentSprint } from "../../actions/sprints";
 import sprints from "../../models/sprints.js";
+import { closeInfo } from "../../actions/items";
+import { moveItem } from "../../actions/items.js";
 
 // component dep
 import Selector from "../Selector";
-
-// utilities
-import { date } from "../../util/util.js";
 
 const mapStateToProps = (state, ownProps) => {
     return {
         title: "Send To",
         items: sprints.getSprintArray(state, ownProps.project),
-        itemKey: "week",
-        addItemTitle: "New Sprint +"
+        itemKey: "week"
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         itemClicked: key => {
-            if (key === "add") {
-                dispatch(
-                    addSprint({
-                        project: ownProps.project,
-                        week: date().getDateFormat(new Date())
-                    })
-                );
-            } else {
-                dispatch(
-                    setCurrentSprint({ project: ownProps.project, week: key })
-                );
-            }
+            dispatch(moveItem({
+                project: ownProps.project, 
+                name: ownProps.title,
+                week: key,
+                column: "Todo"
+            }));  
+            dispatch(
+                closeInfo({
+                    project: ownProps.project, 
+                    name: ownProps.title
+                }) 
+            );
         }
     };
 };

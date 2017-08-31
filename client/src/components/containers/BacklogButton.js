@@ -1,4 +1,4 @@
-// redux dep
+    // redux dep
 import React from "react";
 import { connect } from "react-redux";
 import { Button, Col } from "react-bootstrap";
