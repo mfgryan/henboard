@@ -61,7 +61,7 @@ exports[`test Info renders correctly 1`] = `
         <div
           className="row">
           <div
-            className="col-md-10">
+            className="InfoItem col-md-10">
             hello
           </div>
           <div

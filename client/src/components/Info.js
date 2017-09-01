@@ -22,7 +22,7 @@ const Info = ({ project, info, title, removeInfo, closeInfo }) => {
                 <Modal.Body>
                     {info.map((info, index) =>
                         <Row key={index}>
-                            <Col md={10}>
+                            <Col className="InfoItem" md={10}>
                                 {!url().isUrl(info.value)
                                     ? info.value
                                     : <a href={url().checkProtocol(info.value)}>
