@@ -1,14 +1,5 @@
 const model = "users";
 
-const INIT_USER = "INIT_USER";
-function initUser() {
-    return {
-        type: INIT_USER,
-        model: model,
-        skipValidation: true
-    };
-}
-
 const CREATE_USER = "CREATE_USER";
 function createUser(user) {
     return {
@@ -38,4 +29,4 @@ function logout(user){
     };
 };
 
-export { INIT_USER, CREATE_USER, LOGIN, LOGOUT, initUser, createUser, login, logout };
+export { CREATE_USER, LOGIN, LOGOUT, createUser, login, logout };

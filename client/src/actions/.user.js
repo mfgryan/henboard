@@ -10,14 +10,6 @@ const fieldTest = function(action, expectedFields) {
     }
 };
 
-describe("init user", () => {
-    let expectedFields = {
-        type: actions.INIT_USER
-    };
-    let action = actions.initUser();
-    fieldTest(action, expectedFields);
-});
-
 describe("create user", () => {
     let input = {
         name: "bob", 
