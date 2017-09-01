@@ -2,3 +2,7 @@
     max-height: 400px;
     overflow-y: auto;
 }
+
+.InfoItem {
+    overflow-wrap: break-word;
+}
