@@ -1,14 +1,10 @@
-const users = {};
+const user = {};
 
-users.fields = ["name", "email", "password"];
+user.fields = ["name", "email", "password"];
 
-users.primaryKeys = ["email"];
+user.primaryKeys = ["email"];
 
-users.validation = {
-    name: {
-        empty: false,
-        maxLength: 20
-    },
+user.validation = {
     email: {
         empty: false,
         maxLength: 100
@@ -19,4 +15,8 @@ users.validation = {
     }
 };
 
-export default users;
+user.isLoggedIn = function(state){ 
+    return state.user[0].email !== "";
+};
+
+export default user;

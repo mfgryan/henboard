@@ -167,6 +167,7 @@ exports[`test Account renders correctly 1`] = `
         <button
           className="btn btn-default"
           disabled={false}
+          onClick={[Function]}
           type="button">
           Submit
         </button>

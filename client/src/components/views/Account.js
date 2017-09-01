@@ -1,6 +1,7 @@
 // react dep
 import React from "react";
 import { connect } from "react-redux";
+import { login } from "../../actions/user.js";
 
 // component dep
 import App from "../App.js";
@@ -9,7 +10,7 @@ import { Col, Row, Button } from "react-bootstrap";
 // style dep
 import "../../css/Account.css";
 
-export const Account = () => {
+export const Account = ({ login, user }) => {
     return (
         <App>
             <div id="Account">
@@ -36,7 +37,7 @@ export const Account = () => {
                 </Row>
                 <Row>
                     <Col md={2} mdOffset={6} className="AccountButton" >
-                        <Button >Submit</Button>
+                        <Button onClick={(user) => login({email: "bob", password: "123"})} >Submit</Button>
                     </Col>
                 </Row>
             </div>
@@ -46,12 +47,19 @@ export const Account = () => {
 
 const mapStateToProps = state => {
     return {
-
+        user: {
+            name: "bob", 
+            email: "bob@gmail.com"
+        } 
     };
 };
 
 const mapDispatchToProps = dispatch => {
-    return {};
+    return {
+        login: (user) => {
+            dispatch(login(user));
+        }  
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

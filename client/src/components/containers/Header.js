@@ -3,8 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { removeMessages } from "../../actions/messages.js";
+import { logout } from "../../actions/user.js";
 import projects from "../../models/projects.js";
 import history from "../../util/history.js";
+import user from "../../models/user.js";
 
 // style dep
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
@@ -28,8 +30,8 @@ export const Header = ({ title, messages, removeMessages, itemClicked, user }) =
                     id="HeaderMenu"
                     onSelect={event => itemClicked(event)}>
                     { user ? 
-                        <MenuItem key="Signout" eventKey="Signout">
-                            Sign Out <b><small>({user})</small></b>
+                        <MenuItem key="logout" eventKey="logout">
+                            Log Out <b><small>({user})</small></b>
                         </MenuItem>
                         :
                         <li>
@@ -68,7 +70,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         title: project.project,
         messages: state.messages,
-        user: ""
+        user: user.isLoggedIn(state)
     };
 };
 
@@ -80,8 +82,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         itemClicked: key => {
             if (key === "undo") {
                 history.undo();
-            } else if (key === "redo") {
+            }else if (key === "redo") {
                 history.redo();
+            }else if (key === "logout"){
+                dispatch(logout()); 
             }
         }
     };

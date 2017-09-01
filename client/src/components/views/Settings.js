@@ -15,10 +15,12 @@ export const Planning = ({ project, week }) => {
     return (
         <App>
             <Row>
-                <Col md={4} mdOffset={4}>
+                <Col md={4} mdOffset={2}>
                     <Panel header="project">
                         {project}
                     </Panel>
+                </Col>
+                <Col md={4}>
                     <Panel header="current Sprint">
                         {week}
                     </Panel>

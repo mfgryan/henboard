@@ -20,6 +20,13 @@ const validate = store => next => action => {
     let state = (model && store.getState()[model]) || null;
     let validation =
         (model && !action.skipValidation && models[model].validation) || null;
+    
+    // only validate keys present in the action 
+    for(var key in validation){
+        if(typeof action[key] === "undefined"){
+            delete validation[key];
+        } 
+    }
 
     let errors = validation
         ? validations.checkErrors(action, state, validation)

@@ -1,4 +1,4 @@
-const model = "users";
+const model = "user";
 
 const CREATE_USER = "CREATE_USER";
 function createUser(user) {

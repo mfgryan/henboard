@@ -9,6 +9,7 @@ import items from "./items.js";
 import info from "./info.js";
 import messages from "./messages.js";
 import planning from "./planning.js";
+import user from "./user.js";
 import { history, provideHistory } from "./history.js";
 
 const rootReducer = provideHistory(
@@ -20,7 +21,8 @@ const rootReducer = provideHistory(
         info,
         planning,
         messages,
-        history
+        history,
+        user
     })
 );
 
