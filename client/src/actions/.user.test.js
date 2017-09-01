@@ -1,4 +1,4 @@
-import * as actions from "./users.js";
+import * as actions from "./user.js";
 
 const fieldTest = function(action, expectedFields) {
     for (let field in expectedFields) {
