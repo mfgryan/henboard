@@ -29,6 +29,20 @@ exports[`test Account renders correctly 1`] = `
             onKeyDown={[Function]}
             onSelect={[Function]}>
             <a
+              href="/account"
+              onClick={[Function]}>
+              Sign In
+            </a>
+          </li>
+          <li
+            className="divider"
+            onKeyDown={[Function]}
+            role="separator"
+            style={undefined} />
+          <li
+            onKeyDown={[Function]}
+            onSelect={[Function]}>
+            <a
               href="/home"
               onClick={[Function]}>
               home
@@ -107,9 +121,58 @@ exports[`test Account renders correctly 1`] = `
       </div>
     </div>
   </div>
-  <h1>
-    Register account here
-  </h1>
+  <div
+    id="Account">
+    <div
+      className="row">
+      <div
+        className="AccountField col-md-4 col-md-offset-4">
+        <h3>
+          Login
+        </h3>
+      </div>
+    </div>
+    <div
+      className="row">
+      <div
+        className="col-md-2 col-md-offset-4">
+        <h4>
+          Email
+        </h4>
+      </div>
+      <div
+        className="col-md-4">
+        <input
+          type="text" />
+      </div>
+    </div>
+    <div
+      className="row">
+      <div
+        className="col-md-2 col-md-offset-4">
+        <h4>
+          Password
+        </h4>
+      </div>
+      <div
+        className="col-md-4">
+        <input
+          type="password" />
+      </div>
+    </div>
+    <div
+      className="row">
+      <div
+        className="AccountButton col-md-2 col-md-offset-6">
+        <button
+          className="btn btn-default"
+          disabled={false}
+          type="button">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="row">
     <div

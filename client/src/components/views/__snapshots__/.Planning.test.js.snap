@@ -29,6 +29,20 @@ exports[`test Planning renders correctly 1`] = `
             onKeyDown={[Function]}
             onSelect={[Function]}>
             <a
+              href="/account"
+              onClick={[Function]}>
+              Sign In
+            </a>
+          </li>
+          <li
+            className="divider"
+            onKeyDown={[Function]}
+            role="separator"
+            style={undefined} />
+          <li
+            onKeyDown={[Function]}
+            onSelect={[Function]}>
+            <a
               href="/home"
               onClick={[Function]}>
               home
