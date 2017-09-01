@@ -4,6 +4,7 @@ import lanes from "./lanes.js";
 import items from "./items.js";
 import info from "./info.js";
 import planning from "./planning.js";
+import user from "./user.js";
 
 const models = {};
 
@@ -13,5 +14,6 @@ models.lanes = lanes;
 models.items = items;
 models.info = info;
 models.planning = planning;
+models.user = user;
 
 export default models;
