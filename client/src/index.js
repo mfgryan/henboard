@@ -15,6 +15,7 @@ import Home from "./components/views/Home.js";
 import Backlog from "./components/views/Backlog.js";
 import Planning from "./components/views/Planning.js";
 import Settings from "./components/views/Settings.js";
+import Account from "./components/views/Account.js";
 
 // css dep
 import "./css/index.css";
@@ -34,6 +35,7 @@ ReactDOM.render(
         <Provider store={store}>
             <div>
                 <Route exact path="/" component={Home} />
+                <Route path="/account" component={Account} />
                 <Route path="/home" component={Home} store={store} />
                 <Route path="/backlog" component={Backlog} />
                 <Route path="/planning" component={Planning} />

@@ -10,7 +10,7 @@ import history from "../../util/history.js";
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
 import "../../css/Header.css";
 
-export const Header = ({ title, messages, removeMessages, itemClicked }) => {
+export const Header = ({ title, messages, removeMessages, itemClicked, user }) => {
     messages.length > 0 && setTimeout(removeMessages, 5000);
     return (
         <Row className="Header">
@@ -27,6 +27,16 @@ export const Header = ({ title, messages, removeMessages, itemClicked }) => {
                     title="≡"
                     id="HeaderMenu"
                     onSelect={event => itemClicked(event)}>
+                    { user ? 
+                        <MenuItem key="Signout" eventKey="Signout">
+                            Sign Out <b><small>({user})</small></b>
+                        </MenuItem>
+                        :
+                        <li>
+                            <Link to="/account">Sign In</Link>
+                        </li>
+                    }
+                    <MenuItem divider />
                     <li>
                         <Link to="/home">home</Link>
                     </li>
@@ -57,7 +67,8 @@ const mapStateToProps = (state, ownProps) => {
     let project = projects.getCurrentProject(state);
     return {
         title: project.project,
-        messages: state.messages
+        messages: state.messages,
+        user: ""
     };
 };
 
