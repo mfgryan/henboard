@@ -1,12 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const routes = require("./routes");
 const sprints = require("../models/sprints");
 
 const app = express();
-
-// middleware
-app.use(bodyParser.json());
 
 const name = sprints.name;
 

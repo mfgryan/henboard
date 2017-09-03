@@ -1,3 +1,5 @@
+import axios from "axios";
+
 let date = () => {
     const _MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
     return {
@@ -77,6 +79,15 @@ let tools = () => {
 
 let api = () => {
     return {
+        read: function(key){
+            return typeof key === "string" ? axios.get(this.getPath(key)) : axios.all(key.map(key => this.read(key)));
+        },
+        update: function(key, data){
+            return axios.post(api.postPath(key), data); 
+        },
+        remove: function(key, data){
+            return axios.post(api.removePath(key), data); 
+        },
         getPath: function(key){
             return "/api/" + key; 
         },

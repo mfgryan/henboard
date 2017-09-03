@@ -8,6 +8,7 @@ const lanes = require("./lanes");
 const items = require("./items");
 const info = require("./info");
 const planning = require("./planning");
+const user = require("./user");
 
 const models = {};
 
@@ -17,6 +18,7 @@ models.lanes = lanes;
 models.items = items;
 models.info = info;
 models.planning = planning;
+models.user = user;
 
 module.exports.init = function(name, initialDocs, db, callback) {
     let collection = db.collection(name);

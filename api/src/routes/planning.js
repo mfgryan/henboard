@@ -1,12 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const routes = require("./routes");
 const planning = require("../models/planning");
 
 const app = express();
-
-// middleware
-app.use(bodyParser.json());
 
 const name = planning.name;
 

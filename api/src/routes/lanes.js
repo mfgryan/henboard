@@ -1,12 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const routes = require("./routes");
 const lanes = require("../models/lanes");
 
 const app = express();
-
-// middleware
-app.use(bodyParser.json());
 
 const name = lanes.name;
 

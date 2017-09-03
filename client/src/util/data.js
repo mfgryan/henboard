@@ -16,24 +16,9 @@ const toolBox = tools();
 const api = apis();
 
 const getInitialState = function(callback) {
-    return axios
-        .all([
-            axios.get(api.getPath("projects")),
-            axios.get(api.getPath("sprints")),
-            axios.get(api.getPath("lanes")),
-            axios.get(api.getPath("items")),
-            axios.get(api.getPath("info")),
-            axios.get(api.getPath("planning"))
-        ])
-        .then(
-            axios.spread(function(
-                projects,
-                sprints,
-                lanes,
-                items,
-                info,
-                planning
-            ) {
+    return api
+        .read(["projects","sprints","lanes","items","info","planning"])
+        .then(axios.spread(function(projects,sprints,lanes,items,info,planning) {
                 callback({
                     projects: projects.data,
                     sprints: sprints.data,
@@ -133,11 +118,11 @@ data.checkChanges = function(keys, beforeArray, afterArray) {
 };
 
 const writeUpdates = function(key, updates) {
-    updates.length > 0 && axios.post(api.postPath(key), updates);
+    updates.length > 0 && api.update(key, updates);
 };
 
 const writeRemovals = function(key, updates) {
-    updates.length > 0 && axios.post(api.removePath(key), updates);
+    updates.length > 0 && api.remove(key, updates);
 };
 
 const writeInserts = writeUpdates;
