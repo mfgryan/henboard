@@ -4,17 +4,23 @@ module.exports.name = "user";
 module.exports.initialDocs = [{ name: "", email: "", password: "" }];
 module.exports.primaryKeys = ["email"];
 
-module.exports.findByUsername = function(email, db, cb){ 
+module.exports.findByEmail = function(email, db, cb){ 
     let collection = db.collection(module.exports.name);
     collection.findOne({"email": email}, function(err, user){
         cb(err, user);
     });
 };
 
-module.exports.findById = function(id, db, cb){ 
+module.exports.createUser = function(data, db, cb){ 
     let collection = db.collection(module.exports.name);
-    let objectId = new ObjectID();
-    collection.findOne({"_id": objectId(id)}, function(err, user){
-        cb(err, user);
+
+    let email = data.email;
+    let name = data.name;
+    let password = data.password;
+
+    module.exports.findByEmail(email, db, function(err, user){
+        console.log("USER", user);
     });
+
 };
+
