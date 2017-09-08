@@ -5,7 +5,6 @@ import projects from "../../models/projects.js";
 import lanes from "../../models/lanes.js";
 
 // component dep
-import App from "../App";
 import Swimlane from "../containers/Swimlane";
 import SelectorBoard from "../containers/SelectorBoard";
 
@@ -13,33 +12,33 @@ import SelectorBoard from "../containers/SelectorBoard";
 import { Col, Row } from "react-bootstrap";
 import "../../css/Home.css";
 
-export const Home = ({ project, lanes }) => {
+export const Home = props => {
+    let lanes = props.lanes;
+    let project = props.project;
     const getColWidth = (laneCount, index) =>
         12 / laneCount + (index < 12 % laneCount ? 1 : 0);
     return (
-        <App>
-            <div>
-                <Row className="board">
-                    {lanes.map((lane, index) =>
-                        <Col md={getColWidth(lanes.length, index)} key={index}>
-                            <Swimlane
-                                project={project.project}
-                                column={lane.column}
-                            />
-                        </Col>
-                    )}
-                </Row>
-                <Row>
-                    <Col md={12}>
-                        <SelectorBoard project={project.project} />
+        <div>
+            <Row className="board">
+                {lanes.map((lane, index) =>
+                    <Col md={getColWidth(lanes.length, index)} key={index}>
+                        <Swimlane
+                            project={project.project}
+                            column={lane.column}
+                        />
                     </Col>
-                </Row>
-            </div>
-        </App>
+                )}
+            </Row>
+            <Row>
+                <Col md={12}>
+                    <SelectorBoard project={project.project} />
+                </Col>
+            </Row>
+        </div>
     );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     let project = projects.getCurrentProject(state);
     return {
         project: project,

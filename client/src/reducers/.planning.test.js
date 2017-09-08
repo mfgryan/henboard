@@ -9,7 +9,7 @@ describe("planning reducer", () => {
     test("initPlanning", () => {
         let initialState = [];
         let input = [{ foo: "bar" }];
-        let action = actions.initPlanning(input);
+        let action = actions.init(input);
         let expectedState = input;
         expect(planning(initialState, action)).toEqual(expectedState);
     });

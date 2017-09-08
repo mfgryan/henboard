@@ -9,7 +9,7 @@ describe("projects reducer", () => {
     test("initProjects", () => {
         let initialState = [];
         let input = [{ foo: "bar" }];
-        let action = actions.initProjects(input);
+        let action = actions.init(input);
         let expectedState = input;
         expect(projects(initialState, action)).toEqual(expectedState);
     });

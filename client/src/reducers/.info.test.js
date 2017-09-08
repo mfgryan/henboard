@@ -9,7 +9,7 @@ describe("info reducer", () => {
     test("initInfo", () => {
         let initialState = [];
         let input = [{ foo: "bar" }];
-        let action = actions.initInfo(input);
+        let action = actions.init(input);
 
         let expectedState = input;
         expect(info(initialState, action)).toEqual(expectedState);

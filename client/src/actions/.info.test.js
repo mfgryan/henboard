@@ -16,7 +16,7 @@ describe("init info", () => {
         type: actions.INIT_INFO,
         info: []
     };
-    let action = actions.initInfo(input);
+    let action = actions.init(input);
     fieldTest(action, expectedFields);
 });
 

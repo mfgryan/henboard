@@ -9,7 +9,7 @@ describe("sprints reducer", () => {
     test("initSprints", () => {
         let initialState = [];
         let input = [{ foo: "bar" }];
-        let action = actions.initSprints(input);
+        let action = actions.init(input);
 
         let expectedState = input;
         expect(sprints(initialState, action)).toEqual(expectedState);

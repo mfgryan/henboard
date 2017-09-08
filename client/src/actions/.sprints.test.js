@@ -16,7 +16,7 @@ describe("init sprints", () => {
         type: actions.INIT_SPRINTS,
         sprints: input
     };
-    let action = actions.initSprints(input);
+    let action = actions.init(input);
     fieldTest(action, expectedFields);
 });
 

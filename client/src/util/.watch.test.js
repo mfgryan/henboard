@@ -32,7 +32,7 @@ describe("watch function", () => {
     describe("mock callback called", () => {
         let mockCallback = jest.fn();
         watch(store, ["projects"], mockCallback);
-        let action = actions.initProjects([
+        let action = actions.init([
             { project: "henboard", current: false }
         ]);
 

@@ -1,6 +1,6 @@
 const model = "projects";
 const INIT_PROJECTS = "INIT_PROJECTS";
-function initProjects(projects) {
+function init(projects) {
     return {
         type: INIT_PROJECTS,
         model: model,
@@ -17,4 +17,4 @@ function setCurrentProject(project) {
     };
 }
 
-export { INIT_PROJECTS, SET_CURRENT_PROJECT, initProjects, setCurrentProject };
+export { INIT_PROJECTS, SET_CURRENT_PROJECT, init, setCurrentProject };

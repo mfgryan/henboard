@@ -206,17 +206,3 @@ describe("the tools utility", () => {
         });
     });
 });
-
-const a = api();
-describe("api tests", () => {
-    let key = "projects";
-    test("getPath", () => {
-        expect(a.getPath(key)).toEqual("/api/projects");     
-    });
-    test("postPath", () => {
-        expect(a.postPath(key)).toEqual("/api/projects");     
-    });
-    test("removePath", () => {
-        expect(a.removePath(key)).toEqual("/api/projects/delete");     
-    });
-});

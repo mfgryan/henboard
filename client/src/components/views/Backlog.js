@@ -5,7 +5,6 @@ import projects from "../../models/projects.js";
 import lanes from "../../models/lanes.js";
 
 // component dep
-import App from "../App.js";
 import Swimlane from "../containers/Swimlane";
 
 // style dep
@@ -14,18 +13,16 @@ import "../../css/Backlog.css";
 
 export const Backlog = ({ project, lanes }) => {
     return (
-        <App>
-            <Row className="board">
-                {lanes.map((lane, index) =>
-                    <Col md={4} key={index}>
-                        <Swimlane
-                            project={project.project}
-                            column={lane.column}
-                        />
-                    </Col>
-                )}
-            </Row>
-        </App>
+        <Row className="board">
+            {lanes.map((lane, index) =>
+                <Col md={4} key={index}>
+                    <Swimlane
+                        project={project.project}
+                        column={lane.column}
+                    />
+                </Col>
+            )}
+        </Row>
     );
 };
 

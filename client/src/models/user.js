@@ -19,4 +19,8 @@ user.isLoggedIn = function(state){
     return state.user[0].email !== "";
 };
 
+user.name = function(state){ 
+    return state.user[0].name;
+};
+
 export default user;

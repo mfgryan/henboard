@@ -10,9 +10,6 @@ import {
 import projects from "../../models/projects.js";
 import planning from "../../models/planning.js";
 
-// component dep
-import App from "../App";
-
 // style dep
 import "../../css/Planning.css";
 
@@ -24,38 +21,36 @@ export const Planning = ({
     toggleAddStatement
 }) => {
     return (
-        <App>
-            <Jumbotron className="PlanningTron">
-                <Row>
-                    <Col md={8} mdOffset={2}>
-                        <h2 onClick={() => toggleAddStatement(item)}>
-                            Mission Statement
-                        </h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={8} mdOffset={2}>
-                        {item.editing
-                            ? <textarea
-                                  className="PlanningTextArea"
-                                  value={item.value}
-                                  onChange={event => changeValue(event, item)}
-                              />
-                            : <h4>
-                                  {item.missionStatement}
-                              </h4>}
-                    </Col>
-                </Row>
-                {item.editing &&
-                    <Row>
-                        <Col md={8} mdOffset={2} className="PlanningButton">
-                            <Button onClick={() => addStatement(item)}>
-                                Save
-                            </Button>
-                        </Col>
-                    </Row>}
-            </Jumbotron>
-        </App>
+        <Jumbotron className="PlanningTron">
+            <Row>
+                <Col md={8} mdOffset={2}>
+                    <h2 onClick={() => toggleAddStatement(item)}>
+                        Mission Statement
+                    </h2>
+                </Col>
+            </Row>
+            <Row>
+                <Col md={8} mdOffset={2}>
+                    {item.editing
+                    ? <textarea
+                        className="PlanningTextArea"
+                        value={item.value}
+                        onChange={event => changeValue(event, item)}
+                    />
+                    : <h4>
+                        {item.missionStatement}
+                    </h4>}
+                </Col>
+            </Row>
+            {item.editing &&
+            <Row>
+                <Col md={8} mdOffset={2} className="PlanningButton">
+                    <Button onClick={() => addStatement(item)}>
+                        Save
+                    </Button>
+                </Col>
+            </Row>}
+        </Jumbotron>
     );
 };
 

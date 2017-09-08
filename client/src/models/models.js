@@ -8,6 +8,9 @@ import user from "./user.js";
 
 const models = {};
 
+// keys which need to be watched
+models.keys = ["projects", "sprints", "lanes", "items", "info", "planning"];
+
 models.projects = projects;
 models.sprints = sprints;
 models.lanes = lanes;

@@ -1,156 +1,23 @@
 exports[`test Planning renders correctly 1`] = `
 <div
-  className="container">
+  className="PlanningTron jumbotron">
   <div
-    className="Header row">
+    className="row">
     <div
-      className="col-md-4" />
-    <div
-      className="HeaderDropdownCol col-md-4 col-md-offset-8">
-      <div
-        className="dropdown btn-group">
-        <button
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="HeaderDropdownMenu dropdown-toggle btn btn-default"
-          disabled={false}
-          id="HeaderMenu"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-          type="button">
-          ≡
-        </button>
-        <ul
-          aria-labelledby="HeaderMenu"
-          className="dropdown-menu"
-          role="menu">
-          <li
-            onKeyDown={[Function]}
-            onSelect={[Function]}>
-            <a
-              href="/account"
-              onClick={[Function]}>
-              Sign In
-            </a>
-          </li>
-          <li
-            className="divider"
-            onKeyDown={[Function]}
-            role="separator"
-            style={undefined} />
-          <li
-            onKeyDown={[Function]}
-            onSelect={[Function]}>
-            <a
-              href="/home"
-              onClick={[Function]}>
-              home
-            </a>
-          </li>
-          <li
-            onKeyDown={[Function]}
-            onSelect={[Function]}>
-            <a
-              href="/backlog"
-              onClick={[Function]}>
-              backlog
-            </a>
-          </li>
-          <li
-            onKeyDown={[Function]}
-            onSelect={[Function]}>
-            <a
-              href="/planning"
-              onClick={[Function]}>
-              planning
-            </a>
-          </li>
-          <li
-            className="divider"
-            onKeyDown={[Function]}
-            role="separator"
-            style={undefined} />
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href="#"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              undo 
-              <small>
-                Ctrl-left
-              </small>
-            </a>
-          </li>
-          <li
-            className=""
-            role="presentation"
-            style={undefined}>
-            <a
-              href="#"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1">
-              redo 
-              <small>
-                Ctrl-right
-              </small>
-            </a>
-          </li>
-          <li
-            className="divider"
-            onKeyDown={[Function]}
-            role="separator"
-            style={undefined} />
-          <li
-            onKeyDown={[Function]}
-            onSelect={[Function]}>
-            <a
-              href="/settings"
-              onClick={[Function]}>
-              settings
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    className="PlanningTron jumbotron">
-    <div
-      className="row">
-      <div
-        className="col-md-8 col-md-offset-2">
-        <h2
-          onClick={[Function]}>
-          Mission Statement
-        </h2>
-      </div>
-    </div>
-    <div
-      className="row">
-      <div
-        className="col-md-8 col-md-offset-2">
-        <h4>
-          Click \"Mission Statement\" to create a new plan
-        </h4>
-      </div>
+      className="col-md-8 col-md-offset-2">
+      <h2
+        onClick={[Function]}>
+        Mission Statement
+      </h2>
     </div>
   </div>
   <div
     className="row">
     <div
-      className="col-md-12"
-      id="footer">
-      <i>
-        Henboard 2017
-      </i>
+      className="col-md-8 col-md-offset-2">
+      <h4>
+        Click \"Mission Statement\" to create a new plan
+      </h4>
     </div>
   </div>
 </div>

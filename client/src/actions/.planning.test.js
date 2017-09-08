@@ -16,7 +16,7 @@ describe("init planning", () => {
         type: actions.INIT_PLANNING,
         planning: input
     };
-    let action = actions.initPlanning(input);
+    let action = actions.init(input);
     fieldTest(action, expectedFields);
 });
 

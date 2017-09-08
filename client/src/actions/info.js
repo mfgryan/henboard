@@ -1,6 +1,6 @@
 const model = "info";
 const INIT_INFO = "INIT_INFO";
-function initInfo(info) {
+function init(info) {
     return {
         type: INIT_INFO,
         model: model,
@@ -30,4 +30,4 @@ function removeInfo(info) {
     };
 }
 
-export { ADD_INFO, REMOVE_INFO, INIT_INFO, initInfo, addInfo, removeInfo };
+export { ADD_INFO, REMOVE_INFO, INIT_INFO, init, addInfo, removeInfo };

@@ -1,6 +1,6 @@
 const model = "planning";
 const INIT_PLANNING = "INIT_PLANNING";
-function initPlanning(plan) {
+function init(plan) {
     return {
         type: INIT_PLANNING,
         model: model,
@@ -40,7 +40,7 @@ export {
     SET_PLANNING,
     TOGGLE_PLANNING,
     CHANGE_PLANNING_VALUE,
-    initPlanning,
+    init,
     setPlanning,
     togglePlanning,
     changePlanningValue

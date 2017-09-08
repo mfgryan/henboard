@@ -16,7 +16,7 @@ describe("init items", () => {
         type: actions.INIT_ITEMS,
         items: input
     };
-    let action = actions.initItems(input);
+    let action = actions.init(input);
     fieldTest(action, expectedFields);
 });
 

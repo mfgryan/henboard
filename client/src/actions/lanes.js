@@ -1,6 +1,6 @@
 const model = "lanes";
 const INIT_LANES = "INIT_LANES";
-function initLanes(lanes) {
+function init(lanes) {
     return {
         type: INIT_LANES,
         model: model,
@@ -45,7 +45,7 @@ export {
     ADD_LANE,
     CHANGE_VALUE,
     INIT_LANES,
-    initLanes,
+    init,
     toggleAddItem,
     addLane,
     changeValue

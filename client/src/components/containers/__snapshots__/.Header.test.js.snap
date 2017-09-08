@@ -27,7 +27,6 @@ exports[`test Header renders correctly 1`] = `
           onKeyDown={[Function]}
           onSelect={[Function]}>
           <a
-            href="/account"
             onClick={[Function]}>
             Sign In
           </a>
@@ -41,7 +40,7 @@ exports[`test Header renders correctly 1`] = `
           onKeyDown={[Function]}
           onSelect={[Function]}>
           <a
-            href="/home"
+            href="home"
             onClick={[Function]}>
             home
           </a>
@@ -50,7 +49,7 @@ exports[`test Header renders correctly 1`] = `
           onKeyDown={[Function]}
           onSelect={[Function]}>
           <a
-            href="/backlog"
+            href="backlog"
             onClick={[Function]}>
             backlog
           </a>
@@ -59,7 +58,7 @@ exports[`test Header renders correctly 1`] = `
           onKeyDown={[Function]}
           onSelect={[Function]}>
           <a
-            href="/planning"
+            href="planning"
             onClick={[Function]}>
             planning
           </a>
@@ -110,7 +109,7 @@ exports[`test Header renders correctly 1`] = `
           onKeyDown={[Function]}
           onSelect={[Function]}>
           <a
-            href="/settings"
+            href="settings"
             onClick={[Function]}>
             settings
           </a>

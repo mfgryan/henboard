@@ -1,6 +1,6 @@
 const model = "sprints";
 const INIT_SPRINTS = "INIT_SPRINTS";
-function initSprints(sprints) {
+function init(sprints) {
     return {
         type: INIT_SPRINTS,
         model: model,
@@ -32,7 +32,7 @@ export {
     ADD_SPRINT,
     SET_CURRENT_SPRINT,
     INIT_SPRINTS,
-    initSprints,
+    init,
     addSprint,
     setCurrentSprint
 };

@@ -9,7 +9,7 @@ describe("lanes reducer", () => {
     test("initLanes", () => {
         let initialState = [];
         let input = [{ foo: "bar" }];
-        let action = actions.initLanes(input);
+        let action = actions.init(input);
 
         let expectedState = input;
         expect(lanes(initialState, action)).toEqual(expectedState);

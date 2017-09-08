@@ -1,6 +1,6 @@
 const model = "items";
 const INIT_ITEMS = "INIT_ITEMS";
-function initItems(items) {
+function init(items) {
     return {
         type: INIT_ITEMS,
         model: model,
@@ -92,7 +92,7 @@ export {
     CHANGE_ITEM_VALUE,
     INIT_ITEMS,
     TOGGLE_INFO_ADD,
-    initItems,
+    init,
     openInfo,
     closeInfo,
     addItem,

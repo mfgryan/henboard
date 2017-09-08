@@ -16,7 +16,7 @@ describe("init lanes", () => {
         type: actions.INIT_LANES,
         lanes: input
     };
-    let action = actions.initLanes(input);
+    let action = actions.init(input);
     fieldTest(action, expectedFields);
 });
 

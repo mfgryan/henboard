@@ -16,7 +16,7 @@ describe("init projects", () => {
         type: actions.INIT_PROJECTS,
         projects: input
     };
-    let action = actions.initProjects(input);
+    let action = actions.init(input);
     fieldTest(action, expectedFields);
 });
 

@@ -9,7 +9,7 @@ describe("items reducer", () => {
     test("initItems", () => {
         let initialState = [];
         let input = [{ foo: "bar" }];
-        let action = actions.initItems(input);
+        let action = actions.init(input);
 
         let expectedState = input;
         expect(items(initialState, action)).toEqual(expectedState);

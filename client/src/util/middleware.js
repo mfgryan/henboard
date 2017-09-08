@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { displayErrorMessages } from "../actions/messages.js";
 import validations from "./validations.js";
-
 import models from "../models/models.js";
 
 const logger = store => next => action => {
@@ -13,6 +12,15 @@ const logger = store => next => action => {
     console.log("next state", store.getState());
     console.group && console.groupEnd(action.type);
     return result;
+};
+
+const fn = store => next => action => { 
+    if(typeof action.fn === "function"){
+        action.fn(store, action, function(action){
+            return next(action); 
+        });
+    }
+    return next(action);
 };
 
 const validate = store => next => action => {
@@ -45,4 +53,4 @@ const validate = store => next => action => {
         : next(action);
 };
 
-export { logger, validate };
+export { logger, validate, fn };
