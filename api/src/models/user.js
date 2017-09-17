@@ -1,8 +1,19 @@
 const ObjectID = require("mongodb").ObjectID;
 
-module.exports.name = "user";
+module.exports.name = "users";
 module.exports.initialDocs = [{ name: "", email: "", password: "" }];
 module.exports.primaryKeys = ["email"];
+
+module.exports.validateUser = (Mongodb) => {
+    return function(email, password, cb){
+        Mongodb.getDb(function(db){
+            let collection = db.collection(module.exports.name);
+            collection.findOne({"email": email, "password": password}, function(err, user){
+                return user ? cb(null, true) : cb(null, false);
+            });
+        });
+    }
+};
 
 module.exports.findByEmail = function(email, db, cb){ 
     let collection = db.collection(module.exports.name);

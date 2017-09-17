@@ -13,7 +13,8 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(basicAuth({
-    users: { "ryanbhenao@gmail.com": "123" }
+    authorizer: user.validateUser(Mongodb),
+    authorizeAsync: true
 }));
 
 app.use("/", routes);
