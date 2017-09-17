@@ -5,8 +5,6 @@ import ReactDOM from "react-dom";
 // redux dep
 import { Provider } from "react-redux";
 import store from "./util/store.js";
-import models from "./models/models";
-import User from "./util/user.js";
 
 // react router dep
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -18,8 +16,6 @@ import Settings from "./components/views/Settings.js";
 
 // css dep
 import "./css/index.css";
-
-User(store, models.keys);
 
 ReactDOM.render(
     <Router>

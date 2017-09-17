@@ -3,12 +3,21 @@ import watch from "./watch.js";
 import Api from "./api.js";
 import actions from "../actions/actions.js";
 import { initialStates } from "../reducers/reducers.js";
+import { login } from "../actions/user.js";
 
 export default (store, keys) => {
 
     let api = Api();
 
     let unsubscribe;
+
+    window.onload = function(){
+        let email = localStorage.getItem("email");     
+        let password = localStorage.getItem("password");     
+        if(email && password){
+            store.dispatch(login({email: email, password: password})); 
+        }
+    };
     
     let subscribe = function(store, keys, cb){
         return watch(store, keys, cb); 
@@ -42,12 +51,14 @@ export default (store, keys) => {
         let afterEmail = afterArray[0][0].email;
 
         if(!beforeEmail && afterEmail){
+            // login
             getInitialState(function(state){
                 // dispatch updates here
                 updateState(state);
                 unsubscribe = subscribe(store, keys, api.writeChanges.bind(api));
             });
         }else if(!afterEmail && beforeEmail){
+            // logout
             typeof unsubscribe === "function" && unsubscribe();
             clearState();
         }

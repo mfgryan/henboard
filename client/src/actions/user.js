@@ -18,8 +18,8 @@ function login(user){
         fn: function(store, action, done){
             // login via api
             // assuming success
-            sessionStorage.setItem("email", action.email);
-            sessionStorage.setItem("password", action.password);
+            localStorage.setItem("email", action.email);
+            localStorage.setItem("password", action.password);
             
             //add user name to action 
             action.name = "ryan";
@@ -38,8 +38,8 @@ function logout(user){
     return {
         type: LOGOUT,
         fn: function(store, action, done){
-            sessionStorage.removeItem("email");
-            sessionStorage.removeItem("password");
+            localStorage.removeItem("email");
+            localStorage.removeItem("password");
             done(action);
         },
         model: model

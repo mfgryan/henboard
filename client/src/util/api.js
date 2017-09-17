@@ -7,11 +7,11 @@ export default () => {
     let base = "/api/";
 
     let getEmail = function(){
-        return sessionStorage.getItem("email");
+        return localStorage.getItem("email");
     };
     
     let getPassword = function(){
-        return sessionStorage.getItem("password");
+        return localStorage.getItem("password");
     };
 
     let config = function(path, method){

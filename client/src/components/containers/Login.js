@@ -70,6 +70,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         login: (user) => {
+            console.log(user);
             dispatch(login(user));
         }
     };
