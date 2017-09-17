@@ -19,7 +19,7 @@ import Settings from "./components/views/Settings.js";
 // css dep
 import "./css/index.css";
 
-let user = User(store, models.keys);
+User(store, models.keys);
 
 ReactDOM.render(
     <Router>

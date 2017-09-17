@@ -1,5 +1,3 @@
-import axios from "axios";
-
 let date = () => {
     const _MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
     return {
