@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "dev": "npm install; nodemon ./src/index.js",
-    "prod": "npm install; node ./src/index.js",
+    "prod": "npm cache clean; npm install; node ./src/index.js",
     "prettify": "prettier --tab-width 4 -l --jsx-bracket-same-line --write \"./src/**/*.js\""
   },
   "repository": {

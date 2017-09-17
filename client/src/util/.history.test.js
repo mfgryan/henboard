@@ -23,22 +23,8 @@ describe("history", () => {
     });
     
     test("key undo", () => {
-        h.undo = jest.fn();
-        let evt = {
-            ctrlKey: 37, 
-            keyCode: 37
-        }
-        testUndoRedo(evt);
-        expect(h.undo.mock.calls.length).toBe(1);
     });
     
     test("key redo", () => {
-        h.redo = jest.fn();
-        global.event = {
-            ctrlKey: 39, 
-            keyCode: 39
-        };
-        testUndoRedo();
-        expect(h.redo.mock.calls.length).toBe(1);
     });
 });

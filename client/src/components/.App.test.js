@@ -14,7 +14,7 @@ it("App renders correctly", () => {
         .create(
             <Router>
                 <Provider store={store}>
-                    <App>test</App>
+                    <App store={store} >test</App>
                 </Provider>
             </Router>
         )
