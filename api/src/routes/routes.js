@@ -26,9 +26,20 @@ const log = function(req) {
     console.log(req.method, req.hostname, req.baseUrl + req.path);
 };
 
+const parseUser = function(req){
+    // AUTH header format:
+    // Basic id64base:password64base
+    let field = req.get("Authorization").split(" ")[1];
+    let decodedField = Buffer.from(field, 'base64').toString("ascii").split(":");     
+    return {
+        email: decodedField[0],
+        password: decodedField[1]
+    }
+};
+
 module.exports.get = function(name, req, res) {
     log(req);
-    models.read(name, function(docs) {
+    models.read(parseUser(req), name, function(docs) {
         res.json(docs);
     });
 };
@@ -36,6 +47,7 @@ module.exports.get = function(name, req, res) {
 module.exports.upsert = function(name, req, res) {
     log(req);
     models.write(
+        parseUser(req),
         name,
         req.body,
         function() {
@@ -52,6 +64,7 @@ module.exports.upsert = function(name, req, res) {
 module.exports.delete = function(name, req, res) {
     log(req);
     models.remove(
+        parseUser(req),
         name,
         req.body,
         function() {

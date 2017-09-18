@@ -1,3 +1,5 @@
+import Api from "../util/api";
+import { displayErrorMessages } from "./messages.js";
 const model = "user";
 
 const CREATE_USER = "CREATE_USER";
@@ -16,16 +18,26 @@ function login(user){
     return {
         type: LOGIN,
         fn: function(store, action, done){
-            // login via api
-            // assuming success
+            let api = Api();
+            
+            // assume they are correct and if api rejects remove them
             localStorage.setItem("email", action.email);
             localStorage.setItem("password", action.password);
-            
-            //add user name to action 
-            action.name = "ryan";
-            
-            // if failure should change action to login fail first
-            done(action);
+
+            api.read("user").then(function(res){
+                action.name = res.data[0].name;
+                done(action);
+            }).catch(function(err){
+                console.log(err); 
+
+                localStorage.removeItem("email");
+                localStorage.removeItem("password");
+
+                action = displayErrorMessages(["Invalid username or password"]);
+
+                done(action);
+            });
+
         },
         model: model,
         email: user.email,

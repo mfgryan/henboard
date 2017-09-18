@@ -1,7 +1,6 @@
 const ObjectID = require("mongodb").ObjectID;
 
-module.exports.name = "users";
-module.exports.initialDocs = [{ name: "", email: "", password: "" }];
+module.exports.name = "user";
 module.exports.primaryKeys = ["email"];
 
 module.exports.validateUser = (Mongodb) => {
