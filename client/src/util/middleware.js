@@ -16,11 +16,12 @@ const logger = store => next => action => {
 
 const fn = store => next => action => { 
     if(typeof action.fn === "function"){
-        action.fn(store, action, function(action){
+        return action.fn(store, action, function(action){
             return next(action); 
         });
+    }else{
+        return next(action);
     }
-    return next(action);
 };
 
 const validate = store => next => action => {

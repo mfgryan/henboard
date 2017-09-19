@@ -4,6 +4,7 @@ import Api from "./api.js";
 import actions from "../actions/actions.js";
 import { initialStates } from "../reducers/reducers.js";
 import { login } from "../actions/user.js";
+import { clearHistory } from "../actions/history.js";
 
 export default (store, keys) => {
 
@@ -55,12 +56,15 @@ export default (store, keys) => {
             getInitialState(function(state){
                 // dispatch updates here
                 updateState(state);
+                store.dispatch(clearHistory());
                 unsubscribe = subscribe(store, keys, api.writeChanges.bind(api));
             });
         }else if(!afterEmail && beforeEmail){
             // logout
             typeof unsubscribe === "function" && unsubscribe();
             clearState();
+            store.dispatch(clearHistory());
         }
+
     });
 };

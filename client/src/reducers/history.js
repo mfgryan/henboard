@@ -6,7 +6,8 @@ import {
     REDO,
     UPDATES,
     INSERTS,
-    REMOVALS
+    REMOVALS,
+    CLEAR_HISTORY
 } from "../actions/history.js";
 
 import projects from "../models/projects";
@@ -71,6 +72,8 @@ const history = function(state = initialState, action) {
                       })
                     : history;
             });
+        case CLEAR_HISTORY:
+            return initialState;
         default:
             return state;
     }

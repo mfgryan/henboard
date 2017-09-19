@@ -69,6 +69,15 @@ function inserts(key, changes) {
     };
 }
 
+const CLEAR_HISTORY = "CLEAR_HISTORY";
+function clearHistory() {
+    return {
+        type: CLEAR_HISTORY,
+        skipValidation: true,
+        model: model
+    };
+}
+
 export {
     INIT_HISTORY,
     PUSH_CHANGE,
@@ -77,11 +86,13 @@ export {
     UPDATES,
     REMOVALS,
     INSERTS,
+    CLEAR_HISTORY,
     initHistory,
     pushChange,
     undo,
     redo,
     updates,
     removals,
-    inserts
+    inserts,
+    clearHistory
 };
