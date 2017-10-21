@@ -12,6 +12,6 @@ const Footer = () =>
         <Col md={12} id="footer">
             <i>Henboard 2017</i>
         </Col>
-    </Row>;
+    </Row>
 
 export default Footer;

@@ -29,11 +29,6 @@ export const Home = props => {
                     </Col>
                 )}
             </Row>
-            <Row>
-                <Col md={12}>
-                    <SelectorBoard project={project.project} />
-                </Col>
-            </Row>
         </div>
     );
 };

@@ -7,6 +7,7 @@ import { logout } from "../../actions/user.js";
 import projects from "../../models/projects.js";
 import user from "../../models/user.js";
 import Login from "./Login";
+import SelectorBoard from "../containers/SelectorBoard";
 
 // style dep
 import { Row, Col, Alert, DropdownButton, MenuItem } from "react-bootstrap";
@@ -37,6 +38,7 @@ class Header extends Component {
         let texts = views;
         let settings = ["div", "settings"]; 
         let setTexts = settings;
+        let home = (window.location.pathname === "/" || window.location.pathname === "/home");
         return (
             <Row className="Header">
                 <Col md={4}>
@@ -46,6 +48,7 @@ class Header extends Component {
                     </Alert>}
                 </Col>
                 <Col md={4} mdOffset={8} className="HeaderDropdownCol">
+                    {home && <SelectorBoard project={this.props.title} />}
                     <DropdownButton
                         noCaret
                         className="HeaderDropdownMenu"

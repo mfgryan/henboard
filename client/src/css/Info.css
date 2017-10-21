@@ -6,3 +6,7 @@
 .InfoItem {
     overflow-wrap: break-word;
 }
+
+.InfoItemClose {
+    margin-top: 20px;
+}

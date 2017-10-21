@@ -37,7 +37,7 @@ const Info = ({ project, info, title, removeInfo, closeInfo }) => {
                 </Modal.Body>}
             <Modal.Footer>
                 <Selector project={project} title={title}/>
-                <Button onClick={event => closeInfo(event, title)}>
+                <Button className="InfoItemClose" onClick={event => closeInfo(event, title)}>
                     Close
                 </Button>
             </Modal.Footer>
