@@ -16,3 +16,6 @@ coverage
 
 # private keys
 *.pem
+
+# backup dir
+dump/*
