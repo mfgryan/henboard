@@ -1,5 +1,5 @@
 //action types
-import { ADD_INFO, REMOVE_INFO, INIT_INFO } from "../actions/info";
+import { ADD_INFO, REMOVE_INFO, INIT_INFO, TOGGLE_INFO } from "../actions/info";
 
 function info(state = [], action) {
     switch (action.type) {
@@ -23,6 +23,14 @@ function info(state = [], action) {
                         info.value === action.value
                     )
             );
+        case TOGGLE_INFO:
+            return state.map(info => {
+                    return info.project === info.project && 
+                    info.name === action.name &&
+                    info.value === action.value ?
+                        Object.assign({}, info, { clicked: !info.clicked})
+                        : info;
+                });
         default:
             return state;
     }

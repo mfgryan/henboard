@@ -1,6 +1,6 @@
 // redux dep
 import { connect } from "react-redux";
-import { removeInfo } from "../../actions/info";
+import { removeInfo, toggleInfo } from "../../actions/info";
 import { closeInfo } from "../../actions/items";
 import projects from "../../models/projects.js";
 import info from "../../models/info.js";
@@ -25,6 +25,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                     project: info.project,
                     name: info.name,
                     value: info.value
+                })
+            );
+        },
+        toggleInfo: (value, title) => {
+            dispatch(     
+                toggleInfo({
+                    project: ownProps.project,
+                    name: title,
+                    value: value
                 })
             );
         },

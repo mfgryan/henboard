@@ -2,6 +2,9 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 
+// style dep
+import "../css/Item.css";
+
 const Item = ({
     draggable,
     item,
@@ -21,7 +24,7 @@ const Item = ({
                 </p>
             </Col>
             <Col md={2}>
-                <p onClick={() => removeItem(item)}>
+                <p className="removeItem" onClick={() => removeItem(item)}>
                     {item.check ? "✔" : "X"}
                 </p>
             </Col>

@@ -29,5 +29,15 @@ function removeInfo(info) {
         value: info.value
     };
 }
+const TOGGLE_INFO = "TOGGLE_INFO";
+function toggleInfo(info) {
+    return {
+        type: TOGGLE_INFO,
+        model: model,
+        project: info.project,
+        name: info.name,
+        value: info.value
+    };
+}
 
-export { ADD_INFO, REMOVE_INFO, INIT_INFO, init, addInfo, removeInfo };
+export { ADD_INFO, REMOVE_INFO, INIT_INFO, TOGGLE_INFO, toggleInfo, init, addInfo, removeInfo };

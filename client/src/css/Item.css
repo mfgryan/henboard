@@ -1,0 +1,7 @@
+.removeItem {
+    visibility: hidden;
+}
+
+.Item:hover .removeItem {
+    visibility: visible;
+}

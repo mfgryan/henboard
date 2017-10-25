@@ -10,3 +10,11 @@
 .InfoItemClose {
     margin-top: 20px;
 }
+
+.removeInfoItem {
+    visibility: hidden;
+}
+
+.InfoItemRow:hover .removeInfoItem {
+    visibility: visible;
+}
