@@ -23,4 +23,8 @@ user.name = function(state){
     return state.user[0].name;
 };
 
+user.getUser = function(state){ 
+    return state.user[0];
+};
+
 export default user;
