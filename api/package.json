@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/mfgryan/henboard#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-basic-auth": "^1.1.2",
