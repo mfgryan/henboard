@@ -6,7 +6,7 @@ import {
 } from "../actions/sprints";
 
 export const initialState = [
-    { project: "henboard", week: "05/15/17", current: true }
+    { project: "henboard", week: "1", current: true }
 ];
 
 function sprints(state = initialState, action) {

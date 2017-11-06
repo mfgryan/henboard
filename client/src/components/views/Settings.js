@@ -36,6 +36,16 @@ export const Planning = ({ project, week, user }) => {
                     </Panel>
                 </Col>
             </Row>
+            <Row>
+                <Col md={8} mdOffset={2}>
+                    <Panel header="Terms">
+                        <b>Sprint</b>
+                        <p>Timeboxed effort for completing a set of tasks which typically runs for 1-2 weeks.</p>
+                        <b>Backlog</b>
+                        <p>Used for creating items which have not been assigned to a given sprint.</p>
+                    </Panel>
+                </Col>
+            </Row>
         </div>    
     );
 };
