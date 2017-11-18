@@ -13,10 +13,8 @@ script:
   - docker-compose up -d
   - docker-compose ps
 
-before_deploy:
+after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker-compose -f client/docker-compose.yml push
   - docker-compose -f api/docker-compose.yml push
-
-deploy:
   - echo "deploying!"
